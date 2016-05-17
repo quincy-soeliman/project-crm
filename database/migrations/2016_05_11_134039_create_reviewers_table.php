@@ -14,7 +14,6 @@ class CreateReviewersTable extends Migration
     {
         Schema::create('reviewers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
             $table->integer('company_id');
             $table->string('first_name');
             $table->string('last_name');

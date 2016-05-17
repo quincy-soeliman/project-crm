@@ -14,6 +14,7 @@ class CreateWorkProcessesTable extends Migration
     {
         Schema::create('work_processes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('core_task_id')->unsigned();
             $table->string('title');
             $table->longText('description');
         });

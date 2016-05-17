@@ -14,9 +14,8 @@ class CreateStundentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('college_id');
-            $table->integer('reviewer_id');
+            $table->integer('college_id')->unsigned();
+            $table->integer('reviewer_id')->unsigned();
             $table->string('ov_number');
             $table->string('first_name');
             $table->string('last_name');
