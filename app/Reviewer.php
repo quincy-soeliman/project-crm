@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Teacher extends Model {
+class Reviewer extends Model {
 
-  protected $table = 'teachers';
+  protected $table = 'reviewers';
 
   protected $fillable = [
     'first_name',
