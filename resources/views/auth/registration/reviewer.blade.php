@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <form action="{{ url('register/reviwer') }}">
+            <form action="{{ url('registreer/beoordelaar') }}" method="post">
                 {!! csrf_field() !!}
 
                 <div class="form-group">
@@ -15,11 +15,6 @@
                 <div class="form-group">
                     <label for="password">Wachtwoord:</label>
                     <input type="password" class="form-control" name="password" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="ov_number">OV number:</label>
-                    <input type="number" class="form-control" name="ov_number" required>
                 </div>
 
                 <div class="form-group">

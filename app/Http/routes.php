@@ -36,8 +36,8 @@ Route::get('registreer/docent', 'Registration\TeacherController@showTeacherForm'
 Route::post('registreer/docent', 'Registration\TeacherController@create');
 
 // Registration Reviewer Routes...
-Route::get('registreer/reviewer', 'Registration\ReviewerController@showReviewerForm');
-Route::post('registreer/reviewer', 'Registration\ReviewerController@create');
+Route::get('registreer/beoordelaar', 'Registration\ReviewerController@showReviewerForm');
+Route::post('registreer/beoordelaar', 'Registration\ReviewerController@create');
 
 // Password Reset Routes...
 Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
