@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <form action="{{ url('registreer/administrator') }}">
+            <form action="{{ url('registreer/administrator') }}" method="post">
                 {{!! csrf_fields() !!}}
 
                 <div class="form-group">
