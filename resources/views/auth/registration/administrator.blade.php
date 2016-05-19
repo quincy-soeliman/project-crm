@@ -19,11 +19,16 @@
 
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" name="email" required>
                 </div>
 
                 <div class="form-group">
                     <label for="telephone_number">Telefoonnummer:</label>
+                    <input type="number" class="form-control" name="telephone_number">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Registreer</button>
                 </div>
 
             </form>
