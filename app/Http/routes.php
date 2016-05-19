@@ -22,7 +22,9 @@ Route::get('login', 'Auth\AuthController@showLoginForm');
 Route::post('login', 'Auth\AuthController@login');
 Route::get('logout', 'Auth\AuthController@logout');
 
-// Registration Routes...
+/**
+ * Registration Routes...
+ */
 Route::get('registreer', 'Registration\RoleController@showRoleSelectionForm');
 
 // Registration Student Routes...
@@ -32,6 +34,10 @@ Route::post('registreer/student', 'Registration\StudentController@create');
 // Registration Teacher Routes...
 Route::get('registreer/docent', 'Registration\TeacherController@showTeacherForm');
 Route::post('registreer/docent', 'Registration\TeacherController@create');
+
+// Registration Reviewer Routes...
+Route::get('registreer/reviewer', 'Registration\ReviewerController@showReviewerForm');
+Route::post('registreer/reviewer', 'Registration\ReviewerController@create');
 
 // Password Reset Routes...
 Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
