@@ -9,7 +9,17 @@
 
                 <div class="form-group">
                     <label for="name">School naam:</label>
-                    <input type="text" class="form-group" name="name" required>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Wachtwoord:</label>
+                    <input type="text" class="form-control" name="password" required>
                 </div>
 
                 <div class="form-group">
