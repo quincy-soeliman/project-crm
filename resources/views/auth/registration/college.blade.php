@@ -9,7 +9,7 @@
 
                 <div class="form-group">
                     <label for="name">School naam:</label>
-                    <input type="text" class="form-group" name="name">
+                    <input type="text" class="form-group" name="name" required>
                 </div>
 
                 <div class="form-group">
