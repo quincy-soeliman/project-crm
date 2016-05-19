@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReviewersTable extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,14 @@ class CreateReviewersTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviewers', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('company_id')->unsigned();
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('name');
+            $table->string('address');
+            $table->string('zip_code');
             $table->integer('telephone_number');
+            $table->string('iso_number');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateReviewersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('reviewers');
+        Schema::drop('companies');
     }
 }
