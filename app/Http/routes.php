@@ -39,6 +39,10 @@ Route::post('registreer/docent', 'Registration\TeacherController@create');
 Route::get('registreer/beoordelaar', 'Registration\ReviewerController@showReviewerForm');
 Route::post('registreer/beoordelaar', 'Registration\ReviewerController@create');
 
+// Registration College Routes...
+Route::get('registreer/school', 'Registration\CollegeController@showCollegeForm');
+Route::post('registreer/school', 'Registration\CollegeController@create');
+
 // Password Reset Routes...
 Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
 Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');

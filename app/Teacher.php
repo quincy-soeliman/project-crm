@@ -18,4 +18,8 @@ class Teacher extends Model {
     return $this->belongsTo('App\User');
   }
 
+  public function college() {
+    return $this->belongsTo('App\Colleg');
+  }
+
 }

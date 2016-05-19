@@ -14,9 +14,11 @@ class CreateStudentsTable extends Migration {
     Schema::create('students', function (Blueprint $table) {
       $table->increments('id');
       $table->integer('user_id')->unsigned();
+      $table->integer('college_id')->unsigned();
       $table->string('ov_number')->unique();
       $table->string('first_name');
       $table->string('last_name');
+      $table->string('college');
       $table->timestamps();
     });
   }
