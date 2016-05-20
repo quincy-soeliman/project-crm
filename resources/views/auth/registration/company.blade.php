@@ -4,12 +4,22 @@
 
     <div class="container">
         <div class="row">
-            <form action="{{ url('registreer/bedrijf') }}">
+            <form action="{{ url('registreer/bedrijf') }}" method="post">
                 {!! csrf_field() !!}
 
                 <div class="form-group">
                     <label for="name">Naam:</label>
-                    <input type="text" class="form-control" name="field" required>
+                    <input type="text" class="form-control" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Wachtwoord:</label>
+                    <input type="password" class="form-control" name="password" required>
                 </div>
 
                 <div class="form-group">
