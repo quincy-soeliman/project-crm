@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Mail;
+use DB;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -68,5 +70,23 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Gets college info of the currently registered user.
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function getCollege($id) {
+        $college = DB::table('users')
+          ->join('colleges', function ($join) use ($id) {
+              $join->on('users.id', '=', 'colleges.user_id')
+                ->where('colleges.user_id', '=', $id);
+          })
+          ->select('users.email', 'colleges.name')
+          ->get();
+
+        return $college;
     }
 }

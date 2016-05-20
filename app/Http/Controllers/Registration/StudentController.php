@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Registration;
 use Mail;
 use App\User;
 use App\Student;
+use App\Http\Controllers\Auth\AuthController as Auth;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -99,33 +100,15 @@ class StudentController extends Controller {
       'user' => $user,
       'student' => $student,
     ], function ($m) use ($user, $student) {
-      $college = $this->getCollege($student->college_id);
+      $college = Auth::getCollege($student->college_id);
 
       $m->from('hello@world.com', 'Your Application');
       $m->to($college[0]->email, $college[0]->name)
-        ->subject('Project-CRM | Nieuwe gebruiker: ' . $student->first_name . ' ' . $student->last_name);
+        ->subject('Project-CRM | Nieuwe student gebruiker: ' . $student->first_name . ' ' . $student->last_name);
     });
 
-    // TODO: Redirect to profile
+    // TODO: Redirect to message
     return redirect('/');
-  }
-
-  /**
-   * Gets college info of the currently registered student.
-   *
-   * @param $id
-   * @return mixed
-   */
-  public function getCollege($id) {
-    $college = DB::table('users')
-      ->join('colleges', function ($join) use ($id) {
-        $join->on('users.id', '=', 'colleges.user_id')
-          ->where('colleges.user_id', '=', $id);
-      })
-      ->select('users.email', 'colleges.name')
-      ->get();
-
-    return $college;
   }
 
 }

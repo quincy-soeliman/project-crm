@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use App\Teacher;
+use App\Http\Controllers\Auth\AuthController as Auth;
 use DB;
 use Validator;
 use App\Http\Controllers\Controller;
+use Mail;
 
 class TeacherController extends Controller {
   /**
@@ -56,7 +58,9 @@ class TeacherController extends Controller {
       return redirect('404');
     }
 
-    // Creates a new user
+    /**
+     * Creates a new user.
+     */
     $user = new User();
     $user->email = $request['email'];
     $user->password = bcrypt($request['password']);
@@ -64,7 +68,9 @@ class TeacherController extends Controller {
     $user->active = 0;
     $user->save();
 
-    // Creates a new teacher
+    /**
+     * Creates a new teacher.
+     */
     $teacher = new Teacher();
     $teacher->user_id = $user->id;
     $teacher->college_id = $request['college_id'];
@@ -73,7 +79,36 @@ class TeacherController extends Controller {
     $teacher->telephone_number = $request['telephone_number'];
     $teacher->save();
 
-    // TODO: Redirect to profile
+    /**
+     * Sends mail to the registered user for verification.
+     */
+    Mail::send('emails.registration', [
+      'user' => $user,
+      'teacher' => $teacher,
+    ], function ($m) use ($user, $teacher) {
+      $teacher = $teacher->first_name . ' ' . $teacher->last_name;
+
+      $m->from('hello@world.com', 'Your Application');
+      $m->to($user->email, $teacher)
+        ->subject('Project-CRM | Account registratie');
+    });
+
+    /**
+     * Sends mail to the admin for activation.
+     */
+    Mail::send('emails.user_registrated', [
+      'user' => $user,
+      'teacher' => $teacher,
+    ], function ($m) use ($user, $teacher) {
+      $college = Auth::getCollege($teacher->college_id);
+
+      $m->from('hello@world.com', 'Your Application');
+      $m->to($college[0]->email, $college[0]->name)
+        ->subject('Project-CRM | Nieuwe docent gebruiker: ' . $teacher->first_name . ' ' . $teacher->last_name);
+    });
+
+    // TODO: Redirect to message
     return redirect('/');
   }
+  
 }
