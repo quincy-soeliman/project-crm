@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Registration;
 
+use Mail;
 use App\User;
 use App\Student;
 use DB;
@@ -73,8 +74,36 @@ class StudentController extends Controller {
     $student->last_name = $request['last_name'];
     $student->save();
 
+    Mail::send('emails.registration', [
+      'user' => $user,
+      'student' => $student,
+    ], function($m) use ($user, $student) {
+      $student_name = $student->first_name . ' '  .$student->last_name;
+
+      $m->from('hello@world.com', 'Your Application');
+      $m->to($user->email, $student_name)->subject('Project-CRM | Account registratie');
+    });
+
+    Mail::send('emails.user_registrated', [
+      'user' => $user,
+      'student' => $student,
+    ], function($m) use ($user, $student) {
+      $student_name = $student->first_name . ' '  .$student->last_name;
+      $college = $this->getCollege($student->college_id);
+      $college_user = DB::table('users')->where('id', $college->user_id)->first();
+
+      $m->from('hello@world.com', 'Your Application');
+      $m->to($college_user->email, $college->name)->subject('Project-CRM | Nieuwe gebruiker: ' . $student_name);
+    });
+
     // TODO: Redirect to profile
     return redirect('/');
+  }
+
+  public function getCollege($id) {
+    $college = DB::table('colleges')->where('id', $id)->first();
+
+    return $college;
   }
 
 }
