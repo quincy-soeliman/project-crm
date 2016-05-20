@@ -28,6 +28,15 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="company_id">Bedrijf:</label>
+                    <select name="company_id" id="company" class="form-control">
+                        @foreach ($companies as $company)
+                            <option value="{{ $company->id }}">{{ $company->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="telephone_number">Telefoonnummer:</label>
                     <input type="number" class="form-control" name="telephone_number">
                 </div>

@@ -63,6 +63,7 @@ class CompanyController extends Controller {
     // Creates a new student
     $company = new Company();
     $company->user_id = $user->id;
+    $company->name = $request['name'];
     $company->address = $request['address'];
     $company->zip_code = $request['zip_code'];
     $company->telephone_number = $request['telephone_number'];
