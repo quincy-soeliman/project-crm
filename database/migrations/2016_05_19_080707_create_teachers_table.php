@@ -19,6 +19,7 @@ class CreateTeachersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('telephone_number');
+            $table->timestamps();
         });
     }
 
