@@ -21,7 +21,7 @@ class TeacherController extends Controller {
     $colleges = DB::table('colleges')->get();
 
     return view('auth.registration.teacher', [
-      'colleges' => $colleges
+      'colleges' => $colleges,
     ]);
   }
 

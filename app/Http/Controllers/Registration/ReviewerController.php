@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Registration;
 
 use App\User;
 use App\Reviewer;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,11 @@ class ReviewerController extends Controller {
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
   public function showReviewerForm() {
-    return view('auth.registration.reviewer');
+    $companies = DB::table('companies')->get();
+
+    return view('auth.registration.reviewer', [
+      'companies' => $companies,
+    ]);
   }
 
   /**
@@ -30,6 +35,7 @@ class ReviewerController extends Controller {
     return Validator::make($data, [
       'email' => 'required|max:255|unique:users',
       'password' => 'required|min:6',
+      'company_id' => 'required|max:255',
       'first_name' => 'required|max:255',
       'last_name' => 'required|max:255',
       'telephone_number' => 'max:255',
@@ -61,6 +67,7 @@ class ReviewerController extends Controller {
     // Creates a new reviewer
     $reviewer = new Reviewer();
     $reviewer->user_id = $user->id;
+    $reviewer->company_id = $request['company_id'];
     $reviewer->first_name = $request['first_name'];
     $reviewer->last_name = $request['last_name'];
     $reviewer->telephone_number = $request['telephone_number'];
