@@ -37,8 +37,16 @@ class User extends Authenticatable {
     return $this->hasOne('App\Teacher');
   }
 
+  public function college() {
+    return $this->hasOne('App\College');
+  }
+
   public function reviewer() {
     return $this->hasOne('App\Reviewer');
+  }
+
+  public function company() {
+    return $this->hasOne('App\Company');
   }
 
 }
