@@ -19,7 +19,7 @@ class Teacher extends Model {
   }
 
   public function college() {
-    return $this->belongsTo('App\Colleg');
+    return $this->belongsTo('App\College');
   }
 
 }

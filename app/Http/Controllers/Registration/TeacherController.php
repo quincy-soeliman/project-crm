@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use App\Teacher;
+use DB;
 use Validator;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +18,11 @@ class TeacherController extends Controller {
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
   public function showTeacherForm() {
-    return view('auth.registration.teacher');
+    $colleges = DB::table('colleges')->get();
+
+    return view('auth.registration.teacher', [
+      'colleges' => $colleges
+    ]);
   }
 
   /**
@@ -30,6 +35,7 @@ class TeacherController extends Controller {
     return Validator::make($data, [
       'email' => 'required|max:255|unique:users',
       'password' => 'required|min:6',
+      'college_id' => 'required|max:255',
       'first_name' => 'required|max:255',
       'last_name' => 'required|max:255',
       'telephone_number' => 'max:255',
@@ -61,6 +67,7 @@ class TeacherController extends Controller {
     // Creates a new teacher
     $teacher = new Teacher();
     $teacher->user_id = $user->id;
+    $teacher->college_id = $request['college_id'];
     $teacher->first_name = $request['first_name'];
     $teacher->last_name = $request['last_name'];
     $teacher->telephone_number = $request['telephone_number'];

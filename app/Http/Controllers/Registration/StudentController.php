@@ -21,7 +21,7 @@ class StudentController extends Controller {
     $colleges = DB::table('colleges')->get();
 
     return view('auth.registration.student', [
-      'colleges' => $colleges
+      'colleges' => $colleges,
     ]);
   }
 
@@ -36,6 +36,7 @@ class StudentController extends Controller {
       'email' => 'required|max:255|unique:users',
       'password' => 'required|min:6',
       'ov_number' => 'required|max:255|unique:students',
+      'college_id' => 'required|max:255',
       'first_name' => 'required|max:255',
       'last_name' => 'required|max:255',
     ]);
@@ -66,6 +67,7 @@ class StudentController extends Controller {
     // Creates a new student
     $student = new Student();
     $student->user_id = $user->id;
+    $student->college_id = $request['college_id'];
     $student->ov_number = $request['ov_number'];
     $student->first_name = $request['first_name'];
     $student->last_name = $request['last_name'];

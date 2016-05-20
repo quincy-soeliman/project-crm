@@ -15,12 +15,12 @@
                     <label for="password">Wachtwoord:</label>
                     <input type="password" class="form-control" name="password">
                 </div>
-                
+
                 <div class="form-group">
-                    <label for="school">School:</label>
-                    <select name="school" id="school" class="form-control">
-                        @foreach($colleges as $college)
-                            <option value="{{$college->id}}">{{$college->name}}</option>
+                    <label for="college_id">School:</label>
+                    <select name="college_id" id="college" class="form-control">
+                        @foreach ($colleges as $college)
+                            <option value="{{ $college->id }}">{{ $college->name }}</option>
                         @endforeach
                     </select>
                 </div>
