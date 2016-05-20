@@ -57,7 +57,9 @@ class StudentController extends Controller {
       return redirect('404');
     }
 
-    // Creates a new user
+    /**
+     * Creates a new user.
+     */
     $user = new User();
     $user->email = $request['email'];
     $user->password = bcrypt($request['password']);
@@ -65,7 +67,9 @@ class StudentController extends Controller {
     $user->active = 0;
     $user->save();
 
-    // Creates a new student
+    /**
+     * Creates a new student.
+     */
     $student = new Student();
     $student->user_id = $user->id;
     $student->college_id = $request['college_id'];
@@ -74,34 +78,52 @@ class StudentController extends Controller {
     $student->last_name = $request['last_name'];
     $student->save();
 
+    /**
+     * Sends mail to the registered user for verification.
+     */
     Mail::send('emails.registration', [
       'user' => $user,
       'student' => $student,
-    ], function($m) use ($user, $student) {
-      $student_name = $student->first_name . ' '  .$student->last_name;
+    ], function ($m) use ($user, $student) {
+      $student_name = $student->first_name . ' ' . $student->last_name;
 
       $m->from('hello@world.com', 'Your Application');
-      $m->to($user->email, $student_name)->subject('Project-CRM | Account registratie');
+      $m->to($user->email, $student_name)
+        ->subject('Project-CRM | Account registratie');
     });
 
+    /**
+     * Sends mail to the admin for activation.
+     */
     Mail::send('emails.user_registrated', [
       'user' => $user,
       'student' => $student,
-    ], function($m) use ($user, $student) {
-      $student_name = $student->first_name . ' '  .$student->last_name;
+    ], function ($m) use ($user, $student) {
       $college = $this->getCollege($student->college_id);
-      $college_user = DB::table('users')->where('id', $college->user_id)->first();
 
       $m->from('hello@world.com', 'Your Application');
-      $m->to($college_user->email, $college->name)->subject('Project-CRM | Nieuwe gebruiker: ' . $student_name);
+      $m->to($college[0]->email, $college[0]->name)
+        ->subject('Project-CRM | Nieuwe gebruiker: ' . $student->first_name . ' ' . $student->last_name);
     });
 
     // TODO: Redirect to profile
     return redirect('/');
   }
 
+  /**
+   * Gets college info of the currently registered student.
+   *
+   * @param $id
+   * @return mixed
+   */
   public function getCollege($id) {
-    $college = DB::table('colleges')->where('id', $id)->first();
+    $college = DB::table('users')
+      ->join('colleges', function ($join) use ($id) {
+        $join->on('users.id', '=', 'colleges.user_id')
+          ->where('colleges.user_id', '=', $id);
+      })
+      ->select('users.email', 'colleges.name')
+      ->get();
 
     return $college;
   }
