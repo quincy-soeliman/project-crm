@@ -20,7 +20,6 @@ class CreateCompaniesTable extends Migration
             $table->string('zip_code');
             $table->integer('telephone_number');
             $table->string('iso_number');
-            $table->timestamps();
         });
     }
 
