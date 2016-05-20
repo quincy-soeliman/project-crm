@@ -100,11 +100,12 @@ class StudentController extends Controller {
       'user' => $user,
       'student' => $student,
     ], function ($m) use ($user, $student) {
+      $student_name = $student->first_name . ' ' . $student->last_name;
       $college = Auth::getCollege($student->college_id);
 
       $m->from('hello@world.com', 'Your Application');
       $m->to($college[0]->email, $college[0]->name)
-        ->subject('Project-CRM | Nieuwe student gebruiker: ' . $student->first_name . ' ' . $student->last_name);
+        ->subject('Project-CRM | Nieuwe student gebruiker: ' . $student_name);
     });
 
     // TODO: Redirect to message

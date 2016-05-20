@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Registration;
 
 use App\User;
 use App\Reviewer;
+use App\Http\Controllers\Auth\AuthController as Auth;
 use DB;
+use Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -73,7 +75,36 @@ class ReviewerController extends Controller {
     $reviewer->telephone_number = $request['telephone_number'];
     $reviewer->save();
 
-    // TODO: Redirect to profile
+    /**
+     * Sends mail to the registered user for verification.
+     */
+    Mail::send('emails.registration', [
+      'user' => $user,
+      'reviewer' => $reviewer,
+    ], function ($m) use ($user, $reviewer) {
+      $reviewer_name = $reviewer->first_name . ' ' . $reviewer->last_name;
+
+      $m->from('hello@world.com', 'Your Application');
+      $m->to($user->email, $reviewer_name . $reviewer->company_id)
+        ->subject('Project-CRM | Account registratie');
+    });
+
+    /**
+     * Sends mail to the admin for activation.
+     */
+    Mail::send('emails.user_registrated', [
+      'user' => $user,
+      'reviewer' => $reviewer,
+    ], function ($m) use ($user, $reviewer) {
+      $reviewer_name = $reviewer->first_name . ' ' . $reviewer->last_name;
+      $company = Auth::getCompany($reviewer->company_id);
+
+      $m->from('hello@world.com', 'Your Application');
+      $m->to($company[0]->email, $company[0]->name)
+        ->subject('Project-CRM | Nieuwe beoordelaar gebruiker: ' . $reviewer_name);
+    });
+
+    // TODO: Redirect to message
     return redirect('/');
   }
 

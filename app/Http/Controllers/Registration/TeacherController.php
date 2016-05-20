@@ -100,11 +100,12 @@ class TeacherController extends Controller {
       'user' => $user,
       'teacher' => $teacher,
     ], function ($m) use ($user, $teacher) {
+      $teacher_name = $teacher->first_name . ' ' . $teacher->last_name;
       $college = Auth::getCollege($teacher->college_id);
 
       $m->from('hello@world.com', 'Your Application');
       $m->to($college[0]->email, $college[0]->name)
-        ->subject('Project-CRM | Nieuwe docent gebruiker: ' . $teacher->first_name . ' ' . $teacher->last_name);
+        ->subject('Project-CRM | Nieuwe docent gebruiker: ' . $teacher_name);
     });
 
     // TODO: Redirect to message
