@@ -5826,7 +5826,7 @@ body {
       border: 0;
       outline: none;
       -webkit-appearance: none;
-      margin-left: 5px;
+      margin-right: 15px;
       -webkit-transition: all 0.2s ease-in-out;
       -moz-transition: all 0.2s ease-in-out;
       -ms-transition: all 0.2s ease-in-out;
@@ -5837,6 +5837,7 @@ body {
         color: initial;
         font-size: initial; }
     .login-container .login-screen .panel .role-select .role-select-arrow {
-      background-color: #fff; }
+      background-color: #fff;
+      float: right; }
 
 /*# sourceMappingURL=app.css.map */
