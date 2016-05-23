@@ -5808,8 +5808,35 @@ body {
   height: 100vh;
   z-index: 3; }
   .login-container .login-screen .panel {
+    background-color: rgba(40, 60, 117, 0.6);
+    border: 0;
+    border-radius: 0;
     position: relative;
     top: 50%;
     transform: translateY(-50%); }
+    .login-container .login-screen .panel .role-select label {
+      color: #FFF;
+      font-size: 20px;
+      font-weight: 400; }
+    .login-container .login-screen .panel .role-select select {
+      color: #FFF;
+      font-size: 20px;
+      font-weight: 400;
+      background: transparent;
+      border: 0;
+      outline: none;
+      -webkit-appearance: none;
+      margin-left: 5px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out; }
+      .login-container .login-screen .panel .role-select select:focus {
+        color: white; }
+      .login-container .login-screen .panel .role-select select option {
+        color: initial;
+        font-size: initial; }
+    .login-container .login-screen .panel .role-select .role-select-arrow {
+      background-color: #fff; }
 
 /*# sourceMappingURL=app.css.map */

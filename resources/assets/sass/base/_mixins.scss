@@ -11,3 +11,16 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
+@mixin transition($speed) {
+    -webkit-transition: all $speed ease-in-out;
+    -moz-transition: all $speed ease-in-out;
+    -ms-transition: all $speed ease-in-out;
+    -o-transition: all $speed ease-in-out;
+}
+
+@mixin delay($time) {
+    -webkit-transition-delay: $time;
+    -o-transition-delay: $time;
+    transition-delay: $time;
+}

@@ -14,14 +14,15 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                            <div class="col-md-12 col-xs-12">
+                            <div class="role-select col-md-12 col-xs-12">
                                 <label for="role-select">Login als:</label>
-                                <select name="role-select" id="role-select" class="role-select col-md-10-col-xs-10">
+                                <select name="role-select" id="role-select" class="col-md-9-col-xs-9">
                                     <option value="student">Student</option>
                                     <option value="docent">Docent</option>
                                     <option value="beoorderlaar">Beoordelaar</option>
                                     <option value="bedrijf">Bedrijf</option>
                                 </select>
+                                <div class="role-select-arrow col-md-1 col-xs-1"></div>
                             </div>
                         </div>
 
