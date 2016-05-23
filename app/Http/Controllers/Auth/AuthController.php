@@ -30,15 +30,40 @@ class AuthController extends Controller {
    * Attempts to authenticate an user.
    */
   public function authenticate(Request $request) {
-    if (Auth::attempt(['email' => $request['email'], 'password' => $request['password'], 'role' => $request['role']])) {
-      return redirect('/loggedin');
+    $credentials = [
+      'email' => $request['email'], 
+      'password' => $request['password'], 
+      'role' => $request['role']
+    ];
+
+    if (!Auth::attempt($credentials)) {
+      return redirect('login')->with('status', 'De email en/of wachtwoord is incorrect.');
     }
+
+    if ($this->getStatus()) {
+      return redirect('loggedin'));
+    }
+
+    return redirect('login')->with('status', 'Het account is niet actief.');
+  }
+
+  /**
+   * Gets the status of the current user.
+   */
+  public function getStatus() {
+    $user = Auth::user();
+
+    return $user->active;
   }
 
   /**
    * Attempts to disconnect an user.
    */
   public function logout() {
+    if (!Auth::check()) {
+      return redirect('/login');
+    }
+
     Auth::logout();
 
     return redirect('/login');

@@ -61,7 +61,8 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('logout', 'Auth\AuthController@logout');
 
 	Route::get('loggedin', function() {
-		return 'Welcome ' . Auth::user()->role;
+		return var_dump(Auth::user());
+		// return 'Welcome ' . Auth::user()->role;
 	});
 
 });
