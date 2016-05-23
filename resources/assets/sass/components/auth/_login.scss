@@ -29,6 +29,10 @@
         position: relative;
     }
 
+    form {
+        margin-bottom: -2em;
+    }
+
     .login-screen {
         display: block;
         height: 100vh;
@@ -46,8 +50,11 @@
                     color: $role-select-label-color;
                     font-size: $role-select-label-font-size;
                     font-weight: $role-select-label-font-weight;
+                    float: left;
+                    margin-right: 10px;
                 }
                 select {
+                    width: 5em;
                     color: $role-select-label-color;
                     font-size: $role-select-label-font-size;
                     font-weight: $role-select-label-font-weight;
@@ -55,22 +62,77 @@
                     border: 0;
                     outline: none;
                     -webkit-appearance: none;
-                    margin-right: 15px;
-
-                    @include transition(.2s);
-
-                    &:focus {
-                        color: white;
-                    }
+                    overflow: hidden;
+                    background: $role-select-arrow no-repeat right;
+                    background-size: 15px 10px;
+                    padding-left: 0;
 
                     option {
                         color: initial;
                         font-size: initial;
                     }
                 }
-                .role-select-arrow {
-                    background-color: #fff;
-                    float: right;
+            }
+
+            input {
+                color: $login-input-color;
+                font-size: $login-input-font-size;
+                font-weight: $login-input-font-weight;
+                background: transparent;
+                border: 0;
+                border-bottom: 1px solid $login-input-color;
+                border-radius: 0;
+                padding-left: 0;
+
+                @include transition(.2s);
+
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                    border-bottom: 1px solid white;
+
+                    @include placeholder {
+                        color: white;
+
+                        @include transition(.2s);
+                    }
+                }
+            }
+
+            button {
+                &[type="submit"] {
+                    width: 100%;
+                    height: 2.5em;
+                    background-color: $login-button-background;
+                    color: $login-button-color;
+                    font-size: $login-button-font-size;
+                    font-weight: $login-button-font-weight;
+                    text-align: center;
+                    border: none;
+                    outline: 0;
+                    border-radius: 0;
+                    margin-top: 10px;
+
+                    &:hover {
+                        background-color: darken($login-button-background, 10%);
+                    }
+                }
+            }
+
+            .login-link {
+                a {
+                    color: $login-links-color;
+                    font-size: $login-links-font-size;
+                    font-weight: $login-links-font-weight;
+                }
+
+                &.password-reset {
+                    padding-left: 2px;
+                    text-align: left;
+                }
+                &.register {
+                    padding-right: 2px;
+                    text-align: right;
                 }
             }
         }

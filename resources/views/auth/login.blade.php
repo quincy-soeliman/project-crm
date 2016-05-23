@@ -15,15 +15,13 @@
 
                         <div class="form-group">
                             <div class="role-select col-md-12 col-xs-12">
-                                <label for="role-select">Login als:</label>
-                                <div class="role-select-arrow col-xs-8 col-md-8">
-                                    <select name="role-select" id="role-select" class="col-md-9-col-xs-9">
-                                        <option value="student">Student</option>
-                                        <option value="docent">Docent</option>
-                                        <option value="beoorderlaar">Beoordelaar</option>
-                                        <option value="bedrijf">Bedrijf</option>
-                                    </select>
-                                </div>
+                                <label for="role">Login als:</label>
+                                <select name="role" id="role">
+                                    <option value="student">Student</option>
+                                    <option value="teacher">Docent</option>
+                                    <option value="reviewer">Beoordelaar</option>
+                                    <option value="company">Bedrijf</option>
+                                </select>
                             </div>
                         </div>
 
@@ -55,16 +53,16 @@
                         <div class="form-group">
                             <div class="col-md-12 col-xs-12">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
+                                    Login
                                 </button>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-xs-12">
+                            <div class="login-link password-reset col-md-6 col-xs-12">
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
-                            <div class="col-md-6 col-xs-12">
+                            <div class="login-link register col-md-6 col-xs-12">
                                 <a class="btn btn-link" href="{{ url('/register') }}">Register</a>
                             </div>
                         </div>
