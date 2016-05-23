@@ -30,7 +30,7 @@ class AuthController extends Controller {
    * Attempts to authenticate an user.
    */
   public function authenticate(Request $request) {
-    if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
+    if (Auth::attempt(['email' => $request['email'], 'password' => $request['password'], 'role' => $request['role']])) {
       return redirect('/loggedin');
     }
   }

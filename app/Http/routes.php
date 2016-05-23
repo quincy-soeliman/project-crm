@@ -55,12 +55,13 @@ Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
 Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
 Route::post('password/reset', 'Auth\PasswordController@reset');
 
+// Authenticated Routes...
 Route::group(['middleware' => ['web']], function() {
 
-	Route::get('loggedin', function() {
-		return 'Welcome Student';
-	});
-
 	Route::get('logout', 'Auth\AuthController@logout');
+
+	Route::get('loggedin', function() {
+		return 'Welcome ' . Auth::user()->role;
+	});
 
 });
