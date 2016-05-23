@@ -1,0 +1,13 @@
+@mixin blur($px) {
+  -webkit-filter: blur($px);
+  -moz-filter: blur($px);
+  -o-filter: blur($px);
+  -ms-filter: blur($px);
+  filter: blur($px);
+}
+
+@mixin centerV() {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
