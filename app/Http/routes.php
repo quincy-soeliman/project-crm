@@ -51,6 +51,10 @@ Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
 Route::get('registreer/administrator', 'Registration\AdministratorController@showAdministratorForm');
 Route::post('registreer/administrator', 'Registration\AdministratorController@create');
 
+// Authentication Routes...
+Route::get('login', 'Auth\AuthController@showLoginForm');
+Route::post('login', 'Auth\AuthController@authenticate');
+
 // Password Reset Routes...
 Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
 Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');

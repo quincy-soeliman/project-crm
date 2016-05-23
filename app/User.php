@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable {
 
@@ -51,6 +52,10 @@ class User extends Authenticatable {
 
   public function administrators() {
     return $this->hasOne('App\Administrator');
+  }
+
+  public static function getRoles() {
+    $roles = DB::table('')
   }
 
 }
