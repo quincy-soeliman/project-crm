@@ -54,8 +54,4 @@ class User extends Authenticatable {
     return $this->hasOne('App\Administrator');
   }
 
-  public static function getRoles() {
-    $roles = DB::table('')
-  }
-
 }
