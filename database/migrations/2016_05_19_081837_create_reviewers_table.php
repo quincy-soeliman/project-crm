@@ -16,6 +16,7 @@ class CreateReviewersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('company_id')->unsigned();
+            $table->string('company');
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('telephone_number');

@@ -41,7 +41,9 @@ class AuthController extends Controller {
     }
 
     if ($this->getStatus()) {
-      return redirect('loggedin');
+      $user = Auth::user();
+
+      return redirect('profile/' . $user->id);
     }
 
     return redirect('login')->with('status', 'Het account is niet actief.');

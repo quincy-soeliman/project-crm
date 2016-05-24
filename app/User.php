@@ -50,7 +50,7 @@ class User extends Authenticatable {
     return $this->hasOne('App\Company');
   }
 
-  public function administrators() {
+  public function administrator() {
     return $this->hasOne('App\Administrator');
   }
 
