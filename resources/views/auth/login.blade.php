@@ -10,10 +10,10 @@
         <div class="login-screen col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    @if( session['status'] )
+                    @if (session('status'))
                         <div class="message">
-                            <p>{{session['status']}}</p>
-                        </div>
+                            <p>{{ session('status') }}</p>
+                        </div> 
                     @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
