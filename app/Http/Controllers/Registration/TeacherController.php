@@ -19,7 +19,7 @@ class TeacherController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showTeacherForm() {
+  public function index() {
     $colleges = DB::table('colleges')->get();
 
     return view('auth.registration.teacher', [

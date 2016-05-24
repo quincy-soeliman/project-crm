@@ -19,7 +19,7 @@ class StudentController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showStudentForm() {
+  public function index() {
     $colleges = DB::table('colleges')->get();
 
     return view('auth.registration.student', [

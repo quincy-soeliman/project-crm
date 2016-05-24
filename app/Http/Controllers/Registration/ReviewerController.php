@@ -19,7 +19,7 @@ class ReviewerController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showReviewerForm() {
+  public function index() {
     $companies = DB::table('companies')->get();
 
     return view('auth.registration.reviewer', [
