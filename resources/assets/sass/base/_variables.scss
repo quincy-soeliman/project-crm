@@ -2,6 +2,7 @@
 $login-background-image: url(../img/login-screen-img.jpg);
 $login-background-overlay-color: rgba(58, 83, 155, .8);
 $login-panel-color: rgba(40,60,117,.6);
+$login-error-color: #F22613;
 // ~ Role Select
 $role-select-label-color: #FFF;
 $role-select-label-font-size: 20px;
@@ -20,3 +21,26 @@ $login-button-font-weight: 400;
 $login-links-color: #FFF;
 $login-links-font-size: 14px;
 $login-links-font-weight: 400;
+
+// Register role selection
+$register-role-select-background-image: url(../img/register-screen-img.jpg);
+$register-role-select-background-overlay-color: rgba(58, 83, 155, .8);
+$register-role-select-panel-color: rgba(40,60,117,.6);
+// ~ Menu
+$register-role-select-menu-color: #FFF;
+$register-role-select-menu-font-size: 20px;
+$register-role-select-menu-font-weight: 400;
+// ~ Title
+$register-role-select-title-color: #FFF;
+$register-role-select-title-font-size: 20px;
+$register-role-select-title-font-weight: 400;
+// ~ Icons
+$register-role-select-icon-color: #FFF;
+$register-role-select-icon-font-size: 72px;
+$register-role-select-icon-font-weight: 400;
+// ~ Names
+$register-role-select-name-color: #FFF;
+$register-role-select-name-font-size: 18px;
+$register-role-select-name-font-weight: 400;
+
+// Register

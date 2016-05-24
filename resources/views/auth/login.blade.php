@@ -52,11 +52,11 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="login-link password-reset col-md-6 col-xs-12">
+                            <div class="login-link password-reset col-md-6 col-xs-6">
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
-                            <div class="login-link register col-md-6 col-xs-12">
-                                <a class="btn btn-link" href="{{ url('/register') }}">Register</a>
+                            <div class="login-link register col-md-6 col-xs-6">
+                                <a class="btn btn-link" href="{{ url('/registreer') }}">Register</a>
                             </div>
                         </div>
                     </form>

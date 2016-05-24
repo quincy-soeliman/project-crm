@@ -1,0 +1,90 @@
+.background {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+
+    .color-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $register-role-select-background-overlay-color;
+        z-index: 2;
+    }
+
+    .background-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $register-role-select-background-image;
+        background-size: cover;
+        z-index: 1;
+
+        @include blur(5px);
+    }
+}
+
+.register-role-select-nav {
+    text-align: right;
+    padding-top: 5px;
+    z-index: 99;
+
+    a {
+        color: $register-role-select-menu-color;
+        font-size: $register-role-select-menu-font-size;
+        font-weight: $register-role-select-menu-font-weight;
+        text-decoration: none;
+    }
+}
+
+.row {
+    position: relative;
+}
+
+.role-selection-container {
+    display: block;
+    height: 100vh;
+    padding-left: 15px;
+    padding-right: 15px;
+    z-index: 3;
+
+    .role-selection {
+        background-color: $register-role-select-panel-color;
+
+        @include centerV();
+
+        .title {
+            color: $register-role-select-title-color;
+            font-size: $register-role-select-title-font-size;
+            font-weight: $register-role-select-title-font-weight;            
+        }
+
+        .add-spacing {
+            padding-top: 3em;
+            padding-bottom: 5em;
+        }
+
+        .role {
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+
+            .role-click-container {
+                padding: 0;
+
+                i {
+                    color: $register-role-select-icon-color;
+                    font-size: $register-role-select-icon-font-size;
+                    font-weight: $register-role-select-icon-font-weight;
+                    padding-left: 7px;
+                }
+                p {
+                    color: $register-role-select-name-color;
+                    font-size: $register-role-select-name-font-size;
+                    font-weight: $register-role-select-name-font-weight;
+                }
+            }
+        }
+    }
+}
