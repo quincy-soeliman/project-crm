@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <div class="container">
+    <div class="background">
+        <div class="color-overlay"></div>
+        <div class="background-image"></div>
+    </div>
+    <div class="register-container container">
         <div class="row">
             <form action="{{ url('registreer/administrator') }}" method="post">
                 {!! csrf_field() !!}
