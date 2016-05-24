@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Registration;
 
 use App\User;
 use App\Reviewer;
+use App\Company;
 use App\Http\Controllers\Auth\AuthController as Auth;
 use DB;
 use Mail;
@@ -19,7 +20,7 @@ class ReviewerController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showReviewerForm() {
+  public function index() {
     $companies = DB::table('companies')->get();
 
     return view('auth.registration.reviewer', [
@@ -70,6 +71,7 @@ class ReviewerController extends Controller {
     $reviewer = new Reviewer();
     $reviewer->user_id = $user->id;
     $reviewer->company_id = $request['company_id'];
+    $reviewer->company = $this->getCompanyName($request['company_id']);
     $reviewer->first_name = $request['first_name'];
     $reviewer->last_name = $request['last_name'];
     $reviewer->telephone_number = $request['telephone_number'];
@@ -106,6 +108,18 @@ class ReviewerController extends Controller {
 
     // TODO: Redirect to message
     return redirect('/');
+  }
+
+  /**
+   * Gets the college name.
+   *
+   * @param $id
+   * @return mixed
+   */
+  public function getCompanyName($id) {
+    $college = Company::find($id);
+
+    return $college->name;
   }
 
 }

@@ -16,7 +16,7 @@ class AdministratorController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showAdministratorForm() {
+  public function index() {
     return view('auth.registration.administrator');
   }
 

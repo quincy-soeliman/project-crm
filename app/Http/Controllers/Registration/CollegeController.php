@@ -16,7 +16,7 @@ class CollegeController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showCollegeForm() {
+  public function index() {
     return view('auth.registration.college');
   }
 

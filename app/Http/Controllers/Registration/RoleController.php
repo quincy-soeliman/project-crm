@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 class RoleController extends Controller {
 
-  public function showRoleSelectionForm() {
+  public function index() {
     return view('auth.registration.role_selection');
   }
 

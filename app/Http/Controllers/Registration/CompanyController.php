@@ -16,7 +16,7 @@ class CompanyController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showCompanyForm() {
+  public function index() {
     return view('auth.registration.company');
   }
 

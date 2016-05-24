@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Registration;
 use Mail;
 use App\User;
 use App\Student;
+use App\College;
 use App\Http\Controllers\Auth\AuthController as Auth;
 use DB;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class StudentController extends Controller {
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
-  public function showStudentForm() {
+  public function index() {
     $colleges = DB::table('colleges')->get();
 
     return view('auth.registration.student', [
@@ -68,6 +69,7 @@ class StudentController extends Controller {
     $user->active = 0;
     $user->save();
 
+
     /**
      * Creates a new student.
      */
@@ -77,6 +79,7 @@ class StudentController extends Controller {
     $student->ov_number = $request['ov_number'];
     $student->first_name = $request['first_name'];
     $student->last_name = $request['last_name'];
+    $student->college = $this->getCollegeName($request['college_id']);
     $student->save();
 
     /**
@@ -110,6 +113,18 @@ class StudentController extends Controller {
 
     // TODO: Redirect to message
     return redirect('/');
+  }
+
+  /**
+   * Gets the college name.
+   *
+   * @param $id
+   * @return mixed
+   */
+  public function getCollegeName($id) {
+    $college = College::find($id);
+
+    return $college->name;
   }
 
 }

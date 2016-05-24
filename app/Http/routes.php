@@ -12,43 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Route::get('/home', 'HomeController@index');
-
-/**
- * Registration Routes...
- */
-Route::get('registreer', 'Registration\RoleController@showRoleSelectionForm');
-
-// Registration Student Routes...
-Route::get('registreer/student', 'Registration\StudentController@showStudentForm');
-Route::post('registreer/student', 'Registration\StudentController@create');
-
-// Registration Teacher Routes...
-Route::get('registreer/docent', 'Registration\TeacherController@showTeacherForm');
-Route::post('registreer/docent', 'Registration\TeacherController@create');
-
-// Registration Reviewer Routes...
-Route::get('registreer/beoordelaar', 'Registration\ReviewerController@showReviewerForm');
-Route::post('registreer/beoordelaar', 'Registration\ReviewerController@create');
-
-// Registration College Routes...
-Route::get('registreer/school', 'Registration\CollegeController@showCollegeForm');
-Route::post('registreer/school', 'Registration\CollegeController@create');
-
-// Registration Company Routes...
-Route::get('registreer/bedrijf', 'Registration\CompanyController@showCompanyForm');
-Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
-
-// Registration Administrator Routes...
-Route::get('registreer/administrator', 'Registration\AdministratorController@showAdministratorForm');
-Route::post('registreer/administrator', 'Registration\AdministratorController@create');
-
-// Authentication Routes...
-Route::get('login', 'Auth\AuthController@showLoginForm');
-Route::post('login', 'Auth\AuthController@authenticate');
 
 // Password Reset Routes...
 Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
@@ -56,13 +23,44 @@ Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
 Route::post('password/reset', 'Auth\PasswordController@reset');
 
 // Authenticated Routes...
-Route::group(['middleware' => ['web']], function() {
+Route::group(['middleware' => ['web']], function () {
 
-	Route::get('logout', 'Auth\AuthController@logout');
+  // Authentication Routes...
+  Route::get('login', 'Auth\AuthController@index');
+  Route::post('login', 'Auth\AuthController@authenticate');
 
-	Route::get('loggedin', function() {
-		return var_dump(Auth::user());
-		// return 'Welcome ' . Auth::user()->role;
-	});
+  Route::get('logout', 'Auth\AuthController@logout');
+
+  /**
+   * Registration Routes...
+   */
+  Route::get('registreer', 'Registration\RoleController@index');
+
+  // Registration Student Routes...
+  Route::get('registreer/student', 'Registration\StudentController@index');
+  Route::post('registreer/student', 'Registration\StudentController@create');
+
+  // Registration Teacher Routes...
+  Route::get('registreer/docent', 'Registration\TeacherController@index');
+  Route::post('registreer/docent', 'Registration\TeacherController@create');
+
+  // Registration Reviewer Routes...
+  Route::get('registreer/beoordelaar', 'Registration\ReviewerController@index');
+  Route::post('registreer/beoordelaar', 'Registration\ReviewerController@create');
+
+  // Registration College Routes...
+  Route::get('registreer/school', 'Registration\CollegeController@index');
+  Route::post('registreer/school', 'Registration\CollegeController@create');
+
+  // Registration Company Routes...
+  Route::get('registreer/bedrijf', 'Registration\CompanyController@index');
+  Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
+
+  // Registration Administrator Routes...
+  Route::get('registreer/administrator', 'Registration\AdministratorController@showAdministratorForm');
+  Route::post('registreer/administrator', 'Registration\AdministratorController@create');
+
+  // Profile Routes...
+  Route::get('profile/{id}', 'ProfileController@index');
 
 });
