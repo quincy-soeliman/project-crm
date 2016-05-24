@@ -13,7 +13,7 @@ class ProfileController extends Controller {
 		$user_id = Auth::User()->id;
 
 		if ($user_id != $id) {
-			return redirect('profile/' . $user_id)->with('status', 'U heeft geen toegang tot dit profiel.');
+			return redirect('profile/' . $user_id);
 		}
 
 		$user = User::find($id);

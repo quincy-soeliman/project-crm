@@ -17,18 +17,21 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
+// Authentication Routes...
+Route::get('login', 'Auth\AuthController@index');
+Route::post('login', 'Auth\AuthController@authenticate');
+
 // Password Reset Routes...
 Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
 Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
 Route::post('password/reset', 'Auth\PasswordController@reset');
 
-// Authenticated Routes...
+/**
+ * Authenticated Routes...
+ */
 Route::group(['middleware' => ['web']], function () {
 
   // Authentication Routes...
-  Route::get('login', 'Auth\AuthController@index');
-  Route::post('login', 'Auth\AuthController@authenticate');
-
   Route::get('logout', 'Auth\AuthController@logout');
 
   /**
