@@ -11,6 +11,10 @@ use Validator;
 
 class CompanyController extends Controller {
 
+  public function __construct() {
+    $this->middleware('auth');
+  }
+
   /**
    * Get the company form view.
    *

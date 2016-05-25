@@ -14,6 +14,11 @@ use App\Http\Controllers\Controller;
 use Mail;
 
 class TeacherController extends Controller {
+  
+  public function __construct() {
+    $this->middleware('auth');
+  }
+  
   /**
    * Get the teacher form view.
    *

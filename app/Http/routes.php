@@ -40,7 +40,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('registreer', 'Registration\RoleController@index');
 
   // Registration Student Routes...
-  Route::get('registreer/student', 'Registration\StudentController@index');
+  Route::get('registreer/student', 'Registration\StudentController@index' );
   Route::post('registreer/student', 'Registration\StudentController@create');
 
   // Registration Teacher Routes...
@@ -68,10 +68,17 @@ Route::group(['middleware' => ['web']], function () {
 
 });
 
+/**
+ * Administrator Routes...
+ */
 Route::group(['middleware' => ['role:administrator']], function() {
 
   // CoreTasks Routes...
   Route::get('kerntaken', 'CoreTaskController@index');
   Route::post('kerntaken', 'CoreTaskController@create');
+
+  // WorkProcesses Routes...
+  Route::get('werkprocessen', 'WorkProcessController@index');
+  Route::post('werkprocessen', 'WorkProcessController@create');
 
 });

@@ -14,6 +14,10 @@ use Validator;
 
 class ReviewerController extends Controller {
 
+  public function __construct() {
+    $this->middleware('auth');
+  }
+
   /**
    * Get the reviewer form view.
    *

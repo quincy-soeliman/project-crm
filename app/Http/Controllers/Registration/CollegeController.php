@@ -11,6 +11,10 @@ use Validator;
 
 class CollegeController extends Controller {
 
+  public function __construct() {
+    $this->middleware('auth');
+  }
+
   /**
    * Get the student form view.
    *
