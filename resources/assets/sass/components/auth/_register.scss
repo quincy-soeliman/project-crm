@@ -8,7 +8,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: $login-background-overlay-color;
+        background-color: $register-background-overlay-color;
         z-index: 2;
     }
 
@@ -16,7 +16,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background: $login-background-image;
+        background: $register-background-image;
         background-size: cover;
         z-index: 1;
 
@@ -24,9 +24,102 @@
     }
 }
 
+.register-role-select-nav {
+    text-align: right;
+    padding-top: 5px;
+    z-index: 99;
+
+    a {
+        color: $register-role-select-menu-color;
+        font-size: $register-role-select-menu-font-size;
+        font-weight: $register-role-select-menu-font-weight;
+        text-decoration: none;
+    }
+}   
+
 .register-container {
     .row {
         position: relative;
+    }
+
+    .red {
+        color: #D91E18;
+    }
+
+    .form-container {
+        height: 100vh;
+
+        form {
+            background-color: $register-panel-color;
+            padding-top: 1em;
+            margin-top: -2em;
+
+            @include centerV();
+
+            h1.title {
+                color: $register-title-color;
+                font-size: $register-title-font-size;
+                font-weight: $register-title-font-weight;
+                padding: 0 0 10px 14px;
+                margin: 0;
+            }
+
+            label {
+                color: $register-label-color;
+                font-size: $register-label-font-size;
+                font-weight: $register-label-font-weight;
+            }
+            input {
+                background: transparent;
+                color: white;
+                font-size: $register-input-font-size;
+                font-weight: $register-input-font-weight;
+                border: none;
+                border-bottom: 1px solid $register-input-color;
+                border-radius: 0px;
+                outline: 0;
+                box-shadow: none;
+                padding-left: 0;
+
+                @include placeholder {
+                    color: $register-input-color;
+                }
+
+                @include transition(.2s);
+
+                &:hover, &:focus {
+                    color: #FFF;
+                    border-color: #FFF;
+
+                    @include placeholder {
+                        color: #FFF;
+
+                        @include transition(.2s);
+                    }
+                }
+            }
+            button {
+                &[type="submit"] {
+                    width: 100%;
+                    height: 2.5em;
+                    background-color: $register-button-background;
+                    color: $register-button-color;
+                    font-size: $register-button-font-size;
+                    font-weight: $register-button-font-weight;
+                    text-align: center;
+                    border: none;
+                    outline: 0;
+                    border-radius: 0;
+                    margin-top: 10px;
+
+                    @include transition(.2s);
+
+                    &:hover {
+                        background-color: darken($register-button-background, 10%);
+                    }
+                }
+            }
+        }
     }
 
 }

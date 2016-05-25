@@ -5996,7 +5996,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url(../img/login-screen-img.jpg);
+    background: url(../img/register-screen-img.jpg);
     background-size: cover;
     z-index: 1;
     -webkit-filter: blur(5px);
@@ -6005,7 +6005,112 @@ body {
     -ms-filter: blur(5px);
     filter: blur(5px); }
 
+.register-role-select-nav {
+  text-align: right;
+  padding-top: 5px;
+  z-index: 99; }
+  .register-role-select-nav a {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none; }
+
 .register-container .row {
   position: relative; }
+
+.register-container .red {
+  color: #D91E18; }
+
+.register-container .form-container {
+  height: 100vh; }
+  .register-container .form-container form {
+    background-color: rgba(40, 60, 117, 0.6);
+    padding-top: 1em;
+    margin-top: -2em;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+    .register-container .form-container form h1.title {
+      color: #FFF;
+      font-size: 17px;
+      font-weight: 400;
+      padding: 0 0 10px 14px;
+      margin: 0; }
+    .register-container .form-container form label {
+      color: #FFF;
+      font-size: 15px;
+      font-weight: 600; }
+    .register-container .form-container form input {
+      background: transparent;
+      color: white;
+      font-size: 18px;
+      font-weight: 400;
+      border: none;
+      border-bottom: 1px solid #a7aeb3;
+      border-radius: 0px;
+      outline: 0;
+      box-shadow: none;
+      padding-left: 0;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out; }
+      .register-container .form-container form input::-webkit-input-placeholder {
+        color: #a7aeb3; }
+      .register-container .form-container form input:-moz-placeholder {
+        /* Firefox 18- */
+        color: #a7aeb3; }
+      .register-container .form-container form input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #a7aeb3; }
+      .register-container .form-container form input:-ms-input-placeholder {
+        color: #a7aeb3; }
+      .register-container .form-container form input:hover, .register-container .form-container form input:focus {
+        color: #FFF;
+        border-color: #FFF; }
+        .register-container .form-container form input:hover::-webkit-input-placeholder, .register-container .form-container form input:focus::-webkit-input-placeholder {
+          color: #FFF;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+        .register-container .form-container form input:hover:-moz-placeholder, .register-container .form-container form input:focus:-moz-placeholder {
+          /* Firefox 18- */
+          color: #FFF;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+        .register-container .form-container form input:hover::-moz-placeholder, .register-container .form-container form input:focus::-moz-placeholder {
+          /* Firefox 19+ */
+          color: #FFF;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+        .register-container .form-container form input:hover:-ms-input-placeholder, .register-container .form-container form input:focus:-ms-input-placeholder {
+          color: #FFF;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+    .register-container .form-container form button[type="submit"] {
+      width: 100%;
+      height: 2.5em;
+      background-color: #00ab6b;
+      color: #FFF;
+      font-size: 20px;
+      font-weight: 400;
+      text-align: center;
+      border: none;
+      outline: 0;
+      border-radius: 0;
+      margin-top: 10px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out; }
+      .register-container .form-container form button[type="submit"]:hover {
+        background-color: #00784b; }
 
 /*# sourceMappingURL=app.css.map */

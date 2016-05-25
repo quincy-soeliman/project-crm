@@ -5,41 +5,47 @@
         <div class="color-overlay"></div>
         <div class="background-image"></div>
     </div>
+    <nav class="register-role-select-nav col-xs-12 col-md-12">
+        <a href="{{ url('login') }}">Login</a>
+    </nav>
     <div class="register-container container">
         <div class="row">
-            <form action="{{ url('registreer/administrator') }}" method="post">
-                {!! csrf_field() !!}
+            <div class="form-container">
+                <form action="{{ url('registreer/administrator') }}" method="post" class="col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
+                    {!! csrf_field() !!}
+                    <h1 class="title">Registreer als: Beheerder</h1>
 
-                <div class="form-group">
-                    <label for="first_name">Voornaam:</label>
-                    <input type="text" class="form-control" name="first_name" required>
-                </div>
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="first_name">Voornaam<span class="red">*</span>:</label>
+                        <input type="text" class="form-control" name="first_name" placeholder="Voornaam" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="last_name">Achternaam:</label>
-                    <input type="text" class="form-control" name="last_name" required>
-                </div>
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="last_name">Achternaam<span class="red">*</span>:</label>
+                        <input type="text" class="form-control" name="last_name" placeholder="Achternaam" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" required>
-                </div>
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="email">Email<span class="red">*</span>:</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="password">Wachtwoord:</label>
-                    <input type="password" class="form-control" name="password" required>
-                </div>
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="password">Wachtwoord<span class="red">*</span>:</label>
+                        <input type="password" class="form-control" name="password" placeholder="Wachtwoord" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="telephone_number">Telefoonnummer:</label>
-                    <input type="number" class="form-control" name="telephone_number">
-                </div>
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="telephone_number">Telefoonnummer:</label>
+                        <input type="text" class="form-control" name="telephone_number" placeholder="Telefoonnummer">
+                    </div>
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Registreer</button>
-                </div>
+                    <div class="form-group col-xs-12 col-md-12">
+                        <button type="submit" class="btn btn-primary">Registreer</button>
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
