@@ -60,10 +60,18 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
 
   // Registration Administrator Routes...
-  Route::get('registreer/administrator', 'Registration\AdministratorController@showAdministratorForm');
+  Route::get('registreer/administrator', 'Registration\AdministratorController@index');
   Route::post('registreer/administrator', 'Registration\AdministratorController@create');
 
   // Profile Routes...
   Route::get('profile/{id}', 'ProfileController@index');
+
+});
+
+Route::group(['middleware' => ['role:administrator']], function() {
+
+  // CoreTasks Routes...
+  Route::get('kerntaken', 'CoreTaskController@index');
+  Route::post('kerntaken', 'CoreTaskController@create');
 
 });
