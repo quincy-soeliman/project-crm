@@ -17,17 +17,17 @@
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="name">School naam<span class="red">*</span>:</label>
-                        <input type="text" class="form-control" name="name" placeholder="School naam" required>
+                        <input type="text" class="form-control" autocomplete="off" name="name" placeholder="School naam" required>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="email">Email<span class="red">*</span>:</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        <input type="email" class="form-control" autocomplete="off" name="email" placeholder="Email" required>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="password">Wachtwoord<span class="red">*</span>:</label>
-                        <input type="password" class="form-control" name="password" placeholder="Wachtwoord" required>
+                        <input type="password" class="form-control" autocomplete="off" name="password" placeholder="Wachtwoord" required>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">

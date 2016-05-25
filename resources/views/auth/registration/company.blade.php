@@ -17,37 +17,37 @@
 
                 <div class="form-group col-xs-12 col-md-12">
                     <label for="name">Naam<span class="red">*</span>:</label>
-                    <input type="text" class="form-control" name="name" placeholder="Naam" required>
+                    <input type="text" class="form-control" autocomplete="off" name="name" placeholder="Naam" required>
                 </div>
 
                 <div class="form-group col-xs-12 col-md-12">
                     <label for="email">Email<span class="red">*</span>:</label>
-                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    <input type="email" class="form-control" autocomplete="off" name="email" placeholder="Email" required>
                 </div>
 
                 <div class="form-group col-xs-12 col-md-12">
                     <label for="password">Wachtwoord<span class="red">*</span>:</label>
-                    <input type="password" class="form-control" name="password" placeholder="Wachtwoord" required>
+                    <input type="password" class="form-control" autocomplete="off" name="password" placeholder="Wachtwoord" required>
                 </div>
 
                 <div class="form-group col-xs-12 col-md-12">
                     <label for="address">Adres<span class="red">*</span>:</label>
-                    <input type="text" class="form-control" name="address" placeholder="Adres" required>
+                    <input type="text" class="form-control" autocomplete="off" name="address" placeholder="Adres" required>
                 </div>
 
                 <div class="form-group col-xs-6 col-md-6">
                     <label for="zip_code">Postcode<span class="red">*</span>:</label>
-                    <input type="text" class="form-control" name="zip_code" placeholder="Postcode" required>
+                    <input type="text" class="form-control" autocomplete="off" name="zip_code" placeholder="Postcode" required>
                 </div>
 
                 <div class="form-group col-xs-6 col-md-6">
                     <label for="iso_number">ISO nummer<span class="red">*</span>:</label>
-                    <input type="text" class="form-control" name="iso_number" placeholder="ISO nummer" required>
+                    <input type="text" class="form-control" autocomplete="off" name="iso_number" placeholder="ISO nummer" required>
                 </div>
 
                 <div class="form-group col-xs-12 col-md-12">
                     <label for="telephone_number">Telefoonnummer:</label>
-                    <input type="number" class="form-control" name="telephone_number" placeholder="Telefoonnummer">
+                    <input type="number" class="form-control" autocomplete="off" name="telephone_number" placeholder="Telefoonnummer">
                 </div>
 
                 <div class="form-group col-xs-12 col-md-12">

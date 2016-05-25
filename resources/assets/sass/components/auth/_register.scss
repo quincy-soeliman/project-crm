@@ -98,6 +98,40 @@
                     }
                 }
             }
+            select {
+                color: white;
+                font-size: $register-input-font-size;
+                font-weight: $register-input-font-weight;
+                background: transparent;
+                border: 0;
+                outline: none;
+                -webkit-appearance: none;
+                overflow: hidden;
+                background: $role-select-arrow no-repeat right;
+                background-size: 15px 10px;
+                padding-left: 0;
+                outline: 0;
+                box-shadow: none;
+                border-bottom: 1px solid $register-input-color;
+                border-radius: 0;
+
+                @include transition(.2s);
+
+                @include placeholder() {
+                    color: $register-input-color;
+
+                    @include transition(.2s);
+                }
+
+                &:hover, &:focus {
+                    border-bottom: 1px solid white;
+                }
+
+                option {
+                    color: initial;
+                    font-size: initial;
+                }
+            }
             button {
                 &[type="submit"] {
                     width: 100%;
