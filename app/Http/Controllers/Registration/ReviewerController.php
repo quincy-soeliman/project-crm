@@ -6,7 +6,6 @@ use App\User;
 use App\Reviewer;
 use App\Company;
 use App\Http\Controllers\Auth\AuthController as Auth;
-use DB;
 use Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -21,7 +20,7 @@ class ReviewerController extends Controller {
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
   public function index() {
-    $companies = DB::table('companies')->get();
+    $companies = Company::get();
 
     return view('auth.registration.reviewer', [
       'companies' => $companies,

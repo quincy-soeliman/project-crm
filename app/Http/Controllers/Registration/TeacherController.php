@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\User;
 use App\Teacher;
 use App\Http\Controllers\Auth\AuthController as Auth;
-use DB;
 use Validator;
 use App\Http\Controllers\Controller;
 use Mail;
@@ -20,7 +19,7 @@ class TeacherController extends Controller {
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
   public function index() {
-    $colleges = DB::table('colleges')->get();
+    $colleges = College::get();
 
     return view('auth.registration.teacher', [
       'colleges' => $colleges,

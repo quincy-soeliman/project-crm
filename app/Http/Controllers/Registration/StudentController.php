@@ -7,7 +7,6 @@ use App\User;
 use App\Student;
 use App\College;
 use App\Http\Controllers\Auth\AuthController as Auth;
-use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -21,7 +20,7 @@ class StudentController extends Controller {
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
   public function index() {
-    $colleges = DB::table('colleges')->get();
+    $colleges = College::get();
 
     return view('auth.registration.student', [
       'colleges' => $colleges,
