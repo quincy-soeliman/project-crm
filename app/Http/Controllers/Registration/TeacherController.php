@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use App\Teacher;
+use App\College;
 use App\Http\Controllers\Auth\AuthController as Auth;
 use Validator;
 use App\Http\Controllers\Controller;
