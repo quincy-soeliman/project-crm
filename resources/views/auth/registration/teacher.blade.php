@@ -11,7 +11,7 @@
 <div class="register-container container">
   <div class="row">
     <div class="form-container">
-      <form action="{{ url('registreer/administrator') }}" method="post" class="col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
+      <form action="{{ url('registreer/docent') }}" method="post" class="col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
           {!! csrf_field() !!}
           <h1 class="title">Registreer als: Beheerder</h1>
 
