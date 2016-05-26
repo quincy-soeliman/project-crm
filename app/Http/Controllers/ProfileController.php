@@ -14,7 +14,7 @@ class ProfileController extends Controller {
 	}
 
 	public function index($id) {
-		$user_id = Auth::User()->id;
+		$user_id = Auth::id();
 
 		if ($user_id != $id) {
 			return redirect('profile/' . $user_id);
