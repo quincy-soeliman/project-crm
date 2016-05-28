@@ -1,0 +1,48 @@
+.analyse-box-layout {
+    border: 1px solid #D2D2D2;
+    border-radius: 3px;
+    margin-bottom: 1em;
+}
+
+.analyses {
+    .analyses-container {
+        .analyse-box {
+            @extend .analyse-box-layout;
+
+            h1 {
+                margin-top: 10px;
+                color: $analyse-box-color;
+                font-size: $analyse-box-font-size;
+                font-weight: $analyse-box-font-weight;
+                cursor: pointer;
+            }
+
+            @include transition(.2s);
+
+            .coretask-box {
+                display: none;
+                @extend .analyse-box-layout;
+            
+                h1 {
+                    margin-top: 10px;
+                    color: $coretask-box-color;
+                    font-size: $coretask-box-font-size;
+                    font-weight: $coretask-box-font-weight;
+                    cursor: pointer;
+                }
+
+                .workprocess-box {
+                    display: none;
+            
+                    h1 {
+                        cursor: default;
+                        margin-top: 10px;
+                        color: $workprocess-box-color;
+                        font-size: $workprocess-box-font-size;
+                        font-weight: $workprocess-box-font-weight;
+                    }
+                }
+            }
+        }
+    }
+}

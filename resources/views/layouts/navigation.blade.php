@@ -48,7 +48,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             @foreach ($data as $profile)
-                                <p>{{ $profile->first_name }} {{ $profile->last_name }} <span class="caret"></span></p>
+                                <p>{{ $profile->first_name }} {{ $profile->last_name }} {{ $profile->name }} <span class="caret"></span></p>
                             @endforeach
                         </a>
 

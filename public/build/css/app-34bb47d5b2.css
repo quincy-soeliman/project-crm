@@ -5783,6 +5783,21 @@ body {
 .no-padding {
   padding: 0; }
 
+.navbar {
+  background-color: #FBF2F2; }
+  .navbar a {
+    color: #BFBFBF;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    padding-top: 18px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out; }
+    .navbar a:hover {
+      color: #000; }
+
 .background {
   display: block;
   position: absolute;
@@ -6259,5 +6274,66 @@ body {
     font-weight: 400; }
     .profile .additional-info .profile-info-box .info-text a {
       color: #000; }
+
+.profile .update {
+  margin-top: 1em; }
+  .profile .update form label {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600; }
+  .profile .update form input {
+    color: #9C9C9C;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 0; }
+  .profile .update form select {
+    color: #9C9C9C;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 0; }
+    .profile .update form select option {
+      color: #000; }
+  .profile .update form button {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out; }
+
+.analyse-box-layout, .analyses .analyses-container .analyse-box, .analyses .analyses-container .analyse-box .coretask-box {
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  margin-bottom: 1em; }
+
+.analyses .analyses-container .analyse-box {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out; }
+  .analyses .analyses-container .analyse-box h1 {
+    margin-top: 10px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer; }
+  .analyses .analyses-container .analyse-box .coretask-box {
+    display: none; }
+    .analyses .analyses-container .analyse-box .coretask-box h1 {
+      margin-top: 10px;
+      color: #000;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer; }
+    .analyses .analyses-container .analyse-box .coretask-box .workprocess-box {
+      display: none; }
+      .analyses .analyses-container .analyse-box .coretask-box .workprocess-box h1 {
+        cursor: default;
+        margin-top: 10px;
+        color: #000;
+        font-size: 20px;
+        font-weight: 300; }
 
 /*# sourceMappingURL=app.css.map */

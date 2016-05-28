@@ -91,6 +91,7 @@
                         </div>
                     </div>
                 </div>
+                @include('pages.profile_analyses')
             @endforeach
         </div>
     </div>

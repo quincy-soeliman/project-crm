@@ -1,0 +1,37 @@
+.profile {
+    .update {
+        margin-top: 1em;
+
+        form {
+            label {
+                color: $edit-profile-input-label-color;
+                font-size: $edit-profile-input-label-font-size;
+                font-weight: $edit-profile-input-label-font-weight;
+            }
+            input {
+                color: $edit-profile-input-field-color;
+                font-size: $edit-profile-input-field-font-size;
+                font-weight: $edit-profile-input-field-font-weight;
+                border-radius: 0;
+            }
+            select {
+                color: $edit-profile-input-field-color;
+                font-size: $edit-profile-input-field-font-size;
+                font-weight: $edit-profile-input-field-font-weight;
+                border-radius: 0;
+
+                option {
+                    color: #000;
+                }
+            }
+            button {
+                color: $edit-profile-submit-button-color;
+                font-size: $edit-profile-submit-button-font-size;
+                font-weight: $edit-profile-submit-button-font-weight;
+                border-radius: 0;
+
+                @include transition(.2s);
+            }
+        }
+    }
+}

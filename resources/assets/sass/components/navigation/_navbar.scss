@@ -1,0 +1,17 @@
+.navbar {
+    background-color: $navigation-background-color;
+
+    a {
+      color: $navigation-item-color;
+      font-size: $navigation-item-font-size;
+      font-weight: $navigation-item-font-weight;
+      text-decoration: none;
+      padding-top: 18px;
+
+      @include transition(.2s);
+
+      &:hover {
+        color: #000;
+      }  
+    }
+}

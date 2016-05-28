@@ -1,3 +1,10 @@
+// Navigation
+$navigation-background-color: #FBF2F2;
+// ~ Items
+$navigation-item-color: #BFBFBF;
+$navigation-item-font-size: 15px;
+$navigation-item-font-weight: 400;
+
 // Login
 $login-background-image: url(../img/login-screen-img.jpg);
 $login-background-overlay-color: rgba(58, 83, 155, .8);
@@ -105,3 +112,32 @@ $profile-additional-info-text-font-weight: 400;
 $profile-edit-link-color: #000;
 $profile-edit-link-font-size: 16px;
 $profile-edit-link-font-weight: 300;
+
+// Profile edit page
+// ~ Input label
+$edit-profile-input-label-color: #000;
+$edit-profile-input-label-font-size: 16px;
+$edit-profile-input-label-font-weight: 600;
+// ~ Input field
+$edit-profile-input-field-color: #9C9C9C;
+$edit-profile-input-field-font-size: 16px;
+$edit-profile-input-field-font-weight: 400;
+// ~ Submit button
+$edit-profile-submit-button-background-color: #446CB3;
+$edit-profile-submit-button-color: #FFF;
+$edit-profile-submit-button-font-size: 16px;
+$edit-profile-submit-button-font-weight: 600;
+
+// Profile analyses
+// ~ Analyses
+$analyse-box-color: #000;
+$analyse-box-font-size: 20px;
+$analyse-box-font-weight: 600;
+// ~ Coretasks
+$coretask-box-color: #000;
+$coretask-box-font-size: 20px;
+$coretask-box-font-weight: 600;
+// ~ Workprocesses
+$workprocess-box-color: #000;
+$workprocess-box-font-size: 20px;
+$workprocess-box-font-weight: 300;
