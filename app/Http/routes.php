@@ -29,44 +29,42 @@ Route::post('password/reset', 'Auth\PasswordController@reset');
 /**
  * Authenticated Routes...
  */
-Route::group(['middleware' => ['web']], function () {
+// Authentication Routes...
+Route::get('logout', 'Auth\AuthController@logout');
 
-  // Authentication Routes...
-  Route::get('logout', 'Auth\AuthController@logout');
+/**
+ * Registration Routes...
+ */
+Route::get('registreer', 'Registration\RoleController@index');
 
-  /**
-   * Registration Routes...
-   */
-  Route::get('registreer', 'Registration\RoleController@index');
+// Registration Student Routes...
+Route::get('registreer/student', 'Registration\StudentController@index' );
+Route::post('registreer/student', 'Registration\StudentController@create');
 
-  // Registration Student Routes...
-  Route::get('registreer/student', 'Registration\StudentController@index' );
-  Route::post('registreer/student', 'Registration\StudentController@create');
+// Registration Teacher Routes...
+Route::get('registreer/docent', 'Registration\TeacherController@index');
+Route::post('registreer/docent', 'Registration\TeacherController@create');
 
-  // Registration Teacher Routes...
-  Route::get('registreer/docent', 'Registration\TeacherController@index');
-  Route::post('registreer/docent', 'Registration\TeacherController@create');
+// Registration Reviewer Routes...
+Route::get('registreer/beoordelaar', 'Registration\ReviewerController@index');
+Route::post('registreer/beoordelaar', 'Registration\ReviewerController@create');
 
-  // Registration Reviewer Routes...
-  Route::get('registreer/beoordelaar', 'Registration\ReviewerController@index');
-  Route::post('registreer/beoordelaar', 'Registration\ReviewerController@create');
+// Registration College Routes...
+Route::get('registreer/school', 'Registration\CollegeController@index');
+Route::post('registreer/school', 'Registration\CollegeController@create');
 
-  // Registration College Routes...
-  Route::get('registreer/school', 'Registration\CollegeController@index');
-  Route::post('registreer/school', 'Registration\CollegeController@create');
+// Registration Company Routes...
+Route::get('registreer/bedrijf', 'Registration\CompanyController@index');
+Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
 
-  // Registration Company Routes...
-  Route::get('registreer/bedrijf', 'Registration\CompanyController@index');
-  Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
+// Registration Administrator Routes...
+Route::get('registreer/administrator', 'Registration\AdministratorController@index');
+Route::post('registreer/administrator', 'Registration\AdministratorController@create');
 
-  // Registration Administrator Routes...
-  Route::get('registreer/administrator', 'Registration\AdministratorController@index');
-  Route::post('registreer/administrator', 'Registration\AdministratorController@create');
-
-  // Profile Routes...
-  Route::get('profile/{id}', 'ProfileController@index');
-
-});
+// Profile Routes...
+Route::get('profile/{id}', 'ProfileController@index');
+Route::get('profile/{id}/edit', 'ProfileController@show_edit_view');
+Route::put('profile/{user}/update', 'ProfileController@update');
 
 /**
  * Administrator Routes...

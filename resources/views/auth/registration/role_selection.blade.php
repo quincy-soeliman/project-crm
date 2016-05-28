@@ -35,7 +35,7 @@
                             </div>                            
                         </a>
 
-                        <a href="{{ url('registreer/beoorderlaar') }}">
+                        <a href="{{ url('registreer/beoordelaar') }}">
                             <div class="role col-xs-6 col-md-3">
                                 <div class="role-click-container col-xs-12 col-md-12">
                                     <i class="fa fa-user"></i>

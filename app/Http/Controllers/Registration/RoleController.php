@@ -8,10 +8,6 @@ use App\Http\Controllers\Controller;
 
 class RoleController extends Controller {
 
-  public function __construct() {
-    $this->middleware('web');
-  }
-
   public function index() {
     return view('auth.registration.role_selection');
   }

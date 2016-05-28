@@ -6,10 +6,23 @@
   filter: blur($px);
 }
 
-@mixin centerV() {
-    position: relative;
+@mixin center($pos) {
+    position: $pos;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);    
+}
+
+@mixin centerV($pos) {
+    position: $pos;
     top: 50%;
     transform: translateY(-50%);
+}
+
+@mixin centerH($pos) {
+    position: $pos;
+    left: 50%;
+    transform: translateY(-50%);    
 }
 
 @mixin transition($speed) {

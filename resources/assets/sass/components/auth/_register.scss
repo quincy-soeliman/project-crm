@@ -54,7 +54,7 @@
             padding-top: 1em;
             margin-top: -2em;
 
-            @include centerV();
+            @include centerV(relative);
 
             h1.title {
                 color: $register-title-color;

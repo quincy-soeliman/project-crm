@@ -52,7 +52,7 @@
     .role-selection {
         background-color: $register-role-select-panel-color;
 
-        @include centerV();
+        @include centerV(relative);
 
         .title {
             color: $register-role-select-title-color;

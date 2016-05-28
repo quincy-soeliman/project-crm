@@ -68,3 +68,40 @@ $register-button-background: #00ab6b;
 $register-button-color: #FFF;
 $register-button-font-size: 20px;
 $register-button-font-weight: 400;
+
+// Profile
+// ~ Welcome title
+$profile-welcome-background-height: 22em;
+$profile-welcome-background-image: url(../img/profile-photo-1.jpg);
+$profile-welcome-background-color: rgba(247, 202, 24, .8);
+$profile-welcome-title-color: #FFF;
+$profile-welcome-title-font-size: 40px;
+$profile-welcome-title-font-weight: 600;
+// ~ Title
+$profile-title-color: #000;
+$profile-title-font-size: 40px;
+$profile-title-font-weight: 400;
+// ~ Subtitle
+$profile-sub-title-color: #000;
+$profile-sub-title-font-size: 20px;
+$profile-sub-title-font-weight: 300;
+// ~ Headline title
+$profile-headline-color: #000;
+$profile-headline-font-size: 20px;
+$profile-headline-font-weight: 600;
+// ~ Reviewers list
+$profile-reviewer-list-color: #000;
+$profile-reviewer-list-font-size: 17px;
+$profile-reviewer-list-font-weight: 300;
+// ~ Additional info label
+$profile-additional-info-label-color: #000;
+$profile-additional-info-label-font-size: 16px;
+$profile-additional-info-label-font-weight: 600;
+// ~ Additional info text
+$profile-additional-info-text-color: #000;
+$profile-additional-info-text-font-size: 16px;
+$profile-additional-info-text-font-weight: 400;
+// ~ Edit link
+$profile-edit-link-color: #000;
+$profile-edit-link-font-size: 16px;
+$profile-edit-link-font-weight: 300;

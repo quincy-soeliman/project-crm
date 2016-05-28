@@ -10,11 +10,6 @@ use App\Http\Controllers\Controller;
 use Validator;
 
 class AdministratorController extends Controller {
-
-  public function __construct() {
-    $this->middleware('web');
-  }
-
   /**
    * Get the administrator form view.
    *

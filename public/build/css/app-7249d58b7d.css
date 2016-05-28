@@ -5776,6 +5776,13 @@ body {
 .fa-btn {
   margin-right: 6px; }
 
+.navbar {
+  position: fixed;
+  margin-bottom: 0; }
+
+.no-padding {
+  padding: 0; }
+
 .background {
   display: block;
   position: absolute;
@@ -5895,7 +5902,11 @@ body {
       border: none;
       outline: 0;
       border-radius: 0;
-      margin-top: 10px; }
+      margin-top: 10px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out; }
       .login-container .login-screen .panel button[type="submit"]:hover {
         background-color: #00784b; }
     .login-container .login-screen .panel .login-link a {
@@ -6163,5 +6174,90 @@ body {
       -o-transition: all 0.2s ease-in-out; }
       .register-container .form-container form button[type="submit"]:hover {
         background-color: #00784b; }
+
+.welcome-banner {
+  min-height: 22em;
+  padding: 0; }
+  .welcome-banner .image {
+    background: url(../img/profile-photo-1.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    min-height: 22em;
+    z-index: 1; }
+  .welcome-banner .color {
+    position: absolute;
+    top: 0;
+    background-color: rgba(247, 202, 24, 0.8);
+    min-height: 22em;
+    z-index: 2; }
+  .welcome-banner .title {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+    .welcome-banner .title h1 {
+      color: #FFF;
+      font-size: 40px;
+      font-weight: 600;
+      text-align: center;
+      text-transform: capitalize; }
+
+.profile {
+  z-index: 10; }
+  .profile .headline-title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600; }
+  .profile .head {
+    border-bottom: 1px solid #D2D2D2; }
+    .profile .head .title {
+      color: #000;
+      font-size: 40px;
+      font-weight: 400;
+      margin-bottom: 5px; }
+    .profile .head .sub-title {
+      color: #000;
+      font-size: 20px;
+      font-weight: 300;
+      margin-top: 0; }
+    .profile .head .edit-link {
+      margin-top: 2.8em; }
+      .profile .head .edit-link a {
+        color: #000;
+        font-size: 16px;
+        font-weight: 300;
+        border: 1px solid #D2D2D2;
+        padding: 10px;
+        text-decoration: none;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out; }
+        .profile .head .edit-link a:hover {
+          background-color: #EEE; }
+  .profile .reviewers .reviewers-list li {
+    font-size: 17px;
+    font-weight: 300; }
+    .profile .reviewers .reviewers-list li a {
+      color: #000;
+      text-decoration: none;
+      padding-left: 15px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out; }
+      .profile .reviewers .reviewers-list li a:hover {
+        color: black; }
+  .profile .additional-info .profile-info-box .info-label {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600; }
+  .profile .additional-info .profile-info-box .info-text {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400; }
+    .profile .additional-info .profile-info-box .info-text a {
+      color: #000; }
 
 /*# sourceMappingURL=app.css.map */

@@ -25,6 +25,7 @@
                                     <option value="student">Student</option>
                                     <option value="teacher">Docent</option>
                                     <option value="reviewer">Beoordelaar</option>
+                                    <option value="school">School</option>
                                     <option value="company">Bedrijf</option>
                                 </select>
                             </div>

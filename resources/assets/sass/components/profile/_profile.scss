@@ -1,0 +1,118 @@
+.welcome-banner {
+    min-height: $profile-welcome-background-height;
+    padding: 0;
+
+    .image {
+        background: $profile-welcome-background-image;
+        background-size: cover;
+        background-position: bottom;
+        background-attachment: fixed;
+        min-height: $profile-welcome-background-height;
+        z-index: 1;
+    }
+    .color {
+        position: absolute;
+        top: 0;
+        background-color: $profile-welcome-background-color;
+        min-height: $profile-welcome-background-height;
+        z-index: 2;
+    }
+    .title {
+        z-index: 3;
+
+        @include centerV(absolute);
+
+        h1 {
+            color: $profile-welcome-title-color;
+            font-size: $profile-welcome-title-font-size;
+            font-weight: $profile-welcome-title-font-weight;
+            text-align: center;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.profile {
+    z-index: 10;
+
+    .headline-title {
+        color: $profile-headline-color;
+        font-size: $profile-headline-font-size;
+        font-weight: $profile-headline-font-weight;
+    }
+
+    .head {
+        border-bottom: 1px solid #D2D2D2;
+
+        .title {
+            color: $profile-title-color;
+            font-size: $profile-title-font-size;
+            font-weight: $profile-title-font-weight;
+            margin-bottom: 5px;
+        }
+        .sub-title {
+            color: $profile-sub-title-color;
+            font-size: $profile-sub-title-font-size;
+            font-weight: $profile-sub-title-font-weight;
+            margin-top: 0;
+        }
+        .edit-link {
+            margin-top: 2.8em;
+
+            a {
+                color: $profile-edit-link-color;
+                font-size: $profile-edit-link-font-size;
+                font-weight: $profile-edit-link-font-weight;
+                border: 1px solid #D2D2D2;
+                padding: 10px;
+                text-decoration: none;
+
+                @include transition(.2s);
+
+                &:hover {
+                    background-color: #EEE;
+                }
+            }
+        }
+    }
+
+    .reviewers {
+        .reviewers-list {
+            li {
+                font-size: $profile-reviewer-list-font-size;
+                font-weight: $profile-reviewer-list-font-weight;
+
+                a {
+                    color: $profile-reviewer-list-color;
+                    text-decoration: none;
+                    padding-left: 15px;
+                    
+                    @include transition(.2s);
+
+                    &:hover {
+                        color: darken($profile-reviewer-list-color, 50%);
+                    }
+                }
+            }
+        }
+    }
+
+    .additional-info {
+        .profile-info-box {
+            .info-label {
+                color: $profile-additional-info-label-color;
+                font-size: $profile-additional-info-label-font-size;
+                font-weight: $profile-additional-info-label-font-weight;
+            }
+            .info-text {
+                color: $profile-additional-info-text-color;
+                font-size: $profile-additional-info-text-font-size;
+                font-weight: $profile-additional-info-text-font-weight;
+
+                a {
+                    color: $profile-additional-info-text-color;
+                }
+            }
+        }
+    }
+}

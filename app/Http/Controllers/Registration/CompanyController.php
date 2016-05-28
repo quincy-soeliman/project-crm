@@ -10,11 +10,6 @@ use App\Http\Controllers\Controller;
 use Validator;
 
 class CompanyController extends Controller {
-
-  public function __construct() {
-    $this->middleware('web');
-  }
-
   /**
    * Get the company form view.
    *

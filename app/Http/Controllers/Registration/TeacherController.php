@@ -15,10 +15,6 @@ use Mail;
 
 class TeacherController extends Controller {
   
-  public function __construct() {
-    $this->middleware('web');
-  }
-  
   /**
    * Get the teacher form view.
    *
