@@ -38,7 +38,6 @@
                         </div>
 
                         <div class="form-group">
-
                             <div class="col-md-12">
                                 <input type="password" class="form-control" name="password" placeholder="Password">
                             </div>

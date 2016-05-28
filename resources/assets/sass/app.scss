@@ -10,10 +10,14 @@
 @import 'base/base';
 
 // Import modules
+// Navigation
 @import 'components/navigation/navbar';
+// Auth
 @import 'components/auth/login';
 @import 'components/auth/register-role-selection';
 @import 'components/auth/register';
+@import 'components/auth/password-reset';
+// Profile
 @import 'components/profile/profile';
 @import 'components/profile/edit-profile';
 @import 'components/profile/analyses';

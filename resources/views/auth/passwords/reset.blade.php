@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="background">
+    <div class="color-overlay"></div>
+    <div class="background-image"></div>
+</div>
+<div class="container password-reset-container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="password-reset col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
             <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
                 <div class="panel-body">
+                    @if (session('status'))
+                        <div class="message">
+                            <p>{{ session('status') }}</p>
+                        </div> 
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
                         {{ csrf_field() }}
 
@@ -68,3 +75,4 @@
     </div>
 </div>
 @endsection
+

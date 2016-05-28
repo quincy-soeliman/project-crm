@@ -76,6 +76,21 @@ $register-button-color: #FFF;
 $register-button-font-size: 20px;
 $register-button-font-weight: 400;
 
+// Password reset
+$password-reset-background-image: url(../img/password-reset-background.jpg);
+$password-reset-background-overlay-color: rgba(58, 83, 155, .8);
+$password-reset-panel-color: rgba(40,60,117,.6);
+$password-reset-error-color: #F22613;
+// ~ Inputs
+$password-reset-input-color: #a7aeb3;
+$password-reset-input-font-size: 20px;
+$password-reset-input-font-weight: 400;
+// ~ Reset button
+$password-reset-button-background: #D91E18;
+$password-reset-button-color: #FFF;
+$password-reset-button-font-size: 20px;
+$password-reset-button-font-weight: 400;
+
 // Profile
 // ~ Welcome title
 $profile-welcome-background-height: 22em;
