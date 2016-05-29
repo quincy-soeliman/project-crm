@@ -23,7 +23,7 @@
                                     <i class="fa fa-graduation-cap"></i>
                                     <p>Student</p>
                                 </div>
-                            </div>                            
+                            </div>
                         </a>
 
                         <a href="{{ url('registreer/docent') }}">
@@ -32,7 +32,7 @@
                                     <i class="fa fa-user"></i>
                                     <p>Docent</p>
                                 </div>
-                            </div>                            
+                            </div>
                         </a>
 
                         <a href="{{ url('registreer/beoordelaar') }}">

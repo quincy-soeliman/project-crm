@@ -11,6 +11,11 @@
     <div class="register-container container">
         <div class="row">
             <div class="form-container">
+                @if (session('status'))
+                    <div class="message">
+                        <p>{{ session('status') }}</p>
+                    </div>
+                @endif
                 <form action="{{ url('registreer/student') }}" method="post"
                       class="col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
                     {!! csrf_field() !!}

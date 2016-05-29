@@ -11,33 +11,44 @@
     <div class="register-container container">
         <div class="row">
             <div class="form-container">
-                <form action="{{ url('registreer/administrator') }}" method="post" class="col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
+                @if (session('status'))
+                    <div class="message">
+                        <p>{{ session('status') }}</p>
+                    </div>
+                @endif
+                <form action="{{ url('registreer/administrator') }}" method="post"
+                      class="col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
                     {!! csrf_field() !!}
                     <h1 class="title">Registreer als: Administrator</h1>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="first_name">Voornaam<span class="red">*</span>:</label>
-                        <input type="text" class="form-control" autocomplete="off" name="first_name" placeholder="Voornaam" required>
+                        <input type="text" class="form-control" autocomplete="off" name="first_name"
+                               placeholder="Voornaam" required>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="last_name">Achternaam<span class="red">*</span>:</label>
-                        <input type="text" class="form-control" autocomplete="off" name="last_name" placeholder="Achternaam" required>
+                        <input type="text" class="form-control" autocomplete="off" name="last_name"
+                               placeholder="Achternaam" required>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="email">Email<span class="red">*</span>:</label>
-                        <input type="email" class="form-control" autocomplete="off" name="email" placeholder="Email" required>
+                        <input type="email" class="form-control" autocomplete="off" name="email" placeholder="Email"
+                               required>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="password">Wachtwoord<span class="red">*</span>:</label>
-                        <input type="password" class="form-control" autocomplete="off" name="password" placeholder="Wachtwoord" required>
+                        <input type="password" class="form-control" autocomplete="off" name="password"
+                               placeholder="Wachtwoord" required>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="telephone_number">Telefoonnummer:</label>
-                        <input type="text" class="form-control" autocomplete="off" name="telephone_number" placeholder="Telefoonnummer">
+                        <input type="text" class="form-control" autocomplete="off" name="telephone_number"
+                               placeholder="Telefoonnummer">
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">

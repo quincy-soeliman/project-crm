@@ -55,8 +55,7 @@ class TeacherController extends Controller {
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
-      // TODO: Return back with error input
-      return redirect('404');
+      return redirect('registreer/docent')->with('status', 'Voer alle verplichte velden in.');
     }
 
     /**
