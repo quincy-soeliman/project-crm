@@ -28,9 +28,9 @@ class CollegeController extends Controller {
    */
   protected function validator(array $data) {
     return Validator::make($data, [
-      'email' => 'required|max:255|unique:users',
+      'email' => 'required|max:255|min:3|unique:users',
       'password' => 'required|min:6',
-      'name' => 'required|max:255',
+      'name' => 'required|max:255|min:1',
     ]);
   }
 

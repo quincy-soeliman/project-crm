@@ -35,12 +35,12 @@ class StudentController extends Controller {
    */
   protected function validator(array $data) {
     return Validator::make($data, [
-      'email' => 'required|max:255|unique:users',
+      'email' => 'required|max:255|min:3|unique:users',
       'password' => 'required|min:6',
-      'ov_number' => 'required|max:255|unique:students',
-      'college_id' => 'required|max:255',
-      'first_name' => 'required|max:255',
-      'last_name' => 'required|max:255',
+      'ov_number' => 'required|max:255|min:6|unique:students',
+      'college_id' => 'required|max:255|min:1',
+      'first_name' => 'required|max:255|min:1',
+      'last_name' => 'required|max:255|min:1',
     ]);
   }
 

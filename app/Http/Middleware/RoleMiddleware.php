@@ -17,11 +17,11 @@ class RoleMiddleware
     public function handle($request, Closure $next, $role)
     {
         if (!Auth::check()) {
-            return redirect('/usernotloggedin');
+            return redirect('login');
         }
 
         if (Auth::user()->role != $role) {
-            return redirect('/failedrole');
+            return redirect('profile/' . Auth::id())->with('status', 'U heeft geen rechten om de bezochte pagina te bezoeken.');
         }
 
         return $next($request);

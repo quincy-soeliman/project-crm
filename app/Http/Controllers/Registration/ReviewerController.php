@@ -35,12 +35,12 @@ class ReviewerController extends Controller {
    */
   protected function validator(array $data) {
     return Validator::make($data, [
-      'email' => 'required|max:255|unique:users',
+      'email' => 'required|max:255|unique:users|min:3',
       'password' => 'required|min:6',
-      'company_id' => 'required|max:255',
-      'first_name' => 'required|max:255',
-      'last_name' => 'required|max:255',
-      'telephone_number' => 'max:255',
+      'company_id' => 'required|max:255|min:1',
+      'first_name' => 'required|max:255|min:1',
+      'last_name' => 'required|max:255|min:1',
+      'telephone_number' => 'max:255|min:1',
     ]);
   }
 

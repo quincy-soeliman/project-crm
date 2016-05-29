@@ -27,13 +27,13 @@ class CompanyController extends Controller {
    */
   protected function validator(array $data) {
     return Validator::make($data, [
-      'email' => 'required|max:255|unique:users',
+      'email' => 'required|max:255|min:3|unique:users',
       'password' => 'required|min:6',
-      'name' => 'required|max:255',
-      'address' => 'required|max:255',
-      'zip_code' => 'required|max:255',
-      'telephone_number' => 'max:255',
-      'iso_number' => 'required|max:255',
+      'name' => 'required|max:255|min:1',
+      'address' => 'required|max:255|min:1',
+      'zip_code' => 'required|max:255|min:1',
+      'telephone_number' => 'max:255|min:1',
+      'iso_number' => 'required|max:255|min:1',
     ]);
   }
 
