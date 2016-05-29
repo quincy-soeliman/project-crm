@@ -61,10 +61,14 @@ Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
 Route::get('registreer/administrator', 'Registration\AdministratorController@index');
 Route::post('registreer/administrator', 'Registration\AdministratorController@create');
 
-// Profile Routes...
-Route::get('profile/{id}', 'ProfileController@index');
-Route::get('profile/{id}/edit', 'ProfileController@show_edit_view');
-Route::put('profile/{user}/update', 'ProfileController@update');
+Route::group(['middleware' => 'auth'], function() {
+
+  // Profile Routes...
+  Route::get('profile/{id}', 'ProfileController@index');
+  Route::get('profile/{id}/edit', 'ProfileController@show_edit_form');
+  Route::put('profile/{user}/update', 'ProfileController@update');
+
+});
 
 /**
  * Administrator Routes...
