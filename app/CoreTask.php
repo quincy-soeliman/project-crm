@@ -4,14 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CoreTask extends Model {
-  protected $table = 'core_tasks';
+class Coretask extends Model {
 
   protected $fillable = [
     'title'
   ];
 
-  public function workProcesses() {
-    return $this->hasMany('App\WorkProcess');
+  public function workprocesses() {
+    return $this->hasMany('App\Workprocess');
   }
+
+  public function analyses() {
+    return $this->belongsToMany('App\Analysis')->withTimestamps();
+  }
+
 }

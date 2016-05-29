@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCoreTasksTable extends Migration
+class AnalysisCoretask extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,11 @@ class CreateCoreTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('core_tasks', function (Blueprint $table) {
+        Schema::create('analysis_coretask', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->integer('analysis_id');
+            $table->integer('coretask_id');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +27,6 @@ class CreateCoreTasksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('core_tasks');
+        Schema::drop('analysis_coretask');
     }
 }

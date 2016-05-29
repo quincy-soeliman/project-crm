@@ -12,10 +12,29 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
-    ];
+  return [
+    'name' => $faker->name,
+    'email' => $faker->safeEmail,
+    'password' => bcrypt(str_random(10)),
+    'remember_token' => str_random(10),
+  ];
+});
+
+$factory->define(App\Analysis::class, function (Faker\Generator $faker) {
+  return [
+    'title' => $faker->name,
+  ];
+});
+
+$factory->define(App\Coretask::class, function (Faker\Generator $faker) {
+  return [
+    'title' => $faker->name,
+  ];
+});
+
+$factory->define(App\Workprocess::class, function (Faker\Generator $faker) {
+  return [
+    'title' => $faker->name,
+    'description' => $faker->text,
+  ];
 });

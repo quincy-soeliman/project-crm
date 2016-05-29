@@ -2,22 +2,20 @@
 
 namespace App;
 
-use App\CoreTask;
-use App\WorkProcess;
 use Illuminate\Database\Eloquent\Model;
 
 class Analysis extends Model {
-  protected $table = 'analyses';
 
   protected $fillable = [
     'title'
   ];
 
-  public function getCoreTasks() {
-    return CoreTask::all();
+  public function coretasks() {
+    return $this->belongsToMany('App\Coretask')->withTimestamps();
   }
 
-  public function getWorkProcesses() {
-    return WorkProcess::all();
+  public function workprocesses() {
+    return $this->belongsToMany('App\Workprocess')->withTimestamps();
   }
+
 }

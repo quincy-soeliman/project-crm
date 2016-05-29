@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorkProcessesTable extends Migration
+class CreateWorkprocessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateWorkProcessesTable extends Migration
      */
     public function up()
     {
-        Schema::create('work_processes', function (Blueprint $table) {
+        Schema::create('workprocesses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('core_task_id')->unsigned();
+            $table->integer('coretask_id')->unsigned();
             $table->string('title');
             $table->longText('description');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ class CreateWorkProcessesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('work_processes');
+        Schema::drop('workprocesses');
     }
 }
