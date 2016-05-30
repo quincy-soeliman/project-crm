@@ -86,11 +86,11 @@ Route::group(['middleware' => ['role:college']], function() {
 Route::group(['middleware' => ['role:administrator']], function() {
 
   // Coretasks Routes...
-  Route::get('kerntaken', 'CoretaskController@index');
-  Route::post('kerntaak/aanmaken', 'CoretaskController@create');
+  Route::get('kerntaak', 'CoretaskController@index');
+  Route::post('kerntaak', 'CoretaskController@create');
 
   // Workprocesses Routes...
-  Route::get('werkprocessen', 'WorkprocessController@index');
-  Route::post('werkproces/aanmaken', 'WorkprocessController@create');
+  Route::get('werkproces', 'WorkprocessController@index');
+  Route::post('werkproces', 'WorkprocessController@create');
 
 });

@@ -14,11 +14,7 @@ class WorkprocessController extends Controller {
   }
 
   public function index() {
-    $workprocesses = Workprocess::get();
-
-    return $this->view('pages.workprocesses', [
-      'workprocesses' => $workprocesses,
-    ]);
+    return view('pages.werkprocessen');
   }
 
   /**
@@ -33,7 +29,6 @@ class WorkprocessController extends Controller {
       'description' => 'required|min:1',
     ]);
   }
-
   /**
    * Creates a new Workprocess.
    *
@@ -53,7 +48,7 @@ class WorkprocessController extends Controller {
     $workprocess->description = $request['description'];
     $workprocess->save();
 
-    return redirect('workprocessen');
+    return redirect('workprocessen')->with('status', 'Het werkproces is aangemaakt.');
   }
 
 }

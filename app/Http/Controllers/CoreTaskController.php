@@ -15,13 +15,7 @@ class CoretaskController extends Controller {
   }
 
   public function index() {
-    $coretasks = Coretask::get();
-    $workprocesses = Workprocess::get();
-
-    return view('pages.coretasks', [
-      'coretasks' => $coretasks,
-      'workprocesses' => $workprocesses,
-    ]);
+    return view('pages.kerntaken');
   }
 
   /**
@@ -53,7 +47,7 @@ class CoretaskController extends Controller {
     $coretask->title = $request['title'];
     $coretask->save();
 
-    return redirect('kerntaken');
+    return redirect('kerntaken')->with('status' , 'De kerntaak is aangemaakt.');
   }
 
 }

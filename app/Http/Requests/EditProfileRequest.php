@@ -36,4 +36,12 @@ class EditProfileRequest extends Request {
     }
   }
 
+  public function messages() {
+    return [
+      'first_name.string' => 'Controleer alstublieft uw voornaam.',
+      'last_name.string' => 'Controleer alstublieft uw achternaam.',
+      'college' => 'Selecteer een school.',
+    ];
+  }
+
 }
