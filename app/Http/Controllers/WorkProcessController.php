@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coretask;
 use App\Workprocess;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -14,7 +15,11 @@ class WorkprocessController extends Controller {
   }
 
   public function index() {
-    return view('pages.werkprocessen');
+    $coretasks = Coretask::get();
+    
+    return view('pages.werkprocessen', [
+      'coretasks' => $coretasks,
+    ]);
   }
 
   /**
