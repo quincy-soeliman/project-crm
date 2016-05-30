@@ -22,3 +22,13 @@
         @endforeach
     </select>
 </div>
+
+<div class="form-group col-xs-12 col-md-12">
+    <label for="reviewers">Beoordelaars:</label>
+    <select autocomplete="off" name="reviewers[]" id="reviewer" placeholder="School"
+            class="form-control" multiple="multiple" value="">
+        @foreach ($reviewers as $reviewer)
+            <option value="{{ $reviewer->id }}">{{ $reviewer->first_name }} {{ $reviewer->last_name }}</option>
+        @endforeach
+    </select>
+</div>

@@ -79,5 +79,7 @@ $(function() {
         var addRemClass = $(window).scrollTop() > 0 ? 'addClass' : 'removeClass';
         $(".navbar")[addRemClass]("scroll");
     });
+
+    $("#reviewer").select2();
 })
 //# sourceMappingURL=app.js.map

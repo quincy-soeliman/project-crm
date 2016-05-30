@@ -30,7 +30,6 @@ class ProfileController extends Controller {
     switch ($user->role) {
       case 'student':
         $data = $user->student()->get();
-        $reviewers = Reviewer::get();
         break;
       case 'teacher':
         $data = $user->teacher()->get();
@@ -53,7 +52,6 @@ class ProfileController extends Controller {
       'data' => $data,
       'role' => $user->role,
       'email' => $user->email,
-      'reviewers' => $reviewers,
     ]);
   }
 
@@ -72,7 +70,7 @@ class ProfileController extends Controller {
     ]);
 
     if (!empty($request['reviewers'])) {
-      $student->reviewers()->attach([]);
+      $student->reviewers()->attach($requests['reviewers']);
     }
 
     return redirect('profiel/' . $user->id);
@@ -91,6 +89,7 @@ class ProfileController extends Controller {
     switch ($user->role) {
       case 'student':
         $data = $user->student()->get();
+        $reviewers = Reviewer::get();
         break;
       case 'teacher':
         $data = $user->teacher()->get();
@@ -113,7 +112,8 @@ class ProfileController extends Controller {
       'data' => $data,
       'role' => $user->role,
       'email' => $user->email,
-      'colleges' => $colleges
+      'colleges' => $colleges,
+      'reviewers' => $reviewers,
     ]);
   }
 
