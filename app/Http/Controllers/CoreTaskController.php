@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\CoreTask;
+use App\Coretask;
+use App\Workprocess;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
 
-class CoreTaskController extends Controller {
+class CoretaskController extends Controller {
 
   public function __construct() {
     $this->middleware('role:administrator');
   }
 
   public function index() {
-    $core_tasks = CoreTask::get();
+    $coretasks = Coretask::get();
+    $workprocesses = Workprocess::get();
 
-    return view('pages.core_tasks', [
-      'core_tasks' => $core_tasks,
+    return view('pages.coretasks', [
+      'coretasks' => $coretasks,
+      'workprocesses' => $workprocesses,
     ]);
   }
 
@@ -29,12 +32,12 @@ class CoreTaskController extends Controller {
    */
   protected function validator(array $data) {
     return Validator::make($data, [
-      'title' => 'required|max:255|unique:core_tasks',
+      'title' => 'required|max:255|min:1|unique:coretasks',
     ]);
   }
 
   /**
-   * Creates a new CoreTask.
+   * Creates a new Coretask.
    *
    * @param \Illuminate\Http\Request $request
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -43,12 +46,12 @@ class CoreTaskController extends Controller {
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
-      return redirect('404');
+      return redirect('kerntaak/aanmaken')->with('status', 'Voer alle verplichte velden in.');
     }
 
-    $core_task = new CoreTask();
-    $core_task->title = $request['title'];
-    $core_task->save();
+    $coretask = new Coretask();
+    $coretask->title = $request['title'];
+    $coretask->save();
 
     return redirect('kerntaken');
   }

@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="update col-xs-12 col-md-12">
-                    <form action="{{ url('/profile/' . $profile->user_id . '/update') }}" method="POST">
+                    <form action="{{ url('profiel/' . $profile->user_id . '/update') }}" method="POST">
                         {{ method_field('put') }}
                         {{ csrf_field() }}
                         

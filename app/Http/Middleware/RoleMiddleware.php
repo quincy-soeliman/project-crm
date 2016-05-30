@@ -21,7 +21,7 @@ class RoleMiddleware
         }
 
         if (Auth::user()->role != $role) {
-            return redirect('profile/' . Auth::id())->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
+            return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
         }
 
         return $next($request);

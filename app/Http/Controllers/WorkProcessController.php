@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\WorkProcess;
+use App\Workprocess;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
 
-class WorkProcessController extends Controller {
+class WorkprocessController extends Controller {
 
   public function __construct() {
     $this->middleware('role:administrator');
   }
 
   public function index() {
-    $work_processes = WorkProcess::get();
+    $workprocesses = Workprocess::get();
 
-    return $this->view('pages.work_processes', [
-      'work_processes' => $work_processes,
+    return $this->view('pages.workprocesses', [
+      'workprocesses' => $workprocesses,
     ]);
   }
 
@@ -29,13 +29,13 @@ class WorkProcessController extends Controller {
    */
   protected function validator(array $data) {
     return Validator::make($data, [
-      'title' => 'required|max:255|unique:core_tasks',
-      'description' => 'required',
+      'title' => 'required|max:255|min:1|unique:workprocesses',
+      'description' => 'required|min:1',
     ]);
   }
 
   /**
-   * Creates a new WorkProcess.
+   * Creates a new Workprocess.
    *
    * @param \Illuminate\Http\Request $request
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -44,14 +44,14 @@ class WorkProcessController extends Controller {
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
-      return redirect('404');
+      return redirect('werkproces/aanmaken')->with('status', 'Voer alle verplichte velden in.');
     }
 
-    $work_process = new WorkProcess();
-    $work_process->core_task_id = $request['core_task_id'];
-    $work_process->title = $request['title'];
-    $work_process->description = $request['description'];
-    $work_process->save();
+    $workprocess = new Workprocess();
+    $workprocess->core_task_id = $request['core_task_id'];
+    $workprocess->title = $request['title'];
+    $workprocess->description = $request['description'];
+    $workprocess->save();
 
     return redirect('workprocessen');
   }

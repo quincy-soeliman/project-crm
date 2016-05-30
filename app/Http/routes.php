@@ -27,12 +27,6 @@ Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
 Route::post('password/reset', 'Auth\PasswordController@reset');
 
 /**
- * Authenticated Routes...
- */
-// Authentication Routes...
-Route::get('logout', 'Auth\AuthController@logout');
-
-/**
  * Registration Routes...
  */
 Route::get('registreer', 'Registration\RoleController@index');
@@ -61,12 +55,28 @@ Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
 Route::get('registreer/administrator', 'Registration\AdministratorController@index');
 Route::post('registreer/administrator', 'Registration\AdministratorController@create');
 
+
+/**
+ * Authenticated Routes...
+ */
 Route::group(['middleware' => 'auth'], function() {
 
   // Profile Routes...
-  Route::get('profile/{id}', 'ProfileController@index');
-  Route::get('profile/{id}/edit', 'ProfileController@show_edit_form');
-  Route::put('profile/{user}/update', 'ProfileController@update');
+  Route::get('profiel/{id}', 'ProfileController@index');
+  Route::get('profiel/{id}/bewerk', 'ProfileController@show_edit_form');
+  Route::put('profiel/{user}/update', 'ProfileController@update');
+
+  // Authentication Routes...
+  Route::get('logout', 'Auth\AuthController@logout');
+
+});
+
+/**
+ * College Routes...
+ */
+Route::group(['middleware' => ['role:college']], function() {
+
+  // Analyses Routes...
 
 });
 
@@ -75,12 +85,12 @@ Route::group(['middleware' => 'auth'], function() {
  */
 Route::group(['middleware' => ['role:administrator']], function() {
 
-  // CoreTasks Routes...
-  Route::get('kerntaken', 'CoreTaskController@index');
-  Route::post('kerntaken', 'CoreTaskController@create');
+  // Coretasks Routes...
+  Route::get('kerntaken', 'CoretaskController@index');
+  Route::post('kerntaak/aanmaken', 'CoretaskController@create');
 
-  // WorkProcesses Routes...
-  Route::get('werkprocessen', 'WorkProcessController@index');
-  Route::post('werkprocessen', 'WorkProcessController@create');
+  // Workprocesses Routes...
+  Route::get('werkprocessen', 'WorkprocessController@index');
+  Route::post('werkproces/aanmaken', 'WorkprocessController@create');
 
 });

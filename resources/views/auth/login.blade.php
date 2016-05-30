@@ -33,7 +33,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12 col-xs-12">
-                                <input type="email" class="form-control" name="email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" placeholder="Email" autocomplete="off">
                             </div>
                         </div>
 
@@ -53,10 +53,10 @@
 
                         <div class="form-group">
                             <div class="login-link password-reset col-md-6 col-xs-6">
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Wachtwoord vergeten?</a>
                             </div>
                             <div class="login-link register col-md-6 col-xs-6">
-                                <a class="btn btn-link" href="{{ url('/registreer') }}">Register</a>
+                                <a class="btn btn-link" href="{{ url('/registreer') }}">Registreer</a>
                             </div>
                         </div>
                     </form>

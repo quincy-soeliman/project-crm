@@ -23,6 +23,8 @@ class AuthController extends Controller {
    * Returns the login form.
    */
   public function index() {
+    Auth::logout();
+
     return view('auth.login');
   }
 
@@ -43,7 +45,7 @@ class AuthController extends Controller {
     if ($this->getStatus()) {
       $user = Auth::user();
 
-      return redirect('profile/' . $user->id);
+      return redirect('profiel/' . $user->id);
     }
 
     return redirect('login')->with('status', 'Het account is niet actief.');
@@ -62,13 +64,7 @@ class AuthController extends Controller {
    * Attempts to disconnect an user.
    */
   public function logout() {
-    if (!Auth::check()) {
-      return redirect('/login');
-    }
-
-    Auth::logout();
-
-    return redirect('/login');
+    return redirect('login');
   }
 
   /**

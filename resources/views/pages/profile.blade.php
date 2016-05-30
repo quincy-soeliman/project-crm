@@ -29,7 +29,7 @@
                     </div>
                     <div class="edit-link no-padding col-xs-2 col-md-2">
                         @if( Auth::id() == $profile->user_id )
-                            <a href="{{ url( '/profile/' . $profile->user_id . '/edit' ) }}">Profiel bewerken</a>
+                            <a href="{{ url( 'profiel/' . $profile->user_id . '/bewerk' ) }}">Profiel bewerken</a>
                         @endif
                     </div>
                 </div>

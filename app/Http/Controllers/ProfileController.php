@@ -20,7 +20,7 @@ class ProfileController extends Controller {
     $user_id = Auth::id();
 
     if ($user_id != $id) {
-      return redirect('profile/' . $user_id)->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
+      return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
     }
 
     $user = User::find($id);
@@ -65,14 +65,14 @@ class ProfileController extends Controller {
       'college' => $request['college'],
     ]);
 
-    return redirect('profile/' . $user->id);
+    return redirect('profiel/' . $user->id);
   }
 
   public function show_edit_form($id) {
     $user_id = Auth::id();
 
     if ($user_id != $id) {
-      return redirect('profile/' . $user_id)->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
+      return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
     }
 
     $user = User::find($id);
