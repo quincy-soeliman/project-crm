@@ -7,6 +7,7 @@ use App\Workprocess;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
+use Auth;
 
 class WorkprocessController extends Controller {
 

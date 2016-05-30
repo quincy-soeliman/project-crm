@@ -74,5 +74,10 @@ function analyseDropdown() {
 $(function() {
     // Init anaylse dropdown
     analyseDropdown();
+
+    $(window).scroll( function() {
+        var addRemClass = $(window).scrollTop() > 0 ? 'addClass' : 'removeClass';
+        $(".navbar")[addRemClass]("scroll");
+    });
 })
 //# sourceMappingURL=app.js.map

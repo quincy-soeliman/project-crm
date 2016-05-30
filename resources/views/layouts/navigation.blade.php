@@ -32,8 +32,8 @@
                     <li><a href="{{ url('/home') }}">Company 1</a></li>
                     <li><a href="{{ url('/home') }}">Company 2</a></li>
                 @elseif( $role === 'administrator' )
-                    <li><a href="{{ url('/home') }}">Administrator 1</a></li>
-                    <li><a href="{{ url('/home') }}">Administrator 2</a></li>
+                    <li><a href="{{ url('/kerntaak') }}">Kerntaken aanmaken</a></li>
+                    <li><a href="{{ url('/werkproces') }}">Werkprocessen aanmaken</a></li>
                 @endif
 
             </ul>
@@ -47,9 +47,13 @@
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            @foreach ($data as $profile)
-                                <p>{{ $profile->first_name }} {{ $profile->last_name }} {{ $profile->name }} <span class="caret"></span></p>
-                            @endforeach
+                            @if( $role === 'administrator' )
+                                <p>Administrator <span class="caret"></span></p>
+                            @else
+                                @foreach ($data as $profile)
+                                    <p>{{ $profile->first_name }} {{ $profile->last_name }} {{ $profile->name }} <span class="caret"></span></p>
+                                @endforeach
+                            @endif
                         </a>
 
                         <ul class="dropdown-menu" role="menu">

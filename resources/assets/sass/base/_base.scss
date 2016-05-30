@@ -7,8 +7,12 @@ body {
 }
 
 .navbar {
-    position: fixed;
+    position: relative;
     margin-bottom: 0;
+
+    &.scroll {
+        position: fixed;
+    }
 }
 
 .no-padding {

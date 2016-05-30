@@ -5777,8 +5777,10 @@ body {
   margin-right: 6px; }
 
 .navbar {
-  position: fixed;
+  position: relative;
   margin-bottom: 0; }
+  .navbar.scroll {
+    position: fixed; }
 
 .no-padding {
   padding: 0; }
@@ -6335,7 +6337,7 @@ body {
       color: #000;
       font-size: 40px;
       font-weight: 400;
-      margin-bottom: 5px; }
+      margin-bottom: 1em; }
     .profile .head .sub-title {
       color: #000;
       font-size: 20px;

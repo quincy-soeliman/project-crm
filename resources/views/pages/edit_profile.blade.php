@@ -4,12 +4,6 @@
 
     @include('layouts.navigation')
 
-    @if( session('status') )
-        <div class="message">
-            <p>{{ session('status') }}</p>
-        </div>
-    @endif
-
     <div class="welcome-banner col-xs-12 col-md-12">
         <div class="image col-xs-12 col-md-12"></div>
         <div class="color col-xs-12 col-md-12"></div>
@@ -20,6 +14,11 @@
 
     <div class="profile container">
         <div class="row">
+            @if( session('status') )
+                <div class="message">
+                    <p>{{ session('status') }}</p>
+                </div>
+            @endif
             @foreach ($data as $profile)
                 <div class="head col-xs-12 col-md-12">
                     <div class="no-padding col-xs-12 col-md-12">
