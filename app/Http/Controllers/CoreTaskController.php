@@ -47,14 +47,14 @@ class CoretaskController extends Controller {
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
-      return redirect('kerntaak/aanmaken')->with('status', 'Voer alle verplichte velden in.');
+      return redirect('kerntaak')->with('status', 'Voer alle verplichte velden in.');
     }
 
     $coretask = new Coretask();
     $coretask->title = $request['title'];
     $coretask->save();
 
-    return redirect('kerntaken')->with('status' , 'De kerntaak is aangemaakt.');
+    return redirect('kerntaak')->with('status' , 'Kerntaak: ' . $request['title'] . ' is aangemaakt.');
   }
 
 }

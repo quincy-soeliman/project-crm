@@ -18,12 +18,11 @@
             </div>
             <div class="kerntaak-form col-xs-12 col-md-12">
                 <form action="{{ url('/kerntaak') }}" method="POST">
-                    {{ method_field('put') }}
                     {{ csrf_field() }}
                     
                     <div class="form-group col-xs-12 col-md-12">
-                        <label for="first_name">Kerntaak titel:</label>
-                        <input type="text" class="form-control" autocomplete="off" name="first_name" placeholder="Kerntaak titel">
+                        <label for="title">Kerntaak titel:</label>
+                        <input type="text" class="form-control" autocomplete="off" name="title" placeholder="Kerntaak titel">
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
