@@ -19,14 +19,23 @@ class ProfileController extends Controller {
   }
 
   public function index($id) {
+    $user = User::find($id);
     $user_id = Auth::id();
+    $current_user = User::find($user_id);
 
-    if ($user_id != $id) {
-      return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
+    // Shows all profiles if role is one of the cases.
+    switch($current_user->role) {
+      case 'teacher':
+        break;
+      case 'administrator':
+        break;
+      default:
+        if ($user_id != $id) {
+          return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
+        }
     }
 
-    $user = User::find($id);
-
+    // Change data of the view depending on the wildcard id.
     switch ($user->role) {
       case 'student':
         $data = $user->student()->get();
@@ -55,10 +64,10 @@ class ProfileController extends Controller {
     }
 
     return view('pages.profile', [
-      'data' => $data,
+      'data' => !empty($data) ? $data : '',
       'role' => $user->role,
       'email' => $user->email,
-      'reviewers' => $reviewers,
+      'reviewers' => !empty($reviewers) ? $reviewers : '',
     ]);
   }
 
@@ -79,11 +88,7 @@ class ProfileController extends Controller {
     ]);
 
     if (!empty($request['reviewers'])) {
-      $reviewers = [];
-
-      foreach ($request['reviewers'] as $key => $reviewer) {
-        array_push($reviewers, $reviewer);
-      }
+      $reviewers = $this->syncData($request['reviewers']);
 
       $student->reviewers()->sync($reviewers);
     }
@@ -130,6 +135,16 @@ class ProfileController extends Controller {
       'colleges' => $colleges,
       'reviewers' => $reviewers,
     ]);
+  }
+
+  public function syncData($request) {
+    $array = [];
+
+    foreach ($request as $key => $data) {
+      array_push($array, $data);
+    }
+
+    return $array;
   }
 
 }

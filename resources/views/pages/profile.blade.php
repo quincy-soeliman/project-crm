@@ -28,29 +28,29 @@
                         @endif
                     </div>
 
-                    <div class="edit-link no-padding col-xs-2 col-md-2">
-                        @if( Auth::id() == $profile->user_id )
+                    @if( Auth::id() == $profile->user_id )
+                        <div class="edit-link no-padding col-xs-2 col-md-2">
                             <a href="{{ url( 'profiel/' . $profile->user_id . '/bewerk' ) }}">Profiel bewerken</a>
-                        @endif
-                    </div>
+                        </div>
+                    @endif
                 </div>
 
                 <div class="info col-xs-12 col-md-12">
 
                     @if (!empty($reviewers))
-                    <div class="reviewers col-xs-12 col-md-12">
-                        <h3 class="headline-title">
-                            {{ count($reviewers) > 1 ? 'Beoordelaars' : 'Beoordelaar' }}
-                        </h3>
+                        <div class="reviewers col-xs-12 col-md-12">
+                            <h3 class="headline-title">
+                                {{ count($reviewers) > 1 ? 'Beoordelaars' : 'Beoordelaar' }}
+                            </h3>
 
-                        <ul class="reviewers-list">
-                            @foreach ($reviewers as $reviewer)
-                                <li>
-                                    <a href="{{ url('profiel/' . $reviewer->id) }}">- {{ $reviewer->first_name }} {{ $reviewer->last_name }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                            <ul class="reviewers-list">
+                                @foreach ($reviewers as $reviewer)
+                                    <li>
+                                        <a href="{{ url('profiel/' . $reviewer->id) }}">- {{ $reviewer->first_name }} {{ $reviewer->last_name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     @endif
 
                     <div class="additional-info col-xs-12 col-md-12">

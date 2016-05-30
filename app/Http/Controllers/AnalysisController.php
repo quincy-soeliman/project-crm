@@ -44,14 +44,34 @@ class AnalysisController extends Controller {
     $analysis->title = $request['title'];
 
     if (!empty($request['coretasks'])) {
-      $analysis->coretasks()->attach([]);
+      $reviewers = $this->syncData($request['coretasks']);
+
+      $analysis->reviewers()->sync($reviewers);
     }
 
     if (!empty($request['workprocesses'])) {
-      $analysis->workprocesses()->attach([]);
+      $workprocesses = $this->syncData($request['workprocesses']);
+
+      $analysis->workprocesses()->sync($workprocesses);
+    }
+
+    if (!empty($request['students'])) {
+      $students = $this->syncData($request['students']);
+
+      $analysis->students()->sync($students);
     }
 
     $analysis->save();
+  }
+
+  public function syncData($request) {
+    $array = [];
+
+    foreach ($request as $key => $data) {
+      array_push($array, $data);
+    }
+
+    return $array;
   }
   
 }
