@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Reviewer;
+use App\Student;
 use Auth;
 use App\User;
 use Validator;
@@ -28,6 +30,7 @@ class ProfileController extends Controller {
     switch ($user->role) {
       case 'student':
         $data = $user->student()->get();
+        $reviewers = Reviewer::get();
         break;
       case 'teacher':
         $data = $user->teacher()->get();
@@ -49,11 +52,14 @@ class ProfileController extends Controller {
     return view('pages.profile', [
       'data' => $data,
       'role' => $user->role,
-      'email' => $user->email
+      'email' => $user->email,
+      'reviewers' => $reviewers,
     ]);
   }
 
   public function update(User $user, EditProfileRequest $request) {
+    $student = Student::find($user->id);
+
     $user->update([
       'email' => $request['email'],
     ]);
@@ -64,6 +70,10 @@ class ProfileController extends Controller {
       'last_name' => $request['last_name'],
       'college' => $request['college'],
     ]);
+
+    if (!empty($request['reviewers'])) {
+      $student->reviewers()->attach([]);
+    }
 
     return redirect('profiel/' . $user->id);
   }

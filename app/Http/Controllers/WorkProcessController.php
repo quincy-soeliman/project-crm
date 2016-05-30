@@ -48,7 +48,7 @@ class WorkprocessController extends Controller {
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
-      return redirect('werkproces/aanmaken')->with('status', 'Voer alle verplichte velden in.');
+      return redirect('werkproces')->with('status', 'Voer alle verplichte velden in.');
     }
 
     $workprocess = new Workprocess();
@@ -57,7 +57,7 @@ class WorkprocessController extends Controller {
     $workprocess->description = $request['description'];
     $workprocess->save();
 
-    return redirect('workprocessen')->with('status', 'Het werkproces is aangemaakt.');
+    return redirect('werkproces')->with('status', 'Werkproces ' . $request['title'] . ' is aangemaakt.');
   }
 
 }

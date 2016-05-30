@@ -17,7 +17,7 @@ class RoleMiddleware
     public function handle($request, Closure $next, $role)
     {
         if (!Auth::check()) {
-            return redirect('login');
+            return redirect('login')->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
         }
 
         if (Auth::user()->role != $role) {

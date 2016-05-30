@@ -22,4 +22,12 @@ class Student extends Model {
     return $this->belongsTo('App\College');
   }
 
+  public function reviewers() {
+    return $this->belongsToMany('App\Reviewer')->withTimestamps();
+  }
+
+  public function analyses() {
+    return $this->belongsToMany('App\Analysis')->withTimestamps();
+  }
+
 }

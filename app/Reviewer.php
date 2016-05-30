@@ -22,4 +22,8 @@ class Reviewer extends Model {
     return $this->belongsTo('App\Company');
   }
 
+  public function students() {
+    return $this->belongsToMany('App\Student')->withTimestamps();
+  }
+
 }
