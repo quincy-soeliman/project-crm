@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Coretask;
 use App\Workprocess;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;

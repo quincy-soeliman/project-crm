@@ -6463,4 +6463,52 @@ body {
         font-size: 20px;
         font-weight: 300; }
 
+.add-form {
+  margin-top: 1em; }
+  .add-form form label {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600; }
+  .add-form form input {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 0; }
+    .add-form form input::-webkit-input-placeholder {
+      color: #9C9C9C; }
+    .add-form form input:-moz-placeholder {
+      /* Firefox 18- */
+      color: #9C9C9C; }
+    .add-form form input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #9C9C9C; }
+    .add-form form input:-ms-input-placeholder {
+      color: #9C9C9C; }
+  .add-form form select {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 0; }
+    .add-form form select::-webkit-input-placeholder {
+      color: #9C9C9C; }
+    .add-form form select:-moz-placeholder {
+      /* Firefox 18- */
+      color: #9C9C9C; }
+    .add-form form select::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #9C9C9C; }
+    .add-form form select:-ms-input-placeholder {
+      color: #9C9C9C; }
+    .add-form form select option {
+      color: #000; }
+  .add-form form button {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out; }
+
 /*# sourceMappingURL=app.css.map */

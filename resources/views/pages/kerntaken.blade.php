@@ -16,7 +16,7 @@
                     <h1 class="title">Kerntaak toevoegen</h1>
                 </div>
             </div>
-            <div class="kerntaak-form col-xs-12 col-md-12">
+            <div class="add-form col-xs-12 col-md-12">
                 <form action="{{ url('/kerntaak') }}" method="POST">
                     {{ csrf_field() }}
                     

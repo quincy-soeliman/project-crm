@@ -27,7 +27,7 @@
                                     <option value="reviewer">Beoordelaar</option>
                                     <option value="school">School</option>
                                     <option value="company">Bedrijf</option>
-                                    <option value="administrator">Administrator</option>
+                                    <option value="administrator">Admin</option>
                                 </select>
                             </div>
                         </div>

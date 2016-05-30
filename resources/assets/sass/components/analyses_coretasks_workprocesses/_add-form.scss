@@ -1,0 +1,43 @@
+.add-form {
+    margin-top: 1em;
+
+    form {
+        label {
+            color: $acw-add-input-label-color;
+            font-size: $acw-add-input-label-font-size;
+            font-weight: $acw-add-input-label-font-weight;
+        }
+        input {
+            color: #000;
+            font-size: $acw-add-input-field-font-size;
+            font-weight: $acw-add-input-field-font-weight;
+            border-radius: 0;
+
+            @include placeholder {
+                color: $acw-add-input-field-color;
+            }
+        }
+        select {
+            color: #000;
+            font-size: $acw-add-input-field-font-size;
+            font-weight: $acw-add-input-field-font-weight;
+            border-radius: 0;
+
+            @include placeholder {
+                color: $acw-add-input-field-color;
+            }
+
+            option {
+                color: #000;
+            }
+        }
+        button {
+            color: $acw-add-submit-button-color;
+            font-size: $acw-add-submit-button-font-size;
+            font-weight: $acw-add-submit-button-font-weight;
+            border-radius: 0;
+
+            @include transition(.2s);
+        }
+    }
+}
