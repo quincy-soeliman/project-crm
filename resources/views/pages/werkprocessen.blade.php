@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="add-form col-xs-12 col-md-12">
-                <form action="{{ url('/kerntaak') }}" method="POST">
+                <form action="{{ url('/werkproces') }}" method="POST">
                     {{ csrf_field() }}
 
                     <div class="form-group col-xs-12 col-md-12">
