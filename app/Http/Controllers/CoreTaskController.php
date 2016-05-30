@@ -6,6 +6,8 @@ use App\Coretask;
 use App\Workprocess;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Controllers\Auth\AuthController as Auth;
+use App\User;
 use Validator;
 
 class CoretaskController extends Controller {
