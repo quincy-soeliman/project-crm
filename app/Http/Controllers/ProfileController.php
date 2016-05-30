@@ -30,6 +30,12 @@ class ProfileController extends Controller {
     switch ($user->role) {
       case 'student':
         $data = $user->student()->get();
+
+        $student_user = User::find($user->id)->student()->get();
+        $student_id = $student_user[0]->id;
+        $student = Student::find($student_id);
+
+        $reviewers = $student->reviewers;
         break;
       case 'teacher':
         $data = $user->teacher()->get();
@@ -52,11 +58,14 @@ class ProfileController extends Controller {
       'data' => $data,
       'role' => $user->role,
       'email' => $user->email,
+      'reviewers' => $reviewers,
     ]);
   }
 
   public function update(User $user, EditProfileRequest $request) {
-    $student = Student::find($user->id);
+    $student_user = User::find($user->id)->student()->get();
+    $student_id = $student_user[0]->id;
+    $student = Student::find($student_id);
 
     $user->update([
       'email' => $request['email'],
@@ -70,10 +79,12 @@ class ProfileController extends Controller {
     ]);
 
     if (!empty($request['reviewers'])) {
-      $student->reviewers()->attach($requests['reviewers']);
+      foreach ($request['reviewers'] as $key => $reviewer) {
+        $student->reviewers()->attach($reviewer);
+      }
     }
 
-    return redirect('profiel/' . $user->id);
+    return redirect('profiel/' . $user->id)->with('status', 'Uw profiel is bijgewerkt.');
   }
 
   public function show_edit_form($id) {

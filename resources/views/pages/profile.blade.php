@@ -27,69 +27,79 @@
                             <h2 class="sub-title">OV nummer: {{ $profile->ov_number }}</h2>
                         @endif
                     </div>
+
                     <div class="edit-link no-padding col-xs-2 col-md-2">
                         @if( Auth::id() == $profile->user_id )
                             <a href="{{ url( 'profiel/' . $profile->user_id . '/bewerk' ) }}">Profiel bewerken</a>
                         @endif
                     </div>
                 </div>
+
                 <div class="info col-xs-12 col-md-12">
-                    {{-- @if( $profile->reviewer_id != '' ) --}}
-                        <div class="reviewers col-xs-12 col-md-12">
-                            <h3 class="headline-title">
-                                Beoorderlaar:
-                            </h3>
-                            <ul class="reviewers-list">
+
+                    @if (!empty($reviewers))
+                    <div class="reviewers col-xs-12 col-md-12">
+                        <h3 class="headline-title">
+                            {{ count($reviewers) > 1 ? 'Beoordelaars' : 'Beoordelaar' }}
+                        </h3>
+
+                        <ul class="reviewers-list">
+                            @foreach ($reviewers as $reviewer)
                                 <li>
-                                    <a href="{{ url('profile/reviewer_id') }}">- Quincy Soeliman</a>
+                                    <a href="{{ url('profiel/' . $reviewer->id) }}">- {{ $reviewer->first_name }} {{ $reviewer->last_name }}</a>
                                 </li>
-                            </ul>
-                        </div>
-                    {{-- @endif --}}
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <div class="additional-info col-xs-12 col-md-12">
                         <h3 class="headline-title">
                             Over {{ $role }}:
                         </h3>
                         <div class="no-padding col-xs-12 col-md-6">
-                            
+
                             @if( $profile->college != '' )
                                 <div class="profile-info-box col-xs-12 col-md-12">
                                     <p class="info-label col-xs-12 col-md-4">School:</p>
-                                    <p class="info-text col-xs-12 col-md-8"><a href="{{ '/profile/' . $profile->college_id }}">{{ $profile->college }}</a></p>
+                                    <p class="info-text col-xs-12 col-md-8"><a
+                                                href="{{ '/profile/' . $profile->college_id }}">{{ $profile->college }}</a>
+                                    </p>
                                 </div>
                             @endif
-                            
+
                             {{--@if( $profile->company_id != '' )--}}
-                                <div class="profile-info-box col-xs-12 col-md-12">
-                                    <p class="info-label col-xs-12 col-md-4">Bedrijf:</p>
-                                    <p class="info-text col-xs-12 col-md-8">E.V.I.L Corporation inc.</p>
-                                </div>
+                            <div class="profile-info-box col-xs-12 col-md-12">
+                                <p class="info-label col-xs-12 col-md-4">Bedrijf:</p>
+                                <p class="info-text col-xs-12 col-md-8">E.V.I.L Corporation inc.</p>
+                            </div>
                             {{--@endif--}}
-                            
+
                             @if( $email != '' )
                                 <div class="profile-info-box col-xs-12 col-md-12">
                                     <p class="info-label col-xs-12 col-md-4">E-mail:</p>
                                     <p class="info-text col-xs-12 col-md-8"><a href="{{ $email }}">{{ $email }}</a></p>
                                 </div>
                             @endif
-                            
+
                             {{--if( $profile->telephone_number != '' ) --}}
-                                <div class="profile-info-box col-xs-12 col-md-12">
-                                    <p class="info-label col-xs-12 col-md-4">Telefoon:</p>
-                                    <p class="info-text col-xs-12 col-md-8">+31 229 56 78 90</p>
-                                </div>
+                            <div class="profile-info-box col-xs-12 col-md-12">
+                                <p class="info-label col-xs-12 col-md-4">Telefoon:</p>
+                                <p class="info-text col-xs-12 col-md-8">+31 229 56 78 90</p>
+                            </div>
                             {{-- @endif --}}
-                            
+
                             {{--if( $profile->mobile_number != '' ) --}}
-                                <div class="profile-info-box col-xs-12 col-md-12">
-                                    <p class="info-label col-xs-12 col-md-4">Mobiel:</p>
-                                    <p class="info-text col-xs-12 col-md-8">06589745631</p>
-                                </div>
+                            <div class="profile-info-box col-xs-12 col-md-12">
+                                <p class="info-label col-xs-12 col-md-4">Mobiel:</p>
+                                <p class="info-text col-xs-12 col-md-8">06589745631</p>
+                            </div>
                             {{-- @endif --}}
 
                         </div>
                     </div>
                 </div>
+
                 @include('pages.profile_analyses')
             @endforeach
         </div>
