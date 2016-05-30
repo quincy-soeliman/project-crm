@@ -9,16 +9,24 @@
                 font-weight: $edit-profile-input-label-font-weight;
             }
             input {
-                color: $edit-profile-input-field-color;
+                color: #000;
                 font-size: $edit-profile-input-field-font-size;
                 font-weight: $edit-profile-input-field-font-weight;
                 border-radius: 0;
+
+                @include placeholder {
+                    color: $edit-profile-input-field-color;
+                }
             }
             select {
-                color: $edit-profile-input-field-color;
+                color: #000;
                 font-size: $edit-profile-input-field-font-size;
                 font-weight: $edit-profile-input-field-font-weight;
                 border-radius: 0;
+
+                @include placeholder {
+                    color: $edit-profile-input-field-color;
+                }
 
                 option {
                     color: #000;
