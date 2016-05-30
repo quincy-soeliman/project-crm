@@ -79,9 +79,13 @@ class ProfileController extends Controller {
     ]);
 
     if (!empty($request['reviewers'])) {
+      $reviewers = [];
+
       foreach ($request['reviewers'] as $key => $reviewer) {
-        $student->reviewers()->attach($reviewer);
+        array_push($reviewers, $reviewer);
       }
+
+      $student->reviewers()->sync($reviewers);
     }
 
     return redirect('profiel/' . $user->id)->with('status', 'Uw profiel is bijgewerkt.');
