@@ -15,7 +15,12 @@ class CoretaskController extends Controller {
   }
 
   public function index() {
-    return view('pages.kerntaken');
+    $id = Auth::id();
+    $role = User::find($id)->role;
+
+    return view('pages.kerntaken', [
+      'role' => $role,
+    ]);
   }
 
   /**

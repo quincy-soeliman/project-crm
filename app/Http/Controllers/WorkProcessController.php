@@ -15,10 +15,13 @@ class WorkprocessController extends Controller {
   }
 
   public function index() {
+    $id = Auth::id();
+    $role = User::find($id)->role;
     $coretasks = Coretask::get();
-    
+
     return view('pages.werkprocessen', [
       'coretasks' => $coretasks,
+      'role' => $role,
     ]);
   }
 
