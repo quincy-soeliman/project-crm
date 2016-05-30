@@ -6484,6 +6484,23 @@ body {
       color: #9C9C9C; }
     .add-form form input:-ms-input-placeholder {
       color: #9C9C9C; }
+  .add-form form textarea {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 0;
+    min-height: 10em;
+    max-height: 10em; }
+    .add-form form textarea::-webkit-input-placeholder {
+      color: #9C9C9C; }
+    .add-form form textarea:-moz-placeholder {
+      /* Firefox 18- */
+      color: #9C9C9C; }
+    .add-form form textarea::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #9C9C9C; }
+    .add-form form textarea:-ms-input-placeholder {
+      color: #9C9C9C; }
   .add-form form select {
     color: #000;
     font-size: 16px;

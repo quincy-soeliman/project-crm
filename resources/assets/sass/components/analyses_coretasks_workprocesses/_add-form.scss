@@ -17,6 +17,18 @@
                 color: $acw-add-input-field-color;
             }
         }
+        textarea {
+            color: #000;
+            font-size: $acw-add-input-field-font-size;
+            font-weight: $acw-add-input-field-font-weight;
+            border-radius: 0;
+            min-height: 10em;
+            max-height: 10em;
+
+            @include placeholder {
+                color: $acw-add-input-field-color;
+            }
+        }
         select {
             color: #000;
             font-size: $acw-add-input-field-font-size;

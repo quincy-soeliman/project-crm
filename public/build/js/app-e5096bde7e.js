@@ -76,7 +76,7 @@ $(function() {
     analyseDropdown();
 
     $(window).scroll( function() {
-        var addRemClass = $(window).scrollTop() > 0 ? 'addClass' : 'removeClass';
+        var addRemClass = $(window).scrollTop() > 100 ? 'addClass' : 'removeClass';
         $(".navbar")[addRemClass]("scroll");
     });
 

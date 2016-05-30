@@ -20,12 +20,14 @@
                 <form action="{{ url('/kerntaak') }}" method="POST">
                     {{ csrf_field() }}
 
-                    @foreach( $coretasks as $coretask )
-                        {{ $coretask->title }}
-                    @endforeach
                     <div class="form-group col-xs-12 col-md-12">
-                        <label for="title">Kerntaak titel:</label>
-                        <input type="text" class="form-control" autocomplete="off" name="title" placeholder="Kerntaak titel">
+                        <label for="title">Werkprocess titel:</label>
+                        <input type="text" class="form-control" autocomplete="off" name="title" placeholder="Werkprocess titel">
+                    </div>
+
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="description">Werkprocess beschrijving:</label>
+                        <textarea type="text" class="form-control" autocomplete="off" name="description" placeholder="Werkprocess beschrijving"></textarea>
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
