@@ -37,6 +37,23 @@
         }
     }
 
+    .analyse-coretask-select {
+        @extend .acordeon-layout;
+        @include transition(.2s);
+
+        h1 {
+            margin-top: 10px;
+            color: $acw-add-title-color;
+            font-size: $acw-add-title-font-size;
+            font-weight: $acw-add-title-font-weight;
+            cursor: pointer;
+        }
+
+        .analyse-workprocess-select {
+            display: none;
+        }
+    }
+
     form {
         label {
             color: $acw-add-input-label-color;

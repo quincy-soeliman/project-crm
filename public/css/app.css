@@ -5796,7 +5796,7 @@ body {
     font-size: initial;
     font-weight: 400; }
 
-.acordeon-layout, .add-form .whole-container {
+.acordeon-layout, .add-form .whole-container, .add-form .analyse-coretask-select {
   border: 1px solid #D2D2D2;
   border-radius: 3px;
   margin-bottom: 1em; }
@@ -5857,7 +5857,7 @@ body {
     position: relative;
     top: 50%;
     transform: translateY(-50%); }
-    .login-container .login-screen .panel .message {
+    .login-container .login-screen .panel .message-post-login {
       color: #F22613; }
     .login-container .login-screen .panel .role-select label {
       color: #FFF;
@@ -6249,7 +6249,7 @@ body {
     position: relative;
     top: 50%;
     transform: translateY(-50%); }
-    .password-reset-container .password-reset .panel .message {
+    .password-reset-container .password-reset .panel .message-post-login {
       color: #F22613; }
     .password-reset-container .password-reset .panel input {
       color: #a7aeb3;
@@ -6506,6 +6506,19 @@ body {
         font-size: 16px;
         font-weight: 300;
         border-bottom: 1px solid #D2D2D2; }
+  .add-form .analyse-coretask-select {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out; }
+    .add-form .analyse-coretask-select h1 {
+      margin-top: 10px;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer; }
+    .add-form .analyse-coretask-select .analyse-workprocess-select {
+      display: none; }
   .add-form form label {
     color: #000;
     font-size: 16px;

@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="message">
+                        <div class="message-post-login">
                             <p>{{ session('status') }}</p>
                         </div> 
                     @endif
@@ -25,7 +25,7 @@
                                     <option value="student">Student</option>
                                     <option value="teacher">Docent</option>
                                     <option value="reviewer">Beoordelaar</option>
-                                    <option value="school">School</option>
+                                    <option value="college">School</option>
                                     <option value="company">Bedrijf</option>
                                     <option value="administrator">Admin</option>
                                 </select>

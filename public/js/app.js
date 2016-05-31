@@ -45,12 +45,17 @@ $(function() {
     analyseDropdown('.workprocess-box');
     // ~ Admin
     analyseDropdown('.add-workprocess-form');
+    // ~ School
+    analyseDropdown('.analyse-workprocess-select');
 
+    // Switch between position relative and fixed for menu
     $(window).scroll( function() {
         var addRemClass = $(window).scrollTop() > 0 ? 'addClass' : 'removeClass';
         $(".navbar")[addRemClass]("scroll");
     });
 
+    // Init select2
     $("#reviewer").select2();
+    $(".analyse-workprocess-select-field").select2();
 })
 //# sourceMappingURL=app.js.map

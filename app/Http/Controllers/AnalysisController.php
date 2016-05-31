@@ -5,20 +5,36 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Analysis;
+use App\Coretask;
+use App\Workprocess;
+use App\User;
 use Validator;
+use Auth;
 
 class AnalysisController extends Controller {
 
   public function index() {
+    $id = Auth::id();
+    $role = User::find($id)->role;
     $analyses = Analysis::get();
 
     return view('pages.analyses', [
       'analyses' => $analyses,
+      'role' => $role
     ]);
   }
 
   public function showForm() {
-    return view('pages.analyses_form');
+    $id = Auth::id();
+    $role = User::find($id)->role;
+    $coretasks = Coretask::all();
+    $workprocesses = Workprocess::all();
+
+    return view('pages.add-analyse', [
+      'role' => $role,
+      'coretasks' => $coretasks,
+      'workprocesses' => $workprocesses,
+    ]);
   }
 
   /**
