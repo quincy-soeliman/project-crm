@@ -77,6 +77,12 @@ class AnalysisController extends Controller {
       $analysis->students()->sync($students);
     }
 
+    if (!empty($request['reviewers'])) {
+      $reviewers = $this->syncData($request['reviewers']);
+
+      $analysis->reviewers()->sync($reviewers);
+    }
+
     $analysis->save();
   }
 

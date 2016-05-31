@@ -14,6 +14,10 @@ class Analysis extends Model {
     return $this->belongsToMany('App\Student')->withTimestamps();
   }
 
+  public function reviewers() {
+    return $this->belongsToMany('App\Reviewer')->withTimestamps();
+  }
+
   public function coretasks() {
     return $this->belongsToMany('App\Coretask')->withTimestamps();
   }
