@@ -20,9 +20,11 @@ class WorkprocessController extends Controller {
     $id = Auth::id();
     $role = User::find($id)->role;
     $coretasks = Coretask::get();
+    $workprocesses = Workprocess::all();
 
     return view('pages.werkprocessen', [
       'coretasks' => $coretasks,
+      'workprocesses' => $workprocesses,
       'role' => $role,
     ]);
   }
@@ -35,6 +37,7 @@ class WorkprocessController extends Controller {
    */
   protected function validator(array $data) {
     return Validator::make($data, [
+      'coretask_id' => 'required|min:1',
       'title' => 'required|max:255|min:1|unique:workprocesses',
       'description' => 'required|min:1',
     ]);
@@ -53,7 +56,7 @@ class WorkprocessController extends Controller {
     }
 
     $workprocess = new Workprocess();
-    $workprocess->core_task_id = $request['core_task_id'];
+    $workprocess->coretask_id = $request['coretask_id'];
     $workprocess->title = $request['title'];
     $workprocess->description = $request['description'];
     $workprocess->save();

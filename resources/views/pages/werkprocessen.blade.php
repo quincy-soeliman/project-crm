@@ -13,27 +13,46 @@
             @endif
             <div class="head col-xs-12 col-md-12">
                 <div class="no-padding col-xs-12 col-md-12">
-                    <h1 class="title">Kerntaak toevoegen</h1>
+                    <h1 class="title">Werkprocessen toevoegen</h1>
                 </div>
             </div>
             <div class="add-form col-xs-12 col-md-12">
-                <form action="{{ url('/werkproces') }}" method="POST">
-                    {{ csrf_field() }}
+                @foreach( $coretasks as $coretask )
+                    <div class="whole-container col-xs-12 col-md-12">
+                        <h1 class="trigger-dropdown">{{ $coretask->title }}</h1>
+                        <div class="add-workprocess-form col-xs-12 col-md-12">
+                            <div class="existing-workprocesses-container col-xs-12 col-md-12">
+                                @foreach( $workprocesses as $workprocess )
+                                    @if( $workprocess->coretask_id === $coretask->id )
+                                        <h2>{{ $workprocess->title }}</h2>
+                                        <p>{{ $workprocess->description }}</p>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <form action="{{ url('/werkproces') }}" method="POST">
+                                {{ csrf_field() }}
 
-                    <div class="form-group col-xs-12 col-md-12">
-                        <label for="title">Werkprocess titel:</label>
-                        <input type="text" class="form-control" autocomplete="off" name="title" placeholder="Werkprocess titel">
-                    </div>
+                                <div class="form-group col-xs-12 col-md-12">
+                                    <input type="hidden" class="form-control" autocomplete="off" name="coretask_id" value="{{ $coretask->id }}">
+                                </div>
 
-                    <div class="form-group col-xs-12 col-md-12">
-                        <label for="description">Werkprocess beschrijving:</label>
-                        <textarea type="text" class="form-control" autocomplete="off" name="description" placeholder="Werkprocess beschrijving"></textarea>
-                    </div>
+                                <div class="form-group col-xs-12 col-md-12">
+                                    <label for="title">Werkprocess titel:</label>
+                                    <input type="text" class="form-control" autocomplete="off" name="title" placeholder="Werkprocess titel">
+                                </div>
 
-                    <div class="form-group col-xs-12 col-md-12">
-                        <button type="submit" class="btn btn-primary">Aanmaken</button>
+                                <div class="form-group col-xs-12 col-md-12">
+                                    <label for="description">Werkprocess beschrijving:</label>
+                                    <textarea type="text" class="form-control" autocomplete="off" name="description" placeholder="Werkprocess beschrijving"></textarea>
+                                </div>
+
+                                <div class="form-group col-xs-12 col-md-12">
+                                    <button type="submit" class="btn btn-primary">Aanmaken</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </form>
+                @endforeach
             </div>
         </div>
     </div>

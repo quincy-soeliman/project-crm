@@ -1,6 +1,27 @@
 .add-form {
     margin-top: 1em;
 
+    .whole-container {
+        @extend .acordeon-layout;
+        @include transition(.2s);
+
+        h1 {
+            margin-top: 10px;
+            color: $acw-add-title-color;
+            font-size: $acw-add-title-font-size;
+            font-weight: $acw-add-title-font-weight;
+            cursor: pointer;
+        }
+
+        .add-workprocess-form {
+            display: none;
+
+            h1 {
+                cursor: default;
+            }
+        }
+    }
+
     form {
         label {
             color: $acw-add-input-label-color;

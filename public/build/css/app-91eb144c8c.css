@@ -5785,6 +5785,11 @@ body {
 .no-padding {
   padding: 0; }
 
+.acordeon-layout, .add-form .whole-container {
+  border: 1px solid #D2D2D2;
+  border-radius: 3px;
+  margin-bottom: 1em; }
+
 .navbar {
   background-color: #FBF2F2; }
   .navbar a {
@@ -6465,6 +6470,21 @@ body {
 
 .add-form {
   margin-top: 1em; }
+  .add-form .whole-container {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out; }
+    .add-form .whole-container h1 {
+      margin-top: 10px;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer; }
+    .add-form .whole-container .add-workprocess-form {
+      display: none; }
+      .add-form .whole-container .add-workprocess-form h1 {
+        cursor: default; }
   .add-form form label {
     color: #000;
     font-size: 16px;
