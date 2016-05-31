@@ -17,12 +17,13 @@
                 </div>
             </div>
             <div class="add-form col-xs-12 col-md-12">
-                <form action="{{ url('/analyses/aanmaken') }}" method="POST">
+                <form action="{{ url('analyses/aanmaken') }}" method="POST">
                     {{ csrf_field() }}
-                    
+
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="title">Analyse titel:</label>
-                        <input type="text" class="form-control" autocomplete="off" name="title" placeholder="Analyse titel">
+                        <input type="text" class="form-control" autocomplete="off" name="title"
+                               placeholder="Analyse titel">
                     </div>
 
                     @foreach( $coretasks as $coretask )
@@ -31,7 +32,8 @@
                                 <h1 class="trigger-dropdown">{{ $coretask->title }}</h1>
                                 <div class="form-group analyse-workprocess-select col-xs-12 col-md-12">
                                     <label for="workprocesses">Werkprocessen:</label>
-                                    <select autocomplete="off" name="workprocesses" class="analyse-workprocess-select-field" placeholder="Werkprocessen"
+                                    <select autocomplete="off" name="workprocesses[]"
+                                            class="analyse-workprocess-select-field" placeholder="Werkprocessen"
                                             class="form-control" multiple="multiple" style="width: 100%;">
                                         @foreach ($workprocesses as $workproces)
                                             <option value="{{ $workproces->id }}">{{ $workproces->title }}</option>

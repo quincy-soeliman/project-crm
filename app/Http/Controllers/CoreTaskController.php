@@ -48,11 +48,11 @@ class CoretaskController extends Controller {
       return back()->with('status', 'De kerntaak bestaat al.');
     }
 
+    $validator = $this->validator($request->all());
+
     if ($validator->fails()) {
       return redirect('kerntaak')->with('status', 'Voer alle verplichte velden in.');
     }
-
-    $validator = $this->validator($request->all());
 
     $coretask = new Coretask();
     $coretask->title = $request['title'];

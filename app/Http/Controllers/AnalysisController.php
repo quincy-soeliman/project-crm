@@ -49,7 +49,11 @@ class AnalysisController extends Controller {
     ]);
   }
 
-  public function create() {
+  public function create(Request $request) {
+    if (Analysis::where('title', '=', $request['title'])->exists()) {
+      return back()->with('status', 'De analyse bestaat al.');
+    }
+
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
@@ -58,6 +62,7 @@ class AnalysisController extends Controller {
 
     $analysis = new Analysis();
     $analysis->title = $request['title'];
+    $analysis->save();
 
     if (!empty($request['coretasks'])) {
       $reviewers = $this->syncData($request['coretasks']);
@@ -83,7 +88,7 @@ class AnalysisController extends Controller {
       $analysis->reviewers()->sync($reviewers);
     }
 
-    $analysis->save();
+    return back()->with('status', $request['title'] . ' is aangemaakt.');
   }
 
   public function syncData($request) {
