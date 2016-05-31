@@ -79,7 +79,7 @@ Route::group(['middleware' => ['role:college']], function() {
   // Analyses Routes...
   Route::get('analyses', 'AnalysisController@index');
   Route::get('analyses/aanmaken', 'AnalysisController@showForm');
-  Route::post('analyses/aanmaken', 'AnalysisController@showForm');
+  Route::post('analyses/aanmaken', 'AnalysisController@create');
 
 });
 

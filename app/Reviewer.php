@@ -26,4 +26,8 @@ class Reviewer extends Model {
     return $this->belongsToMany('App\Student')->withTimestamps();
   }
 
+  public function analyses() {
+    return $this->belongsToMany('App\Analysis')->withTimestamps();
+  }
+
 }

@@ -29,6 +29,8 @@ class ProfileController extends Controller {
         break;
       case 'administrator':
         break;
+      case 'college':
+        break;
       default:
         if ($user_id != $id) {
           return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
