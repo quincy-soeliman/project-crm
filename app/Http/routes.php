@@ -96,4 +96,9 @@ Route::group(['middleware' => ['role:administrator']], function() {
   Route::get('werkproces', 'WorkprocessController@index');
   Route::post('werkproces', 'WorkprocessController@create');
 
+  // User Routes...
+  Route::get('gebruikers', 'UserController@index');
+  Route::post('gebruikers/{id}', 'UserController@update');
+  Route::delete('gebruikers/{id}', 'UserController@destroy');
+
 });
