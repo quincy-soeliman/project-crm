@@ -21,6 +21,11 @@
                     <div class="whole-container col-xs-12 col-md-12">
                         <h1 class="trigger-dropdown">{{ $coretask->title }}</h1>
                         <div class="add-workprocess-form col-xs-12 col-md-12">
+                            {{--<div class="col-md-12 col-xs-12">
+                                <h3 class="headline-title">
+                                    Werkprocessen van {{ $coretask->title }}:
+                                </h3>
+                            </div>--}}
                             <div class="existing-workprocesses-container col-xs-12 col-md-12">
                                 @foreach( $workprocesses as $workprocess )
                                     @if( $workprocess->coretask_id === $coretask->id )
@@ -29,6 +34,11 @@
                                     @endif
                                 @endforeach
                             </div>
+                            {{--<div class="col-md-12 col-xs-12">
+                                <h3 class="headline-title">
+                                    Voeg één werkprocess toe:
+                                </h3>
+                            </div>--}}
                             <form action="{{ url('/werkproces') }}" method="POST">
                                 {{ csrf_field() }}
 

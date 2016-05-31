@@ -19,6 +19,21 @@
             h1 {
                 cursor: default;
             }
+
+            .existing-workprocesses-container {
+                h2 {
+                    color: $acw-existing-workprocess-title-color;
+                    font-size: $acw-existing-workprocess-title-font-size;
+                    font-weight: $acw-existing-workprocess-title-font-weight;
+                }
+                p {
+                    padding-bottom: 15px;
+                    color: $acw-existing-workprocess-description-color;
+                    font-size: $acw-existing-workprocess-description-font-size;
+                    font-weight: $acw-existing-workprocess-description-font-weight;
+                    border-bottom: 1px solid #D2D2D2;
+                }
+            }
         }
     }
 
@@ -45,6 +60,8 @@
             border-radius: 0;
             min-height: 10em;
             max-height: 10em;
+            min-width: 100%;
+            max-width: 100%;
 
             @include placeholder {
                 color: $acw-add-input-field-color;

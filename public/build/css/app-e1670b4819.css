@@ -5785,6 +5785,17 @@ body {
 .no-padding {
   padding: 0; }
 
+.message {
+  text-align: center; }
+  .message p {
+    display: inline-block;
+    padding: 1em .5em;
+    margin-top: 2em;
+    background-color: #446CB3;
+    color: #FFF;
+    font-size: initial;
+    font-weight: 400; }
+
 .acordeon-layout, .add-form .whole-container {
   border: 1px solid #D2D2D2;
   border-radius: 3px;
@@ -6485,6 +6496,16 @@ body {
       display: none; }
       .add-form .whole-container .add-workprocess-form h1 {
         cursor: default; }
+      .add-form .whole-container .add-workprocess-form .existing-workprocesses-container h2 {
+        color: #000;
+        font-size: 25px;
+        font-weight: 600; }
+      .add-form .whole-container .add-workprocess-form .existing-workprocesses-container p {
+        padding-bottom: 15px;
+        color: #000;
+        font-size: 16px;
+        font-weight: 300;
+        border-bottom: 1px solid #D2D2D2; }
   .add-form form label {
     color: #000;
     font-size: 16px;
@@ -6510,7 +6531,9 @@ body {
     font-weight: 400;
     border-radius: 0;
     min-height: 10em;
-    max-height: 10em; }
+    max-height: 10em;
+    min-width: 100%;
+    max-width: 100%; }
     .add-form form textarea::-webkit-input-placeholder {
       color: #9C9C9C; }
     .add-form form textarea:-moz-placeholder {

@@ -19,6 +19,20 @@ body {
     padding: 0;
 }
 
+.message {
+    text-align: center;
+
+    p {
+        display: inline-block;
+        padding: 1em .5em;
+        margin-top: 2em;
+        background-color: $message-box-background-color;
+        color: $message-box-text-color;
+        font-size: $message-box-text-font-size;
+        font-weight: $message-box-text-font-weight;
+    }
+}
+
 .acordeon-layout {
     border: 1px solid #D2D2D2;
     border-radius: 3px;

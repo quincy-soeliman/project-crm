@@ -5,6 +5,13 @@ $navigation-item-color: #BFBFBF;
 $navigation-item-font-size: 15px;
 $navigation-item-font-weight: 400;
 
+// Message
+// ~ Text
+$message-box-background-color: #446CB3;
+$message-box-text-color: #FFF;
+$message-box-text-font-size: initial;
+$message-box-text-font-weight: 400;
+
 // Login
 $login-background-image: url(../img/login-screen-img.jpg);
 $login-background-overlay-color: rgba(58, 83, 155, .8);
@@ -174,3 +181,11 @@ $acw-add-submit-button-background-color: #446CB3;
 $acw-add-submit-button-color: #FFF;
 $acw-add-submit-button-font-size: 16px;
 $acw-add-submit-button-font-weight: 600;
+// ~ Existing workprocess title
+$acw-existing-workprocess-title-color: #000;
+$acw-existing-workprocess-title-font-size: 25px;
+$acw-existing-workprocess-title-font-weight: 600;
+// ~ Existing workprocess description
+$acw-existing-workprocess-description-color: #000;
+$acw-existing-workprocess-description-font-size: 16px;
+$acw-existing-workprocess-description-font-weight: 300;
