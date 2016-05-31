@@ -44,17 +44,21 @@ class CoretaskController extends Controller {
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
    */
   public function create(Request $request) {
-    $validator = $this->validator($request->all());
+    if (Coretask::where('title', '=', $request['title'])->exists()) {
+      return back()->with('status', 'De kerntaak bestaat al.');
+    }
 
     if ($validator->fails()) {
       return redirect('kerntaak')->with('status', 'Voer alle verplichte velden in.');
     }
 
+    $validator = $this->validator($request->all());
+
     $coretask = new Coretask();
     $coretask->title = $request['title'];
     $coretask->save();
 
-    return redirect('kerntaak')->with('status' , 'Kerntaak: ' . $request['title'] . ' is aangemaakt.');
+    return redirect('kerntaak')->with('status' , $request['title'] . ' is aangemaakt.');
   }
 
 }

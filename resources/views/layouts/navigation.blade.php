@@ -60,48 +60,35 @@
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-
-                            @if( $role === 'administrator' )
-                                <p>Administrator <span class="caret"></span></p>
-                            @else
-                                @foreach ($data as $profile)
-                                    <p>{{ $profile->first_name }} {{ $profile->last_name }} {{ $profile->name }} <span class="caret"></span></p>
-                                @endforeach
-                            @endif
-
-                            @if( $role == 'administrator' )
-                                <p>Administrator <span class="caret"></span></p>
-                            @else
-                                <?php
-                                    switch($current_user->role) {
-                                        case 'student':
-                                            $student = $current_user->student()->get();
-                                            print $student[0]->first_name . ' ' . $student[0]->last_name;
-                                            break;
-                                        case 'teacher':
-                                            $teacher = $current_user->teacher()->get();
-                                            print $teacher[0]->first_name . ' ' . $teacher[0]->last_name;
-                                            break;
-                                        case 'college':
-                                            $college = $current_user->college()->get();
-                                            print $college[0]->name;
-                                            break;
-                                        case 'reviewer':
-                                            $reviewer = $current_user->reviewer()->get();
-                                            print $reviewer[0]->first_name . ' ' . $reviewer[0]->last_name;
-                                            break;
-                                        case 'company':
-                                            $company = $current_user->company()->get();
-                                            print $company[0]->name;
-                                            break;
-                                        case 'administrator':
-                                            $administrator = $current_user->administrator()->get();
-                                            print $administrator[0]->first_name . ' ' . $administrator[0]->last_name;
-                                            break;
-                                    }
-                                ?>
-                            @endif
-
+                            <?php
+                                switch($current_user->role) {
+                                    case 'student':
+                                        $student = $current_user->student()->get();
+                                        print $student[0]->first_name . ' ' . $student[0]->last_name;
+                                        break;
+                                    case 'teacher':
+                                        $teacher = $current_user->teacher()->get();
+                                        print $teacher[0]->first_name . ' ' . $teacher[0]->last_name;
+                                        break;
+                                    case 'college':
+                                        $college = $current_user->college()->get();
+                                        print $college[0]->name;
+                                        break;
+                                    case 'reviewer':
+                                        $reviewer = $current_user->reviewer()->get();
+                                        print $reviewer[0]->first_name . ' ' . $reviewer[0]->last_name;
+                                        break;
+                                    case 'company':
+                                        $company = $current_user->company()->get();
+                                        print $company[0]->name;
+                                        break;
+                                    case 'administrator':
+                                        $administrator = $current_user->administrator()->get();
+                                        print $administrator[0]->first_name . ' ' . $administrator[0]->last_name;
+                                        break;
+                                }
+                            ?>
+                            <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">

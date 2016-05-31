@@ -41,6 +41,10 @@ class CollegeController extends Controller {
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
    */
   public function create(Request $request) {
+    if (User::where('email', '=', $request['email'])->exists()) {
+      return back()->with('status', 'Dit e-mail bestaat al.');
+    }
+    
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {

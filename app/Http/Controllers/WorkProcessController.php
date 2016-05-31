@@ -49,6 +49,10 @@ class WorkprocessController extends Controller {
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
    */
   public function create(Request $request) {
+    if (Workprocess::where('title', '=', $request['title'])->exists()) {
+      return back()->with('status', 'De werkproces bestaat al');
+    }
+
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
@@ -61,7 +65,7 @@ class WorkprocessController extends Controller {
     $workprocess->description = $request['description'];
     $workprocess->save();
 
-    return redirect('werkproces')->with('status', 'Werkproces ' . $request['title'] . ' is aangemaakt.');
+    return redirect('werkproces')->with('status', $request['title'] . ' is aangemaakt.');
   }
 
 }
