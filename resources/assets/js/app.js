@@ -10,7 +10,7 @@ function analyseDropdown($targetToOpen) {
         $(this).on('click', function() {
             // Save clicked analyse box in separate variable
             // Save toggle state of clicked anayluse box in variable
-            var $analyseBox = $(this).parent();
+            var $analyseBox = $(this).closest("div");
                 toggleState = $analyseBox.attr('toggled');
 
             // Open the coretasks list
