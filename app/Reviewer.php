@@ -30,4 +30,8 @@ class Reviewer extends Model {
     return $this->belongsToMany('App\Analysis')->withTimestamps();
   }
 
+  public function workprocesses() {
+    return $this->belongsToMany('App\Workprocess')->withTimestamps();
+  }
+
 }

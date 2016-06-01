@@ -18,4 +18,8 @@ class Coretask extends Model {
     return $this->belongsToMany('App\Analysis')->withTimestamps();
   }
 
+  public function coretasks() {
+    return $this->belongsToMany('App\Coretask')->withTimestamps();
+  }
+
 }

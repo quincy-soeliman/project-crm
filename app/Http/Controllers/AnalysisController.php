@@ -65,9 +65,9 @@ class AnalysisController extends Controller {
     $analysis->save();
 
     if (!empty($request['coretasks'])) {
-      $reviewers = $this->syncData($request['coretasks']);
+      $coretasks = $this->syncData($request['coretasks']);
 
-      $analysis->reviewers()->sync($reviewers);
+      $analysis->coretasks()->sync($coretasks);
     }
 
     if (!empty($request['workprocesses'])) {

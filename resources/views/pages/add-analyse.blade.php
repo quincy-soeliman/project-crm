@@ -27,6 +27,7 @@
                     </div>
 
                     @foreach( $coretasks as $coretask )
+                        <input type="hidden" name="coretasks[]" value="{{ $coretask->id }}">
                         <div class="col-xs-12 col-md-12">
                             <div class="form-group analyse-coretask-select col-xs-12 col-md-12">
                                 <h1 class="trigger-dropdown">{{ $coretask->title }}</h1>

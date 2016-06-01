@@ -16,7 +16,12 @@ class Workprocess extends Model {
   }
 
   public function analyses() {
-    return $this->belongsToMany('App\Analysis');
+    return $this->belongsToMany('App\Analysis')->withTimestamps();
   }
 
+  public function reviewers() {
+    return $this->belongsToMany('App\Reviewer')->withTimestamps();
+  }
+  
+  
 }
