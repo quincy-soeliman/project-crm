@@ -1,15 +1,3 @@
-@foreach ($analyses as $analysis)
-    {{ $analysis->title }}
-
-    <?php $workprocesses = $analysis->workprocesses()->get(); ?>
-
-    @foreach ($workprocesses as $workprocess)
-        {{ $workprocess->title }}
-        <?php $coretask = App\Coretask::find($workprocess->coretask_id) ?>
-        {{ $coretask->title }}
-    @endforeach
-@endforeach
-
 @extends('layouts.app')
 
 @section('content')
@@ -38,93 +26,29 @@
             </div>
             <div class="analyses col-xs-12 col-md-12" style="padding-top: 2em;">
                 <div class="analyses-container col-xs-12 col-md-12">
-                    <!-- Analyse box -->
-                    <div class="analyse-box col-xs-12 col-md-12">
-                        <h1 class="trigger-dropdown">Analyse title 1 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                        <!-- Coretask box -->
-                        <div class="coretask-box col-xs-12 col-md-12">
-                            <h1 class="trigger-dropdown">Coretask title 1 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 1</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
-                        </div>
-                        <!-- Coretask box -->
-                        <div class="coretask-box col-xs-12 col-md-12">
-                            <h1 class="trigger-dropdown">Coretask title 2 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 1</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
-                        </div>
+                    @foreach ($analyses as $analysis)
+                            
+                        <div class="analyse-box col-xs-12 col-md-12">
+                            <h1 class="trigger-dropdown">{{ $analysis->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
 
-                    </div>
-                    <!-- Analyse box -->
-                    <div class="analyse-box col-xs-12 col-md-12">
-                        <h1 class="trigger-dropdown">Analyse title 2 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                        <!-- Coretask box -->
-                        <div class="coretask-box col-xs-12 col-md-12">
-                            <h1 class="trigger-dropdown">Coretask title 1 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 1</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
+                            @foreach ($analysis->coretasks()->get() as $coretask)
+                                @if (count($coretask->workprocesses()->get()) > 0)
+                                    <div class="coretask-box col-xs-12 col-md-12">
+                                        <h1 class="trigger-dropdown">{{ $coretask->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+                                        @foreach ($analysis->workprocesses()->get() as $workprocess)
+                                            @if ($workprocess->coretask_id == $coretask->id)
+                                                <div class="workprocess-box col-xs-12 col-md-12">
+                                                    <h1>{{ $workprocess->title }}</h1>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
-                        <!-- Coretask box -->
-                        <div class="coretask-box col-xs-12 col-md-12">
-                            <h1 class="trigger-dropdown">Coretask title 2 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 1</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
-                        </div>
-                        <!-- Coretask box -->
-                        <div class="coretask-box col-xs-12 col-md-12">
-                            <h1 class="trigger-dropdown">Coretask title 3 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 1</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
-                            <!-- Workprocess box -->
-                            <div class="workprocess-box col-xs-12 col-md-12">
-                                <h1>Workprocess title 2</h1>
-                            </div>
-                        </div>
-
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
-
-
         </div>
     </div>
 @endsection
