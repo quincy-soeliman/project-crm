@@ -35,7 +35,7 @@
                                     <select autocomplete="off" name="workprocesses[]"
                                             class="analyse-workprocess-select-field" placeholder="Werkprocessen"
                                             class="form-control" multiple="multiple" style="width: 100%;">
-                                        @foreach ($workprocesses as $workproces)
+                                        @foreach ($coretask->workprocesses()->get() as $workproces)
                                             <option value="{{ $workproces->id }}">{{ $workproces->title }}</option>
                                         @endforeach
                                     </select>
