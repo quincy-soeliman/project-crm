@@ -17,36 +17,19 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="{{ url('/home') }}">Home</a></li>
+                @if( $current_user->role != 'administrator' )
+                    <li><a href="{{ url('profiel/' . Auth::id()) }}">Profiel</a></li>
+                @endif
 
-                @if( $current_user->role == 'student' )
-                    <li><a href="{{ url('/home') }}">Student 1</a></li>
-                    <li><a href="{{ url('/home') }}">Student 2</a></li>
-                @elseif( $current_user->role == 'teacher' )
-                    <li><a href="{{ url('/home') }}">Teacher 1</a></li>
-                    <li><a href="{{ url('/home') }}">Teacher 2</a></li>
-
-                @elseif( $current_user->role === 'college' )
+                @if( $current_user->role === 'college' )
                     <li><a href="{{ url('/analyses') }}">Analyses overzicht</a></li>
                     <li><a href="{{ url('/analyses/aanmaken') }}">Analyses toevoegen</a></li>
-                @elseif( $current_user->role === 'reviewer' )
-                    <li><a href="{{ url('/home') }}">Reviewer 1</a></li>
-                    <li><a href="{{ url('/home') }}">Reviewer 2</a></li>
-                @elseif( $current_user->role === 'company' )
+                    <li><a href="{{ url('/beoordelaars') }}">Beoordelaar analyses</a></li>
 
-                @elseif( $current_user->role == 'college' )
-                    <li><a href="{{ url('/home') }}">College 1</a></li>
-                    <li><a href="{{ url('/home') }}">College 2</a></li>
-                @elseif( $current_user->role == 'reviewer' )
-                    <li><a href="{{ url('/home') }}">College 1</a></li>
-                    <li><a href="{{ url('/home') }}">College 2</a></li>
-                @elseif( $current_user->role == 'company' )
-
-                    <li><a href="{{ url('/home') }}">Company 1</a></li>
-                    <li><a href="{{ url('/home') }}">Company 2</a></li>
                 @elseif( $current_user->role == 'administrator' )
                     <li><a href="{{ url('/kerntaak') }}">Kerntaken aanmaken</a></li>
                     <li><a href="{{ url('/werkproces') }}">Werkprocessen aanmaken</a></li>
+                    <li><a href="{{ url('/gebruikers') }}">Gebruikers overzicht</a></li>
                 @endif
 
             </ul>

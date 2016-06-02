@@ -29,12 +29,15 @@
                     @foreach ($analyses as $analysis)
                             
                         <div class="analyse-box col-xs-12 col-md-12">
-                            <h1 class="trigger-dropdown">{{ $analysis->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+                            <h1 class="trigger-dropdown" toslidedown=".coretask-box">{{ $analysis->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+                            <div class="add-reviewer col-xs-2 col-md-2">
+                                <a href="" class="btn btn-default">Beoorderlaar toevoegen</a>
+                            </div>
 
                             @foreach ($analysis->coretasks()->get() as $coretask)
                                 @if (count($coretask->workprocesses()->get()) > 0)
                                     <div class="coretask-box col-xs-12 col-md-12">
-                                        <h1 class="trigger-dropdown">{{ $coretask->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+                                        <h1 class="trigger-dropdown" toslidedown=".workprocess-box">{{ $coretask->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
                                         @foreach ($analysis->workprocesses()->get() as $workprocess)
                                             @if ($workprocess->coretask_id == $coretask->id)
                                                 <div class="workprocess-box col-xs-12 col-md-12">

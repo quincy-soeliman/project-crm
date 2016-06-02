@@ -19,7 +19,7 @@
             <div class="add-form col-xs-12 col-md-12">
                 @foreach( $coretasks as $coretask )
                     <div class="whole-container col-xs-12 col-md-12">
-                        <h1 class="trigger-dropdown">{{ $coretask->title }}</h1>
+                        <h1 class="trigger-dropdown" toslidedown=".add-workprocess-form">{{ $coretask->title }}</h1>
                         <div class="add-workprocess-form col-xs-12 col-md-12">
                             {{--<div class="col-md-12 col-xs-12">
                                 <h3 class="headline-title">

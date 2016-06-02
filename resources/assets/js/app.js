@@ -1,52 +1,33 @@
-function analyseDropdown($targetToOpen) {
+function analyseDropdown() {
+    $('.trigger-dropdown').attr('toggled', 'no');
 
-    // Triggers for analyse box dropdown
-    // Do triggers for each analyse box sepparetly
-    $(".trigger-dropdown").each( function() {
-        // Add toggle data to all boxes
-        $(this).parent().attr('toggled', 'no');
-            
-        // On click of analyse box fire trigger
-        $(this).on('click', function() {
-            // Save clicked analyse box in separate variable
-            // Save toggle state of clicked anayluse box in variable
-            var $analyseBox = $(this).closest("div");
-                toggleState = $analyseBox.attr('toggled');
+    $(".trigger-dropdown").on('click', function() {
+        console.log('click');
+        var $trigger = $(this);
+        var $target = $(this).attr('toslidedown');
+        var toggleState = $(this).attr('toggled');
 
-            // Open the coretasks list
-            if( toggleState === 'no' ) {
-                // Find all coretasks under clicked analyse box and trigger for each of them separetly
-                $analyseBox.find($targetToOpen).each( function() {
-                    // Slide open the coretasks boxes
-                    $(this).stop().slideDown('fast');
-                    // Change the toggle state of clicked analyse box
-                    $analyseBox.attr('toggled', 'yes');
+        if( toggleState === 'no' ) {
+            console.log('no');
+            $trigger.parent().find($target).each( function() {
+                $(this).slideDown('fast', function() {
+                    $trigger.attr('toggled', 'yes');
                 });
-            }
-            // Close the coretasks list
-            if( toggleState === 'yes' ) {
-                // Find all coretasks under clicked analyse box and trigger for each of them separetly
-                $analyseBox.find($targetToOpen).each( function() {
-                    // Slide shut the coretasks boxes
-                    $(this).stop().slideUp('fast');
-                    // Change the toggle state of clicked analyse box
-                    $analyseBox.attr('toggled', 'no');
-                })
-            }
-
-        });
+            });
+        } else {
+            console.log('yes');
+            $trigger.parent().find($target).each( function() {
+                $(this).slideUp('fast', function() {
+                    $trigger.attr('toggled', 'no');
+                });
+            });
+        }
     });
 }
 
 $(function() {
     // Init anaylse dropdown
-    // ~ Profile
-    analyseDropdown('.coretask-box');
-    analyseDropdown('.workprocess-box');
-    // ~ Admin
-    analyseDropdown('.add-workprocess-form');
-    // ~ School
-    analyseDropdown('.analyse-workprocess-select');
+    analyseDropdown();
 
     // Switch between position relative and fixed for menu
     $(window).scroll( function() {
