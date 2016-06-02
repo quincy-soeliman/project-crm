@@ -2,93 +2,35 @@
     <div class="analyses col-xs-12 col-md-12">
         <div class="col-xs-12 col-md-12">
             <h3 class="headline-title">
-                Analyses:
+                Analyses van {{ $profile->first_name }} {{ $profile->last_name }}:
             </h3>
         </div>
+
         <div class="analyses-container col-xs-12 col-md-12">
-            <!-- Analyse box -->
-            <div class="analyse-box col-xs-12 col-md-12">
-                <h1 class="trigger-dropdown" toslidedown=".coretask-box">Analyse title 1 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                <!-- Coretask box -->
-                <div class="coretask-box col-xs-12 col-md-12">
-                    <h1 class="trigger-dropdown" toslidedown=".workprocess-box">Coretask title 1 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 1</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                </div>
-                <!-- Coretask box -->
-                <div class="coretask-box col-xs-12 col-md-12">
-                    <h1 class="trigger-dropdown" toslidedown=".workprocess-box">Coretask title 2 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 1</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                </div>
+            @foreach ($analyses as $analysis)
 
-            </div>
-            <!-- Analyse box -->
-            <div class="analyse-box col-xs-12 col-md-12">
-                <h1 class="trigger-dropdown" toslidedown=".coretask-box">Analyse title 2 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                <!-- Coretask box -->
-                <div class="coretask-box col-xs-12 col-md-12">
-                    <h1 class="trigger-dropdown" toslidedown=".workprocess-box">Coretask title 1 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 1</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                </div>
-                <!-- Coretask box -->
-                <div class="coretask-box col-xs-12 col-md-12">
-                    <h1 class="trigger-dropdown" toslidedown=".workprocess-box">Coretask title 2 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 1</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                </div>
-                <!-- Coretask box -->
-                <div class="coretask-box col-xs-12 col-md-12">
-                    <h1 class="trigger-dropdown" toslidedown=".workprocess-box">Coretask title 3 <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 1</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                    <!-- Workprocess box -->
-                    <div class="workprocess-box col-xs-12 col-md-12">
-                        <h1>Workprocess title 2</h1>
-                    </div>
-                </div>
+                <div class="analyse-box col-xs-12 col-md-12">
+                    <h1 class="trigger-dropdown" toslidedown=".coretask-box">{{ $analysis->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
 
-            </div>
-
+                    @foreach ($analysis->coretasks()->get() as $coretask)
+                        @if (count($coretask->workprocesses()->get()) > 0)
+                            <div class="coretask-box col-xs-12 col-md-12">
+                                <h1 class="trigger-dropdown" toslidedown=".workprocess-box">{{ $coretask->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
+                                @foreach ($analysis->workprocesses()->get() as $workprocess)
+                                    @if ($workprocess->coretask_id == $coretask->id)
+                                        <div class="workprocess-box col-xs-12 col-md-12">
+                                            <h1>{{ $workprocess->title }}</h1>
+                                            <?php $w = $workprocess->students()->where('student_id', $data[0]->id)->first(); ?>
+                                            {{ $w->pivot->done }}
+                                        </div>                                      
+                                    @endif
+                                @endforeach
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            @endforeach
         </div>
+
     </div>
 @endif

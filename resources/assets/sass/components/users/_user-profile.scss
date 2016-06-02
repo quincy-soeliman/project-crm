@@ -1,0 +1,45 @@
+.users {
+    margin-top: 2em;
+
+    .user-container {
+        @extend .acordeon-layout;
+
+        .user {
+            @extend .acordeon-layout;
+
+            p {
+                display: inline-block;
+                margin-top: 10px;
+                font-weight: 600;
+            }
+
+            .user-option {
+                margin-top: 5px;
+                padding-right: 10px;
+                color: black;
+                font-size: 20px;
+                text-decoration: none;
+                float: right;
+
+                &.accept {
+                    color: #26A65B;
+                    
+                    @include transition(.2s);
+
+                    &:hover {
+                        color: darken(#26A65B, 10%);
+                    }
+                }
+                &.deny {
+                    color: #D91E18;
+                    
+                    @include transition(.2s);
+
+                    &:hover {
+                        color: darken(#D91E18, 10%);
+                    }
+                }
+            }
+        }
+    }
+}

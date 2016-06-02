@@ -35,6 +35,15 @@ $(function() {
     // Init anaylse dropdown
     analyseDropdown();
 
+    // Cheack if has users
+    $(".user-container").each( function() {
+        var $this = $(this);
+
+        if( $this.find('.user').length == 0 ) {
+            $this.hide();
+        }
+    });
+
     // Init select2
     $("#reviewer").select2();
     $(".analyse-workprocess-select-field").select2();

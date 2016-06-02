@@ -24,7 +24,7 @@
                     <h1 class="title">Analyse overzicht</h1>
                 </div>
             </div>
-            <div class="analyses col-xs-12 col-md-12" style="padding-top: 2em;">
+            <div class="analyses col-xs-12 col-md-12">
                 <div class="analyses-container col-xs-12 col-md-12">
                     @foreach ($analyses as $analysis)
 
