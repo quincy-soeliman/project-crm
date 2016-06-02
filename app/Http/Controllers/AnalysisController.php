@@ -99,17 +99,17 @@ class AnalysisController extends Controller {
     ]);
   }
 
-  public function linkReviewers($id) {
+  public function linkReviewers($id, Request $request) {
     $analysis = Analysis::find($id);
 
     if (empty($request['reviewers'])) {
-      return back()->with('status', 'U heeft geen beoordelaar geselecteerd');
+      return redirect('analyses/' . $id . '/beoordelaars')->with('status', 'U heeft geen beoordelaar geselecteerd');
     }
 
     $reviewers = $this->syncData($request['reviewers']);
     $analysis->reviewers()->sync($reviewers);
 
-    redirect('analyses')->with('status', 'De beoordelaar is succesvol gekoppeld aan de analyse.');
+    return redirect('analyses')->with('status', 'De beoordelaar is succesvol gekoppeld aan de analyse.');
   }
 
   public function syncData($request) {

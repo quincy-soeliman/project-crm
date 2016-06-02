@@ -27,8 +27,6 @@
             <div class="analyses col-xs-12 col-md-12" style="padding-top: 2em;">
                 <div class="analyses-container col-xs-12 col-md-12">
                     @foreach ($analyses as $analysis)
-                        {{ method_field('put') }}
-                        {{ csrf_field() }}
 
                         <div class="analyse-box col-xs-12 col-md-12">
                             <h1 class="trigger-dropdown" toslidedown=".coretask-box">{{ $analysis->title }} <i class="fa fa-caret-down" aria-hidden="true"></i></h1>
