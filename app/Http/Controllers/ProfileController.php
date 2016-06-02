@@ -95,6 +95,20 @@ class ProfileController extends Controller {
       $student->reviewers()->sync($reviewers);
     }
 
+    $reviewers = $student->reviewers()->get();
+
+    $analyses_array = [];
+
+    foreach ($reviewers as $reviewer) {
+      if (!empty($reviewer->analyses()->get())) {
+        foreach ($reviewer->analyses()->get() as $key => $analyses) {
+          array_push($analyses_array, $analyses->id);
+        }
+      }
+    }
+
+    $student->analyses()->sync($analyses_array);
+
     return redirect('profiel/' . $user->id)->with('status', 'Uw profiel is bijgewerkt.');
   }
 
