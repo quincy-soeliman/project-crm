@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Reviewer;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Analysis;
@@ -60,35 +61,55 @@ class AnalysisController extends Controller {
       return redirect('analyses/aanmaken')->with('status', 'Voer alle verplichte velden in.');
     }
 
+    /**
+     * Creating an analysis.
+     */
     $analysis = new Analysis();
+
     $analysis->title = $request['title'];
-    $analysis->save();
 
     if (!empty($request['coretasks'])) {
-      $coretasks = $this->syncData($request['coretasks']);
-
-      $analysis->coretasks()->sync($coretasks);
+      return back()->with('status', 'U moet nog kerntaken aanmaken.');
     }
 
-    if (!empty($request['workprocesses'])) {
-      $workprocesses = $this->syncData($request['workprocesses']);
-
-      $analysis->workprocesses()->sync($workprocesses);
+    if (empty($request['workprocesses'])) {
+      return back()->with('status', 'U moet nog werkprocessen selecteren.');
     }
 
-    if (!empty($request['students'])) {
-      $students = $this->syncData($request['students']);
+    $analysis->save();
 
-      $analysis->students()->sync($students);
-    }
+    /**
+     * Syncing the many to many relationships.
+     */
+    $coretasks = $this->syncData($request['coretasks']);
+    $analysis->coretasks()->sync($coretasks);
 
-    if (!empty($request['reviewers'])) {
-      $reviewers = $this->syncData($request['reviewers']);
-
-      $analysis->reviewers()->sync($reviewers);
-    }
+    $workprocesses = $this->syncData($request['workprocesses']);
+    $analysis->workprocesses()->sync($workprocesses);
 
     return back()->with('status', $request['title'] . ' is aangemaakt.');
+  }
+
+  public function linkReviewersForm($id) {
+    $reviewers = Reviewer::get();
+
+    return view('pages.analysis_link_reviewers', [
+      'reviewers' => $reviewers,
+      'id' => $id
+    ]);
+  }
+
+  public function linkReviewers($id) {
+    $analysis = Analysis::find($id);
+
+    if (empty($request['reviewers'])) {
+      return back()->with('status', 'U heeft geen beoordelaar geselecteerd');
+    }
+
+    $reviewers = $this->syncData($request['reviewers']);
+    $analysis->reviewers()->sync($reviewers);
+
+    redirect('analyses')->with('status', 'De beoordelaar is succesvol gekoppeld aan de analyse.');
   }
 
   public function syncData($request) {
