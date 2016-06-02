@@ -1,6 +1,15 @@
 function analyseDropdown() {
     $('.trigger-dropdown').attr('toggled', 'no');
 
+    $('.trigger-dropdown').each( function() {
+        var $this = $(this);
+        var $testTarget = $this.attr('toslidedown');
+
+        if( $this.parent().find($testTarget).length === 0 ) {
+            $this.parent().addClass("hide");
+        }
+    });
+
     $(".trigger-dropdown").on('click', function() {
         var $trigger = $(this);
         var $target = $(this).attr('toslidedown');
@@ -25,12 +34,6 @@ function analyseDropdown() {
 $(function() {
     // Init anaylse dropdown
     analyseDropdown();
-
-    // Switch between position relative and fixed for menu
-    $(window).scroll( function() {
-        var addRemClass = $(window).scrollTop() > 0 ? 'addClass' : 'removeClass';
-        $(".navbar")[addRemClass]("scroll");
-    });
 
     // Init select2
     $("#reviewer").select2();

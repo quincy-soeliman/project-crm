@@ -5773,6 +5773,12 @@ button.close {
 body {
   font-family: 'Open Sans', sans-serif; }
 
+.hide {
+  display: none; }
+
+.main-content {
+  margin-top: 51px; }
+
 .fa-btn {
   margin-right: 6px; }
 
@@ -5802,6 +5808,8 @@ body {
   margin-bottom: 1em; }
 
 .navbar {
+  top: 0;
+  position: fixed;
   background-color: #FBF2F2; }
   .navbar a {
     color: #BFBFBF;

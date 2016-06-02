@@ -1,4 +1,6 @@
 .navbar {
+    top: 0;
+    position: fixed;
     background-color: $navigation-background-color;
 
     a {
