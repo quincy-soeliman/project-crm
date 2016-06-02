@@ -6456,7 +6456,11 @@ body {
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out; }
+  .analyses .analyses-container .analyse-box .add-reviewer {
+    margin-top: 5px;
+    float: right; }
   .analyses .analyses-container .analyse-box h1 {
+    display: inline-block;
     margin-top: 10px;
     color: #000;
     font-size: 20px;

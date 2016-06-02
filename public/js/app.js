@@ -2,20 +2,17 @@ function analyseDropdown() {
     $('.trigger-dropdown').attr('toggled', 'no');
 
     $(".trigger-dropdown").on('click', function() {
-        console.log('click');
         var $trigger = $(this);
         var $target = $(this).attr('toslidedown');
         var toggleState = $(this).attr('toggled');
 
         if( toggleState === 'no' ) {
-            console.log('no');
             $trigger.parent().find($target).each( function() {
                 $(this).slideDown('fast', function() {
                     $trigger.attr('toggled', 'yes');
                 });
             });
         } else {
-            console.log('yes');
             $trigger.parent().find($target).each( function() {
                 $(this).slideUp('fast', function() {
                     $trigger.attr('toggled', 'no');
