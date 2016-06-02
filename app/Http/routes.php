@@ -80,6 +80,8 @@ Route::group(['middleware' => ['role:college']], function() {
   Route::get('analyses', 'AnalysisController@index');
   Route::get('analyses/aanmaken', 'AnalysisController@showForm');
   Route::post('analyses/aanmaken', 'AnalysisController@create');
+  Route::get('analyses/{id}/beoordelaars', 'AnalysisController@linkReviewersForm');
+  Route::put('analyses/{id}/beoordelaars', 'AnalysisController@linkReviewers');
 
   Route::get('beoordelaars', 'ReviewerController@index');
   Route::get('beoordelaars/koppeling/{id}', 'ReviewerController@link');

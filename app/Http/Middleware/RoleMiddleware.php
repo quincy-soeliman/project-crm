@@ -20,7 +20,7 @@ class RoleMiddleware
             return redirect('login')->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
         }
 
-        if (Auth::user()->role != $role) {
+        if (Auth::user()->role !== $role) {
             return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
         }
 

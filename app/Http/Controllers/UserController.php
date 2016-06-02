@@ -8,10 +8,6 @@ use App\Http\Requests;
 
 class UserController extends Controller {
 
-  public function __construct() {
-    $this->middleware('role:administrator');
-  }
-
   public function index() {
     $users = User::get();
 

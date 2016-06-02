@@ -12,10 +12,6 @@ use Auth;
 
 class WorkprocessController extends Controller {
 
-  public function __construct() {
-    $this->middleware('role:administrator');
-  }
-
   public function index() {
     $id = Auth::id();
     $role = User::find($id)->role;
