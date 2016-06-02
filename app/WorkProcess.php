@@ -23,5 +23,7 @@ class Workprocess extends Model {
     return $this->belongsToMany('App\Reviewer')->withTimestamps();
   }
   
-  
+  public function students() {
+    return $this->belongsToMany('App\Student')->withPivot('done')->withTimestamps();
+  }
 }

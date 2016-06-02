@@ -47,6 +47,8 @@ class ProfileController extends Controller {
         $student = Student::find($student_id);
 
         $reviewers = $student->reviewers;
+        $analyses = $student->analyses;
+        $workprocesses = $student->workprocesses;
         break;
       case 'teacher':
         $data = $user->teacher()->get();
@@ -70,6 +72,8 @@ class ProfileController extends Controller {
       'role' => $user->role,
       'email' => $user->email,
       'reviewers' => !empty($reviewers) ? $reviewers : '',
+      'analyses' => !empty($analyses) ? $analyses : '',
+      'workprocesses' => !empty($workprocesses) ? $workprocesses : '',
     ]);
   }
 
@@ -98,16 +102,22 @@ class ProfileController extends Controller {
     $reviewers = $student->reviewers()->get();
 
     $analyses_array = [];
+    $workprocesses_array = [];
 
     foreach ($reviewers as $reviewer) {
       if (!empty($reviewer->analyses()->get())) {
-        foreach ($reviewer->analyses()->get() as $key => $analyses) {
-          array_push($analyses_array, $analyses->id);
+        foreach ($reviewer->analyses()->get() as $key => $analysis) {
+          array_push($analyses_array, $analysis->id);
+
+          foreach ($analysis->workprocesses()->get() as $key => $workprocess) {
+            array_push($workprocesses_array, $workprocess->id);
+          }
         }
       }
     }
 
     $student->analyses()->sync($analyses_array);
+    $student->workprocesses()->sync($workprocesses_array);
 
     return redirect('profiel/' . $user->id)->with('status', 'Uw profiel is bijgewerkt.');
   }
