@@ -156,6 +156,7 @@ class ProfileController extends Controller {
         $reviewers = Reviewer::get();
         break;
       case 'teacher':
+        $colleges = College::get();
         $data = $user->teacher()->get();
         break;
       case 'college':

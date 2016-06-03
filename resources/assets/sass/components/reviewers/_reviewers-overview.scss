@@ -1,0 +1,29 @@
+.reviewers-container {
+    margin-top: 2em;
+
+    .header {
+        display: inline-block;
+        width: 100%;
+        border-bottom: 1px solid #D2D2D2;
+
+        p {
+            color: $reviewers-overview-page-header-color;
+            font-size: $reviewers-overview-page-header-font-size;
+            font-weight: $reviewers-overview-page-header-font-weight;
+        }
+    }
+
+    .reviewers {
+        display: inline-block;
+        width: 100%;
+
+        @extend .acordeon-layout;
+
+        p {
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 3px;
+        }
+    }
+}

@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="reviewers-container container">
     @if (count($reviewers) > 0)
       <div class="row">
         <div class="header">

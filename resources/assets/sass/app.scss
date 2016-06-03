@@ -17,6 +17,7 @@
 @import 'components/auth/register-role-selection';
 @import 'components/auth/register';
 @import 'components/auth/password-reset';
+@import 'components/auth/successfull-registration';
 // Profile
 @import 'components/profile/profile';
 @import 'components/profile/edit-profile';
@@ -25,3 +26,5 @@
 @import 'components/analyses_coretasks_workprocesses/add-form';
 // Users
 @import 'components/users/user-profile';
+// Reviewers
+@import 'components/reviewers/reviewers-overview';

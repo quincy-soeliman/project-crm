@@ -1,14 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="background">
+    <div class="color-overlay"></div>
+    <div class="background-image"></div>
+</div>
+<div class="container success-register-container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="success-register col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
             <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
-
                 <div class="panel-body">
-                    Your Application's Landing Page.
+                    <div class="col-xs-12 col-md-12">
+                        <h1>Uw account is geregistreerd!</h1>
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        <p>Uw account moet nog geactiveerd worden door het administrator voordat deze gebruikt kan worden.</p>
+                        <p>Over 5 seconden wordt u doorgestuurd naar het login pagina.</p>
+                    </div>
+                    <?php header( "refresh:5;url=/login" ); ?>
                 </div>
             </div>
         </div>

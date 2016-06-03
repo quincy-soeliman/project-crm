@@ -5802,7 +5802,7 @@ body {
     font-size: initial;
     font-weight: 400; }
 
-.acordeon-layout, .add-form .whole-container, .add-form .analyse-coretask-select, .users .user-container, .users .user-container .user {
+.acordeon-layout, .add-form .whole-container, .add-form .analyse-coretask-select, .users .user-container, .users .user-container .user, .reviewers-container .reviewers {
   border: 1px solid #D2D2D2;
   border-radius: 3px;
   margin-bottom: 1em; }
@@ -6321,6 +6321,55 @@ body {
       .password-reset-container .password-reset .panel button[type="submit"]:hover {
         background-color: #ab1813; }
 
+.background {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100vh; }
+  .background .color-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(58, 83, 155, 0.8);
+    z-index: 2; }
+  .background .background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../img/login-screen-img.jpg);
+    background-size: cover;
+    z-index: 1;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px); }
+
+.success-register-container .row {
+  position: relative; }
+
+.success-register-container .success-register {
+  display: block;
+  height: 100vh;
+  z-index: 3; }
+  .success-register-container .success-register .panel {
+    background-color: rgba(40, 60, 117, 0.6);
+    border: 0;
+    border-radius: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+    .success-register-container .success-register .panel h1 {
+      padding-bottom: 1em;
+      color: #FFF;
+      font-size: 20px;
+      font-weight: 600; }
+    .success-register-container .success-register .panel p {
+      padding-bottom: 10px;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: 400; }
+
 .welcome-banner {
   min-height: 22em;
   padding: 0; }
@@ -6625,5 +6674,23 @@ body {
       -o-transition: all 0.2s ease-in-out; }
       .users .user-container .user .user-option.deny:hover {
         color: #ab1813; }
+
+.reviewers-container {
+  margin-top: 2em; }
+  .reviewers-container .header {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #D2D2D2; }
+    .reviewers-container .header p {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600; }
+  .reviewers-container .reviewers {
+    display: inline-block;
+    width: 100%; }
+    .reviewers-container .reviewers p {
+      margin-top: 10px; }
+    .reviewers-container .reviewers button {
+      margin-top: 3px; }
 
 /*# sourceMappingURL=app.css.map */
