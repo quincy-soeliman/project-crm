@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Reviewer;
 use App\Student;
+use App\Workprocess;
 use Auth;
 use App\User;
 use Validator;
@@ -31,6 +32,8 @@ class ProfileController extends Controller {
       case 'administrator':
         break;
       case 'college':
+        break;
+      case 'reviewer':
         break;
       default:
         if ($user_id != $id) {
@@ -190,18 +193,54 @@ class ProfileController extends Controller {
     return $array;
   }
 
-//  public function setWorkprocessToDone($id) {
-//    $current_user = User::find(Auth::id());
-//
-//    if ($current_user->role !== 'reviewer') {
-//      return back()->with('U heeft hier geen rechten voor.');
-//    }
-//
-//    $student = Student::find($id);
-//
-//    foreach ($student->workprocesses as $workprocess) {
-//
-//    }
-//  }
+  public function setWorkprocessToDone($student_id, $workprocess_id) {
+    $current_user = User::find(Auth::id());
+
+    if ($current_user->role !== 'reviewer') {
+      return back()->with('U heeft hier geen rechten voor.');
+    }
+
+    $reviewer = Reviewer::where('user_id', '=', $current_user->id)->first();
+
+    $student = Student::find($student_id);
+    $student_workprocess = Workprocess::find($workprocess_id);
+
+    foreach ($reviewer->workprocesses as $workprocess) {
+      if ($student_workprocess->id == $workprocess->id) {
+        $student->workprocesses()->updateExistingPivot($workprocess_id, [
+          'done' => 1
+        ]);
+
+        return back()->with('status', 'Werkproces ' . $workprocess_id . ' is voltooid.');
+      }
+    }
+
+    return back()->with('status', 'U heeft geen rechten om dit werkproces te voltooien.');
+  }
+
+  public function setWorkprocessToNotDone($student_id, $workprocess_id) {
+    $current_user = User::find(Auth::id());
+
+    if ($current_user->role !== 'reviewer') {
+      return back()->with('U heeft hier geen rechten voor.');
+    }
+
+    $reviewer = Reviewer::where('user_id', '=', $current_user->id)->first();
+
+    $student = Student::find($student_id);
+    $student_workprocess = Workprocess::find($workprocess_id);
+
+    foreach ($reviewer->workprocesses as $workprocess) {
+      if ($student_workprocess->id == $workprocess->id) {
+        $student->workprocesses()->updateExistingPivot($workprocess_id, [
+          'done' => 0
+        ]);
+
+        return back()->with('status', 'Werkproces ' . $workprocess_id . ' is onvoltooid.');
+      }
+    }
+
+    return back()->with('status', 'U heeft geen rechten om dit werkproces te onvoltooien.');
+  }
 
 }

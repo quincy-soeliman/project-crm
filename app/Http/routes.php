@@ -90,6 +90,16 @@ Route::group(['middleware' => ['role:college']], function() {
 });
 
 /**
+ * Reviewer Routes...
+ */
+Route::group(['middleware' => ['role:reviewer']], function() {
+
+  Route::get('profiel/{id}/werkproces/{workprocess_id}', 'ProfileController@setWorkprocessToDone');
+  Route::get('profiel/{id}/werkproces/{workprocess_id}/onvoltooid', 'ProfileController@setWorkprocessToNotDone');
+
+});
+
+/**
  * Administrator Routes...
  */
 Route::group(['middleware' => ['role:administrator']], function() {
