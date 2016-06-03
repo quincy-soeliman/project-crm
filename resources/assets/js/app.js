@@ -31,11 +31,7 @@ function analyseDropdown() {
     });
 }
 
-$(function() {
-    // Init anaylse dropdown
-    analyseDropdown();
-
-    // Cheack if has users
+function hasUsers() {
     $(".user-container").each( function() {
         var $this = $(this);
 
@@ -43,8 +39,20 @@ $(function() {
             $this.hide();
         }
     });
+}
 
-    // Init select2
+function initSelect2() {
     $("#reviewer").select2();
     $(".analyse-workprocess-select-field").select2();
+}
+
+$(function() {
+    // Init anaylse dropdown
+    analyseDropdown();
+
+    // Cheack if has users
+    hasUsers();
+
+    // Init select2
+    initSelect2();
 })
