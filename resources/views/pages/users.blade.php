@@ -57,7 +57,7 @@
                     @endforeach
                 </div>
                 <div class="user-container col-xs-12 col-md-12">
-                    <h3 class="heading-title">Schoolen</h3>
+                    <h3 class="heading-title">Scholen</h3>
                     <!-- Search for college -->
                     @foreach ($users as $user)
                         @if ($user->active == 0 && $user->role == 'college')
