@@ -68,8 +68,7 @@ class AdministratorController extends Controller {
     $administrator->telephone_number = $request['telephone_number'];
     $administrator->save();
 
-    // TODO: Redirect to profile
-    return redirect('/');
+    return redirect('/geregistreerd');
   }
 
 }

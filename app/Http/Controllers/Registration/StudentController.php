@@ -116,9 +116,8 @@ class StudentController extends Controller {
       $m->to($college[0]->email, $college[0]->name)
         ->subject('Project-CRM | Nieuwe student gebruiker: ' . $student_name);
     });
-
-    // TODO: Redirect to message
-    return redirect('/');
+    
+    return redirect('/geregistreerd');
   }
 
   /**

@@ -71,9 +71,8 @@ class CompanyController extends Controller {
     $company->telephone_number = $request['telephone_number'];
     $company->iso_number = $request['iso_number'];
     $company->save();
-
-    // TODO: Redirect to profile
-    return redirect('/');
+    
+    return redirect('/geregistreerd');
   }
 
 }

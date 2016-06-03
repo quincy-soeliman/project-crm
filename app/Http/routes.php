@@ -12,6 +12,14 @@
 */
 
 Route::get('/', function () {
+  if (Auth::check()) {
+    return redirect('/profiel/' . Auth::id());
+  } else {
+    return redirect('/login');
+  }
+});
+
+Route::get('/geregistreerd', function() {
   return view('welcome');
 });
 

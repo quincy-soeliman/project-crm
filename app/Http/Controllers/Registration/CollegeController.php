@@ -64,9 +64,8 @@ class CollegeController extends Controller {
     $college->user_id = $user->id;
     $college->name = $request['name'];
     $college->save();
-
-    // TODO: Redirect to profile
-    return redirect('/');
+    
+    return redirect('/geregistreerd');
   }
 
 }

@@ -107,9 +107,8 @@ class ReviewerController extends Controller {
       $m->to($company[0]->email, $company[0]->name)
         ->subject('Project-CRM | Nieuwe beoordelaar gebruiker: ' . $reviewer_name);
     });
-
-    // TODO: Redirect to message
-    return redirect('/');
+    
+    return redirect('/geregistreerd');
   }
 
   /**
