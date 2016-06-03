@@ -104,7 +104,7 @@ Route::group(['middleware' => ['role:administrator']], function() {
 
   // User Routes...
   Route::get('gebruikers', 'UserController@index');
-  Route::post('gebruikers/{id}', 'UserController@update');
-  Route::delete('gebruikers/{id}', 'UserController@destroy');
+  Route::get('gebruikers/{id}', 'UserController@update');
+  Route::get('gebruikers/{id}/verwijder', 'UserController@destroy');
 
 });

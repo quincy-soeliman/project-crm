@@ -50,7 +50,10 @@
                         <select autocomplete="off" name="company_id" id="company" class="form-control"
                                 placeholder="Bedrijf" required>
                             @foreach ($companies as $company)
-                                <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                <?php $company_user = App\User::find($company->user_id); ?>
+                                @if ($company_user->active)
+                                    <option value="{{ $company->id }}">{{ $company->name }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>

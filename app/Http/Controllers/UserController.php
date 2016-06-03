@@ -16,21 +16,17 @@ class UserController extends Controller {
     ]);
   }
 
-  public function update(User $id, Request $request) {
-    if (empty($request['active'])) {
-      return back()->with('status', 'Request: "active" is leeg.');
-    }
-
+  public function update($id) {
     $user = User::find($id);
 
     $user->update([
-      'active' => $request['active'],
+      'active' => 1,
     ]);
 
-    return back()->with('status', '');
+    return back()->with('status', $user->email . ' is geactiveerd.');
   }
 
-  public function destroy(User $id) {
+  public function destroy($id) {
     $user = User::find($id);
 
     switch ($user->role) {
@@ -61,6 +57,8 @@ class UserController extends Controller {
     }
 
     $user->delete();
+
+    return back()->with('status', 'U heeft de gebruiker succesvol verwijderd.');
   }
 
 }

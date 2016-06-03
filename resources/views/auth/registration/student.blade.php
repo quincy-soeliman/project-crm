@@ -39,7 +39,10 @@
                         <select autocomplete="off" name="college_id" id="college" placeholder="School"
                                 class="form-control">
                             @foreach ($colleges as $college)
-                                <option value="{{ $college->id }}">{{ $college->name }}</option>
+                                <?php $college_user = App\User::find($college->user_id); ?>
+                                @if ($college_user->active)
+                                    <option value="{{ $college->id }}">{{ $college->name }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
