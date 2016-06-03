@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Reviewer;
 use App\Student;
 use Auth;
@@ -78,46 +79,60 @@ class ProfileController extends Controller {
   }
 
   public function update(User $user, EditProfileRequest $request) {
-    $student_user = User::find($user->id)->student()->get();
-    $student_id = $student_user[0]->id;
-    $student = Student::find($student_id);
+    switch ($user->role) {
+      case 'student':
+        $student_user = User::find($user->id)->student()->get();
+        $student_id = $student_user[0]->id;
+        $student = Student::find($student_id);
 
-    $user->update([
-      'email' => $request['email'],
-    ]);
+        $user->update([
+          'email' => $request['email'],
+        ]);
 
-    $user->student()->update([
-      'college_id' => $request['college_id'],
-      'first_name' => $request['first_name'],
-      'last_name' => $request['last_name'],
-      'college' => $request['college'],
-    ]);
+        $user->student()->update([
+          'college_id' => $request['college_id'],
+          'first_name' => $request['first_name'],
+          'last_name' => $request['last_name'],
+          'college' => $request['college'],
+        ]);
 
-    if (!empty($request['reviewers'])) {
-      $reviewers = $this->syncData($request['reviewers']);
+        if (!empty($request['reviewers'])) {
+          $reviewers = $this->syncData($request['reviewers']);
 
-      $student->reviewers()->sync($reviewers);
-    }
+          $student->reviewers()->sync($reviewers);
+        }
 
-    $reviewers = $student->reviewers()->get();
+        $reviewers = $student->reviewers()->get();
 
-    $analyses_array = [];
-    $workprocesses_array = [];
+        $analyses_array = [];
+        $workprocesses_array = [];
 
-    foreach ($reviewers as $reviewer) {
-      if (!empty($reviewer->analyses()->get())) {
-        foreach ($reviewer->analyses()->get() as $key => $analysis) {
-          array_push($analyses_array, $analysis->id);
+        foreach ($reviewers as $reviewer) {
+          if (!empty($reviewer->analyses()->get())) {
+            foreach ($reviewer->analyses()->get() as $key => $analysis) {
+              array_push($analyses_array, $analysis->id);
 
-          foreach ($analysis->workprocesses()->get() as $key => $workprocess) {
-            array_push($workprocesses_array, $workprocess->id);
+              foreach ($analysis->workprocesses()->get() as $key => $workprocess) {
+                array_push($workprocesses_array, $workprocess->id);
+              }
+            }
           }
         }
-      }
-    }
 
-    $student->analyses()->sync($analyses_array);
-    $student->workprocesses()->sync($workprocesses_array);
+        $student->analyses()->sync($analyses_array);
+        $student->workprocesses()->sync($workprocesses_array);
+        break;
+      case 'teacher':
+        break;
+      case 'college':
+        break;
+      case 'reviewer':
+        break;
+      case 'company':
+        break;
+      case 'administrator':
+        break;
+    }
 
     return redirect('profiel/' . $user->id)->with('status', 'Uw profiel is bijgewerkt.');
   }
@@ -130,11 +145,11 @@ class ProfileController extends Controller {
     }
 
     $user = User::find($id);
-    $colleges = College::get();
 
     switch ($user->role) {
       case 'student':
         $data = $user->student()->get();
+        $colleges = College::get();
         $reviewers = Reviewer::get();
         break;
       case 'teacher':
@@ -145,6 +160,7 @@ class ProfileController extends Controller {
         break;
       case 'reviewer':
         $data = $user->reviewer()->get();
+        $companies = Company::get();
         break;
       case 'company':
         $data = $user->company()->get();
@@ -158,8 +174,9 @@ class ProfileController extends Controller {
       'data' => $data,
       'role' => $user->role,
       'email' => $user->email,
-      'colleges' => $colleges,
-      'reviewers' => $reviewers,
+      'colleges' => !empty($colleges) ? $colleges : '',
+      'reviewers' => !empty($reviewers) ? $reviewers : '',
+      'companies' => !empty($companies) ? $companies : '',
     ]);
   }
 
@@ -172,5 +189,19 @@ class ProfileController extends Controller {
 
     return $array;
   }
+
+//  public function setWorkprocessToDone($id) {
+//    $current_user = User::find(Auth::id());
+//
+//    if ($current_user->role !== 'reviewer') {
+//      return back()->with('U heeft hier geen rechten voor.');
+//    }
+//
+//    $student = Student::find($id);
+//
+//    foreach ($student->workprocesses as $workprocess) {
+//
+//    }
+//  }
 
 }
