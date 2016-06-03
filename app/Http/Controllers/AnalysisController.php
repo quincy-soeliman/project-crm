@@ -68,7 +68,7 @@ class AnalysisController extends Controller {
 
     $analysis->title = $request['title'];
 
-    if (!empty($request['coretasks'])) {
+    if (empty($request['coretasks'])) {
       return back()->with('status', 'U moet nog kerntaken aanmaken.');
     }
 
@@ -108,6 +108,30 @@ class AnalysisController extends Controller {
 
     $reviewers = $this->syncData($request['reviewers']);
     $analysis->reviewers()->sync($reviewers);
+
+    $analyses_array = [];
+    $workprocesses_array = [];
+
+    foreach (Reviewer::get() as $reviewer) {
+      if (!empty($reviewer->analyses()->get())) {
+        foreach ($reviewer->analyses()->get() as $key => $analysis) {
+          array_push($analyses_array, $analysis->id);
+
+          foreach ($analysis->workprocesses()->get() as $key => $workprocess) {
+            array_push($workprocesses_array, $workprocess->id);
+          }
+        }
+      }
+    }
+
+    foreach ($request['reviewers'] as $reviewer_id) {
+      $reviewer = Reviewer::find($reviewer_id);
+
+      foreach ($reviewer->students()->get() as $student) {
+        $student->analyses()->sync($analyses_array);
+        $student->workprocesses()->sync($workprocesses_array);
+      }
+    }
 
     return redirect('analyses')->with('status', 'De beoordelaar is succesvol gekoppeld aan de analyse.');
   }
