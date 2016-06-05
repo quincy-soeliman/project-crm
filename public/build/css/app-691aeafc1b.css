@@ -5874,7 +5874,7 @@ body {
       float: left;
       margin-right: 10px; }
     .login-container .login-screen .panel .role-select select {
-      width: 5em;
+      width: 7em;
       color: #FFF;
       font-size: 20px;
       font-weight: 400;
@@ -6020,7 +6020,8 @@ body {
     .role-selection-container .role-selection .role {
       text-align: center;
       cursor: pointer;
-      padding: 0; }
+      padding: 0;
+      margin-right: 17px; }
       .role-selection-container .role-selection .role .role-click-container {
         padding: 0; }
         .role-selection-container .role-selection .role .role-click-container i {

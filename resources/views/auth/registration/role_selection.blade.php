@@ -15,10 +15,10 @@
                     <h1 class="title">
                         Registreer als
                     </h1>
-                    <div class="add-spacing col-xs-12 col-md-10 col-xs-push-0 col-md-push-1">
+                    <div class="add-spacing col-xs-12 col-md-12">
 
                         <a href="{{ url('registreer/student') }}">
-                            <div class="role col-xs-6 col-md-3">
+                            <div class="role col-xs-6 col-md-2">
                                 <div class="role-click-container col-xs-12 col-md-12">
                                     <i class="fa fa-graduation-cap"></i>
                                     <p>Student</p>
@@ -27,7 +27,7 @@
                         </a>
 
                         <a href="{{ url('registreer/docent') }}">
-                            <div class="role col-xs-6 col-md-3">
+                            <div class="role col-xs-6 col-md-2">
                                 <div class="role-click-container col-xs-12 col-md-12">
                                     <i class="fa fa-user"></i>
                                     <p>Docent</p>
@@ -36,16 +36,25 @@
                         </a>
 
                         <a href="{{ url('registreer/beoordelaar') }}">
-                            <div class="role col-xs-6 col-md-3">
+                            <div class="role col-xs-6 col-md-2">
                                 <div class="role-click-container col-xs-12 col-md-12">
                                     <i class="fa fa-user"></i>
-                                    <p>Beoorderlaar</p>
+                                    <p style="margin-left: -10px;">Beoorderlaar</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="{{ url('registreer/school') }}">
+                            <div class="role col-xs-6 col-md-2">
+                                <div class="role-click-container col-xs-12 col-md-12">
+                                    <i class="fa fa-building"></i>
+                                    <p>School</p>
                                 </div>
                             </div>
                         </a>
 
                         <a href="{{ url('registreer/bedrijf') }}">
-                            <div class="role col-xs-6 col-md-3">
+                            <div class="role col-xs-6 col-md-2">
                                 <div class="role-click-container col-xs-12 col-md-12">
                                     <i class="fa fa-building"></i>
                                     <p>Bedrijf</p>

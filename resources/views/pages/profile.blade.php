@@ -68,12 +68,19 @@
                                 </div>
                             @endif
 
-                            {{--@if( $profile->company_id != '' )--}}
+                            @if( $profile->company != '' )
                             <div class="profile-info-box col-xs-12 col-md-12">
                                 <p class="info-label col-xs-12 col-md-4">Bedrijf:</p>
-                                <p class="info-text col-xs-12 col-md-8">E.V.I.L Corporation inc.</p>
+                                <p class="info-text col-xs-12 col-md-8">{{ $profile->company }}.</p>
                             </div>
-                            {{--@endif--}}
+                            @endif
+
+                            @if( $profile->college != '' )
+                            <div class="profile-info-box col-xs-12 col-md-12">
+                                <p class="info-label col-xs-12 col-md-4">School:</p>
+                                <p class="info-text col-xs-12 col-md-8">{{ $profile->college }}</p>
+                            </div>
+                            @endif
 
                             @if( $email != '' )
                                 <div class="profile-info-box col-xs-12 col-md-12">
@@ -82,19 +89,19 @@
                                 </div>
                             @endif
 
-                            {{--if( $profile->telephone_number != '' ) --}}
+                            @if( $profile->telephone_number != '' )
                             <div class="profile-info-box col-xs-12 col-md-12">
                                 <p class="info-label col-xs-12 col-md-4">Telefoon:</p>
-                                <p class="info-text col-xs-12 col-md-8">+31 229 56 78 90</p>
+                                <p class="info-text col-xs-12 col-md-8">{{ $profile->telephone_number  }}</p>
                             </div>
-                            {{-- @endif --}}
+                           @endif
 
-                            {{--if( $profile->mobile_number != '' ) --}}
+                            @if( $profile->mobile_number != '' )
                             <div class="profile-info-box col-xs-12 col-md-12">
                                 <p class="info-label col-xs-12 col-md-4">Mobiel:</p>
-                                <p class="info-text col-xs-12 col-md-8">06589745631</p>
+                                <p class="info-text col-xs-12 col-md-8">{{ $profile->mobile_number }}</p>
                             </div>
-                            {{-- @endif --}}
+                            @endif
 
                         </div>
                     </div>

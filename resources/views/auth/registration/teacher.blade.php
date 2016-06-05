@@ -19,7 +19,7 @@
                 <form action="{{ url('registreer/docent') }}" method="post"
                       class="col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">
                     {!! csrf_field() !!}
-                    <h1 class="title">Registreer als: Beheerder</h1>
+                    <h1 class="title">Registreer als: Docent</h1>
 
                     <div class="form-group col-xs-12 col-md-12">
                         <label for="email">Email<span class="red">*</span>:</label>
