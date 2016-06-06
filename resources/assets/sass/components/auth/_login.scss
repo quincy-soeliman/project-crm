@@ -79,7 +79,7 @@
             }
 
             input {
-                color: $login-input-color;
+                color: white;
                 font-size: $login-input-font-size;
                 font-weight: $login-input-font-weight;
                 background: transparent;
@@ -89,6 +89,16 @@
                 padding-left: 0;
 
                 @include transition(.2s);
+
+                &:hover {
+                    border-bottom: 1px solid white;
+
+                    @include placeholder {
+                        color: white;
+
+                        @include transition(.2s);
+                    }
+                }
 
                 &:focus {
                     outline: none;

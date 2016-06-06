@@ -5890,7 +5890,7 @@ body {
         color: initial;
         font-size: initial; }
     .login-container .login-screen .panel input {
-      color: #a7aeb3;
+      color: white;
       font-size: 20px;
       font-weight: 400;
       background: transparent;
@@ -5902,6 +5902,34 @@ body {
       -moz-transition: all 0.2s ease-in-out;
       -ms-transition: all 0.2s ease-in-out;
       -o-transition: all 0.2s ease-in-out; }
+      .login-container .login-screen .panel input:hover {
+        border-bottom: 1px solid white; }
+        .login-container .login-screen .panel input:hover::-webkit-input-placeholder {
+          color: white;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+        .login-container .login-screen .panel input:hover:-moz-placeholder {
+          /* Firefox 18- */
+          color: white;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+        .login-container .login-screen .panel input:hover::-moz-placeholder {
+          /* Firefox 19+ */
+          color: white;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
+        .login-container .login-screen .panel input:hover:-ms-input-placeholder {
+          color: white;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out; }
       .login-container .login-screen .panel input:focus {
         outline: none;
         box-shadow: none;
