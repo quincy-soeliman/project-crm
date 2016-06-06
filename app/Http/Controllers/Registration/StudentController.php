@@ -51,12 +51,12 @@ class StudentController extends Controller {
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
    */
   public function create(Request $request) {
-    if (User::where('email', '=', $request['email'])->exists()) {
-      return back()->with('status', 'Dit e-mail bestaat al.');
-    }
-
     if (Student::where('ov_number', '=', $request['ov_number'])->exists()) {
       return back()->with('status', 'Dit ov nummer bestaat al.');
+    }
+
+    if (User::where('email', '=', $request['email'])->exists()) {
+      return back()->with('status', 'Dit e-mail bestaat al.');
     }
 
     if (strlen($request['password']) < 6) {

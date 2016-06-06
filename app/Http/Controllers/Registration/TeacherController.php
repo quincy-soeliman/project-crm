@@ -87,34 +87,34 @@ class TeacherController extends Controller {
     $teacher->telephone_number = $request['telephone_number'];
     $teacher->save();
 
-    /**
-     * Sends mail to the registered user for verification.
-     */
-    Mail::send('emails.registration', [
-      'user' => $user,
-      'teacher' => $teacher,
-    ], function ($m) use ($user, $teacher) {
-      $teacher = $teacher->first_name . ' ' . $teacher->last_name;
-
-      $m->from('hello@world.com', 'Your Application');
-      $m->to($user->email, $teacher)
-        ->subject('Project-CRM | Account registratie');
-    });
-
-    /**
-     * Sends mail to the admin for activation.
-     */
-    Mail::send('emails.user_registrated', [
-      'user' => $user,
-      'teacher' => $teacher,
-    ], function ($m) use ($user, $teacher) {
-      $teacher_name = $teacher->first_name . ' ' . $teacher->last_name;
-      $college = Auth::getCollege($teacher->college_id);
-
-      $m->from('hello@world.com', 'Your Application');
-      $m->to($college[0]->email, $college[0]->name)
-        ->subject('Project-CRM | Nieuwe docent gebruiker: ' . $teacher_name);
-    });
+//    /**
+//     * Sends mail to the registered user for verification.
+//     */
+//    Mail::send('emails.registration', [
+//      'user' => $user,
+//      'teacher' => $teacher,
+//    ], function ($m) use ($user, $teacher) {
+//      $teacher = $teacher->first_name . ' ' . $teacher->last_name;
+//
+//      $m->from('hello@world.com', 'Your Application');
+//      $m->to($user->email, $teacher)
+//        ->subject('Project-CRM | Account registratie');
+//    });
+//
+//    /**
+//     * Sends mail to the admin for activation.
+//     */
+//    Mail::send('emails.user_registrated', [
+//      'user' => $user,
+//      'teacher' => $teacher,
+//    ], function ($m) use ($user, $teacher) {
+//      $teacher_name = $teacher->first_name . ' ' . $teacher->last_name;
+//      $college = Auth::getCollege($teacher->college_id);
+//
+//      $m->from('hello@world.com', 'Your Application');
+//      $m->to($college[0]->email, $college[0]->name)
+//        ->subject('Project-CRM | Nieuwe docent gebruiker: ' . $teacher_name);
+//    });
     
     return redirect('/geregistreerd');
   }

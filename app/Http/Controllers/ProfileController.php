@@ -25,6 +25,10 @@ class ProfileController extends Controller {
     $user_id = Auth::id();
     $current_user = User::find($user_id);
 
+    if (!$user->active) {
+      return back()->with('status', 'Dit gebruiker bestaat niet');
+    }
+
     // Shows all profiles if role is one of the cases.
     switch($current_user->role) {
       case 'teacher':
