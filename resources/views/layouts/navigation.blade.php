@@ -23,8 +23,8 @@
 
                 @if( $current_user->role === 'college' )
                     <li><a href="{{ url('/analyses') }}">Analyses overzicht</a></li>
-                    <li><a href="{{ url('/analyses/aanmaken') }}">Analyses toevoegen</a></li>
-                    <li><a href="{{ url('/beoordelaars') }}">Beoordelaar analyses</a></li>
+                    <li><a href="{{ url('/analyses/aanmaken') }}">Analyses aanmaken</a></li>
+                    <li><a href="{{ url('/beoordelaars') }}">Beoordelaars</a></li>
 
                 @elseif( $current_user->role == 'administrator' )
                     <li><a href="{{ url('/kerntaak') }}">Kerntaken aanmaken</a></li>

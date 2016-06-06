@@ -82,6 +82,19 @@
                         @endif
                     @endforeach
                 </div>
+              <div class="user-container col-xs-12 col-md-12">
+                    <h3 class="heading-title">Administrators</h3>
+                    <!-- Search for administrator -->
+                    @foreach ($users as $user)
+                        @if ($user->active == 0 && $user->role == 'administrator')
+                            <div class="user col-xs-12 col-md-12">
+                                <p>{{ $user->email }}</p>
+                                <a class="user-option deny" href="{{ url('/gebruikers/' . $user->id . '/verwijder') }}"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <a class="user-option accept" href="{{ url('/gebruikers/' . $user->id) }}"><i class="fa fa-check" aria-hidden="true"></i></a>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
