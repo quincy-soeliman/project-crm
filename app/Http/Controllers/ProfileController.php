@@ -25,6 +25,10 @@ class ProfileController extends Controller {
     $user_id = Auth::id();
     $current_user = User::find($user_id);
 
+    if (!$user) {
+      return back()->with('status', 'Dit gebruiker bestaat niet');
+    }
+
     if (!$user->active) {
       return back()->with('status', 'Dit gebruiker bestaat niet');
     }
