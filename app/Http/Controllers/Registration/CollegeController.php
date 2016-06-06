@@ -44,6 +44,10 @@ class CollegeController extends Controller {
     if (User::where('email', '=', $request['email'])->exists()) {
       return back()->with('status', 'Dit e-mail bestaat al.');
     }
+
+    if (strlen($request['password']) < 6) {
+      return back()->with('status', 'Het wachtwoord moet minimaal 6 tekens bevatten.');
+    }
     
     $validator = $this->validator($request->all());
 

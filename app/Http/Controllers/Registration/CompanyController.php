@@ -48,6 +48,10 @@ class CompanyController extends Controller {
       return back()->with('status', 'Dit e-mail bestaat al.');
     }
 
+    if (strlen($request['password']) < 6) {
+      return back()->with('status', 'Het wachtwoord moet minimaal 6 tekens bevatten.');
+    }
+
     $validator = $this->validator($request->all());
 
     if ($validator->fails()) {
