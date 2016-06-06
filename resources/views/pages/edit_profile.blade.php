@@ -40,6 +40,8 @@
                             @include('edit.college')
                         @elseif ($role === 'company')
                             @include('edit.company')
+                        @elseif ($role === 'administrator')
+                            @include('edit.administrator');
                         @endif
 
                         <div class="form-group col-xs-12 col-md-12">

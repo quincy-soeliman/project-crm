@@ -62,9 +62,15 @@
                             @if( $profile->college != '' )
                                 <div class="profile-info-box col-xs-12 col-md-12">
                                     <p class="info-label col-xs-12 col-md-4">School:</p>
+                                @if( $role === 'teacher' )
+                                    <p class="info-text col-xs-12 col-md-8"><a
+                                                href="{{ '/profile/' . $profile->college->id }}">{{ $profile->college->name }}</a>
+                                    </p>
+                                @else
                                     <p class="info-text col-xs-12 col-md-8"><a
                                                 href="{{ '/profile/' . $profile->college_id }}">{{ $profile->college }}</a>
                                     </p>
+                                @endif
                                 </div>
                             @endif
 
@@ -72,13 +78,6 @@
                             <div class="profile-info-box col-xs-12 col-md-12">
                                 <p class="info-label col-xs-12 col-md-4">Bedrijf:</p>
                                 <p class="info-text col-xs-12 col-md-8">{{ $profile->company }}.</p>
-                            </div>
-                            @endif
-
-                            @if( $profile->college != '' )
-                            <div class="profile-info-box col-xs-12 col-md-12">
-                                <p class="info-label col-xs-12 col-md-4">School:</p>
-                                <p class="info-text col-xs-12 col-md-8">{{ $profile->college }}</p>
                             </div>
                             @endif
 
