@@ -91,14 +91,14 @@
                             @if( $profile->telephone_number != '' )
                             <div class="profile-info-box col-xs-12 col-md-12">
                                 <p class="info-label col-xs-12 col-md-4">Telefoon:</p>
-                                <p class="info-text col-xs-12 col-md-8">{{ $profile->telephone_number  }}</p>
+                                <p class="info-text col-xs-12 col-md-8">0{{ $profile->telephone_number  }}</p>
                             </div>
                            @endif
 
                             @if( $profile->mobile_number != '' )
                             <div class="profile-info-box col-xs-12 col-md-12">
                                 <p class="info-label col-xs-12 col-md-4">Mobiel:</p>
-                                <p class="info-text col-xs-12 col-md-8">{{ $profile->mobile_number }}</p>
+                                <p class="info-text col-xs-12 col-md-8">0{{ $profile->mobile_number }}</p>
                             </div>
                             @endif
 

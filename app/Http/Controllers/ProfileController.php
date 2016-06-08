@@ -43,6 +43,8 @@ class ProfileController extends Controller {
         break;
       case 'reviewer':
         break;
+      case 'student':
+        break;
       default:
         if ($user_id != $id) {
           return back()->with('status', 'U heeft geen rechten om de pagina te bezoeken.');
@@ -95,10 +97,6 @@ class ProfileController extends Controller {
         $student_user = User::find($user->id)->student()->get();
         $student_id = $student_user[0]->id;
         $student = Student::find($student_id);
-
-        $user->update([
-          'email' => $request['email'],
-        ]);
 
         $user->student()->update([
           'college_id' => $request['college_id'],
