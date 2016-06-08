@@ -12,7 +12,7 @@ use Validator;
 class CollegeController extends Controller {
 
   /**
-   * Get the student form view.
+   * Returns the college form view.
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
@@ -35,7 +35,7 @@ class CollegeController extends Controller {
   }
 
   /**
-   * Create an user with the student role.
+   * Create an user with the college role.
    *
    * @param \Illuminate\Http\Request $request
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector

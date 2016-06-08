@@ -15,7 +15,7 @@ use Validator;
 class ReviewerController extends Controller {
 
   /**
-   * Get the reviewer form view.
+   * Returns the reviewer form view.
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
@@ -86,31 +86,31 @@ class ReviewerController extends Controller {
     /**
      * Sends mail to the registered user for verification.
      */
-    Mail::send('emails.registration', [
-      'user' => $user,
-      'reviewer' => $reviewer,
-    ], function ($m) use ($user, $reviewer) {
-      $reviewer_name = $reviewer->first_name . ' ' . $reviewer->last_name;
-
-      $m->from('hello@world.com', 'Your Application');
-      $m->to($user->email, $reviewer_name . $reviewer->company_id)
-        ->subject('Project-CRM | Account registratie');
-    });
+//    Mail::send('emails.registration', [
+//      'user' => $user,
+//      'reviewer' => $reviewer,
+//    ], function ($m) use ($user, $reviewer) {
+//      $reviewer_name = $reviewer->first_name . ' ' . $reviewer->last_name;
+//
+//      $m->from('hello@world.com', 'Your Application');
+//      $m->to($user->email, $reviewer_name . $reviewer->company_id)
+//        ->subject('Project-CRM | Account registratie');
+//    });
 
     /**
      * Sends mail to the admin for activation.
      */
-    Mail::send('emails.user_registrated', [
-      'user' => $user,
-      'reviewer' => $reviewer,
-    ], function ($m) use ($user, $reviewer) {
-      $reviewer_name = $reviewer->first_name . ' ' . $reviewer->last_name;
-      $company = Auth::getCompany($reviewer->company_id);
-
-      $m->from('hello@world.com', 'Your Application');
-      $m->to($company[0]->email, $company[0]->name)
-        ->subject('Project-CRM | Nieuwe beoordelaar gebruiker: ' . $reviewer_name);
-    });
+//    Mail::send('emails.user_registrated', [
+//      'user' => $user,
+//      'reviewer' => $reviewer,
+//    ], function ($m) use ($user, $reviewer) {
+//      $reviewer_name = $reviewer->first_name . ' ' . $reviewer->last_name;
+//      $company = Auth::getCompany($reviewer->company_id);
+//
+//      $m->from('hello@world.com', 'Your Application');
+//      $m->to($company[0]->email, $company[0]->name)
+//        ->subject('Project-CRM | Nieuwe beoordelaar gebruiker: ' . $reviewer_name);
+//    });
     
     return redirect('/geregistreerd');
   }

@@ -11,6 +11,11 @@ use App\Http\Requests;
 
 class ReviewerController extends Controller {
 
+  /**
+   * Returns the reviewers view.
+   *
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function index() {
     $reviewers = Reviewer::get();
     $id = Auth::id();
@@ -22,6 +27,12 @@ class ReviewerController extends Controller {
     ]);
   }
 
+  /**
+   * Returns the link reviewers view.
+   *
+   * @param $id
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function link($id) {
     $coretasks = Coretask::get();
 
@@ -31,6 +42,13 @@ class ReviewerController extends Controller {
     ]);
   }
 
+  /**
+   * Links the reviewer with the workprocesses.
+   *
+   * @param $id
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function linkUpdate($id, Request $request) {
     $reviewer = Reviewer::where('user_id', '=', $id)->first();
 
@@ -43,6 +61,12 @@ class ReviewerController extends Controller {
     return redirect('beoordelaars')->with('status', 'De KT/WP is gekoppeld aan de beoordelaar.');
   }
 
+  /**
+   * Returns the Request $request in an array.
+   *
+   * @param $request
+   * @return array
+   */
   public function syncData($request) {
     $array = [];
 

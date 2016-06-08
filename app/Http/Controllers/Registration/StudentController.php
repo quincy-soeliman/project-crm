@@ -15,7 +15,7 @@ use Validator;
 class StudentController extends Controller {
 
   /**
-   * Get the student form view.
+   * Returns the student form view.
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
@@ -92,9 +92,9 @@ class StudentController extends Controller {
     $student->college = $this->getCollegeName($request['college_id']);
     $student->save();
 
-//    /**
-//     * Sends mail to the registered user for verification.
-//     */
+    /**
+     * Sends mail to the registered user for verification.
+     */
 //    Mail::send('emails.registration', [
 //      'user' => $user,
 //      'student' => $student,
@@ -105,10 +105,10 @@ class StudentController extends Controller {
 //      $m->to($user->email, $student_name)
 //        ->subject('Project-CRM | Account registratie');
 //    });
-//
-//    /**
-//     * Sends mail to the admin for activation.
-//     */
+
+    /**
+     * Sends mail to the admin for activation.
+     */
 //    Mail::send('emails.user_registrated', [
 //      'user' => $user,
 //      'student' => $student,

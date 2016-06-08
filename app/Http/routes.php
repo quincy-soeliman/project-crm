@@ -11,6 +11,7 @@
 |
 */
 
+// Home Routes...
 Route::get('/', function () {
   if (Auth::check()) {
     return redirect('/profiel/' . Auth::id());
@@ -19,11 +20,10 @@ Route::get('/', function () {
   }
 });
 
+// Registered Route
 Route::get('/geregistreerd', function() {
   return view('welcome');
 });
-
-Route::get('/home', 'HomeController@index');
 
 // Authentication Routes...
 Route::get('login', 'Auth\AuthController@index');
@@ -91,6 +91,7 @@ Route::group(['middleware' => ['role:college']], function() {
   Route::get('analyses/{id}/beoordelaars', 'AnalysisController@linkReviewersForm');
   Route::put('analyses/{id}/beoordelaars', 'AnalysisController@linkReviewers');
 
+  // Reviewers Routes...
   Route::get('beoordelaars', 'ReviewerController@index');
   Route::get('beoordelaars/koppeling/{id}', 'ReviewerController@link');
   Route::post('beoordelaars/koppeling/{id}', 'ReviewerController@linkUpdate');
@@ -102,6 +103,7 @@ Route::group(['middleware' => ['role:college']], function() {
  */
 Route::group(['middleware' => ['role:reviewer']], function() {
 
+  // Profile Routes...
   Route::get('profiel/{id}/werkproces/{workprocess_id}', 'ProfileController@setWorkprocessToDone');
   Route::get('profiel/{id}/werkproces/{workprocess_id}/onvoltooid', 'ProfileController@setWorkprocessToNotDone');
 

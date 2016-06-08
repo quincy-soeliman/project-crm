@@ -16,10 +16,19 @@ use App\Http\Requests\EditProfileRequest;
 
 class ProfileController extends Controller {
 
+  /**
+   * Sets the edit-profile middleware when a new instance is created.
+   */
   function __construct() {
     $this->middleware('edit-profile', ['only' => ['update']]);
   }
 
+  /**
+   * Returns the profile view with the user/profile data depending on the given wildcard.
+   *
+   * @param $id
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+   */
   public function index($id) {
     $user = User::find($id);
     $user_id = Auth::id();
@@ -91,6 +100,13 @@ class ProfileController extends Controller {
     ]);
   }
 
+  /**
+   * Updates the user depending on the role.
+   *
+   * @param \App\User $user
+   * @param \App\Http\Requests\EditProfileRequest $request
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function update(User $user, EditProfileRequest $request) {
     switch ($user->role) {
       case 'student':
@@ -146,6 +162,12 @@ class ProfileController extends Controller {
     return redirect('profiel/' . $user->id)->with('status', 'Uw profiel is bijgewerkt.');
   }
 
+  /**
+   * Returns the user edit form view.
+   *
+   * @param $id
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+   */
   public function show_edit_form($id) {
     $user_id = Auth::id();
 
@@ -190,6 +212,12 @@ class ProfileController extends Controller {
     ]);
   }
 
+  /**
+   * Returns the Request $request in an array.
+   *
+   * @param $request
+   * @return array
+   */
   public function syncData($request) {
     $array = [];
 
@@ -200,6 +228,13 @@ class ProfileController extends Controller {
     return $array;
   }
 
+  /**
+   * Sets the workprocess to done of a student.
+   *
+   * @param $student_id
+   * @param $workprocess_id
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function setWorkprocessToDone($student_id, $workprocess_id) {
     $current_user = User::find(Auth::id());
 
@@ -213,6 +248,7 @@ class ProfileController extends Controller {
     $student_workprocess = Workprocess::find($workprocess_id);
 
     foreach ($reviewer->workprocesses as $workprocess) {
+      // Checks if the workprocess is linked to the student
       if ($student_workprocess->id == $workprocess->id) {
         $student->workprocesses()->updateExistingPivot($workprocess_id, [
           'done' => 1
@@ -225,6 +261,13 @@ class ProfileController extends Controller {
     return back()->with('status', 'U heeft geen rechten om dit werkproces te voltooien.');
   }
 
+  /**
+   * Sets the workprocess to not done of a student.
+   *
+   * @param $student_id
+   * @param $workprocess_id
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function setWorkprocessToNotDone($student_id, $workprocess_id) {
     $current_user = User::find(Auth::id());
 
@@ -238,6 +281,7 @@ class ProfileController extends Controller {
     $student_workprocess = Workprocess::find($workprocess_id);
 
     foreach ($reviewer->workprocesses as $workprocess) {
+      // Checks if the workprocess is linked to the student
       if ($student_workprocess->id == $workprocess->id) {
         $student->workprocesses()->updateExistingPivot($workprocess_id, [
           'done' => 0

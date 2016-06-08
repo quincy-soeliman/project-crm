@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>You came to the dark side.</title>
+    <title>Pagina is niet gevonden</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,7 +40,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">You came to the dark side.</div>
+        <div class="title">Pagina is niet gevonden.</div>
     </div>
 </div>
 </body>

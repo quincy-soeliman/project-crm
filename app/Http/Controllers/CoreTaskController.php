@@ -12,6 +12,11 @@ use Auth;
 
 class CoretaskController extends Controller {
 
+  /**
+   * Returns the coretasks view.
+   *
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function index() {
     $id = Auth::id();
     $role = User::find($id)->role;

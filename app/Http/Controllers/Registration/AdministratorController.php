@@ -10,8 +10,9 @@ use App\Http\Controllers\Controller;
 use Validator;
 
 class AdministratorController extends Controller {
+
   /**
-   * Get the administrator form view.
+   * Returns the administrator form view.
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */

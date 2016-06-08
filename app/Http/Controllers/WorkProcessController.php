@@ -12,6 +12,11 @@ use Auth;
 
 class WorkprocessController extends Controller {
 
+  /**
+   * Returns the workprocesses view.
+   *
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function index() {
     $id = Auth::id();
     $role = User::find($id)->role;

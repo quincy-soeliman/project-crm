@@ -8,6 +8,11 @@ use App\Http\Requests;
 
 class UserController extends Controller {
 
+  /**
+   * Returns the users view.
+   *
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function index() {
     $users = User::get();
 
@@ -16,6 +21,12 @@ class UserController extends Controller {
     ]);
   }
 
+  /**
+   * Updates the user when the ID is equal to the given wildcard.
+   *
+   * @param $id
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function update($id) {
     $user = User::find($id);
 
@@ -26,6 +37,12 @@ class UserController extends Controller {
     return back()->with('status', $user->email . ' is geactiveerd.');
   }
 
+  /**
+   * Deletes the user and it's profile data depending on the role.
+   *
+   * @param $id
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function destroy($id) {
     $user = User::find($id);
 

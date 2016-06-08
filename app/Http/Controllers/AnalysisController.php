@@ -14,6 +14,11 @@ use Auth;
 
 class AnalysisController extends Controller {
 
+  /**
+   * Returns the analyses view.
+   *
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function index() {
     $id = Auth::id();
     $role = User::find($id)->role;
@@ -25,6 +30,11 @@ class AnalysisController extends Controller {
     ]);
   }
 
+  /**
+   * Returns the analysis form view.
+   *
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function showForm() {
     $id = Auth::id();
     $role = User::find($id)->role;
@@ -50,6 +60,12 @@ class AnalysisController extends Controller {
     ]);
   }
 
+  /**
+   * Creates an Analysis.
+   *
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function create(Request $request) {
     if (Analysis::where('title', '=', $request['title'])->exists()) {
       return back()->with('status', 'De analyse bestaat al.');
@@ -61,9 +77,6 @@ class AnalysisController extends Controller {
       return redirect('analyses/aanmaken')->with('status', 'Voer alle verplichte velden in.');
     }
 
-    /**
-     * Creating an analysis.
-     */
     $analysis = new Analysis();
 
     $analysis->title = $request['title'];
@@ -78,18 +91,23 @@ class AnalysisController extends Controller {
 
     $analysis->save();
 
-    /**
-     * Syncing the many to many relationships.
-     */
+    // Links the analysis with the coretasks
     $coretasks = $this->syncData($request['coretasks']);
     $analysis->coretasks()->sync($coretasks);
 
+    // Links the analysis with the workprocesses
     $workprocesses = $this->syncData($request['workprocesses']);
     $analysis->workprocesses()->sync($workprocesses);
 
     return back()->with('status', $request['title'] . ' is aangemaakt.');
   }
 
+  /**
+   * Returns the link reviewers view.
+   *
+   * @param $id
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
   public function linkReviewersForm($id) {
     $reviewers = Reviewer::get();
 
@@ -99,6 +117,13 @@ class AnalysisController extends Controller {
     ]);
   }
 
+  /**
+   * Links the Analysis with the reviewer(s).
+   *
+   * @param $id
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\RedirectResponse
+   */
   public function linkReviewers($id, Request $request) {
     $analysis = Analysis::find($id);
 
@@ -106,12 +131,14 @@ class AnalysisController extends Controller {
       return redirect('analyses/' . $id . '/beoordelaars')->with('status', 'U heeft geen beoordelaar geselecteerd');
     }
 
+    // Links the Analysis with the reviewer(s).
     $reviewers = $this->syncData($request['reviewers']);
     $analysis->reviewers()->sync($reviewers);
 
     $analyses_array = [];
     $workprocesses_array = [];
 
+    // Puts the analyses and workprocesses of the reviewer(s) in arrays.
     foreach (Reviewer::get() as $reviewer) {
       if (!empty($reviewer->analyses()->get())) {
         foreach ($reviewer->analyses()->get() as $key => $analysis) {
@@ -124,6 +151,7 @@ class AnalysisController extends Controller {
       }
     }
 
+    // Links the analyses and workprocesses with the students that are linked to the reviewer(s).
     foreach ($request['reviewers'] as $reviewer_id) {
       $reviewer = Reviewer::find($reviewer_id);
 
@@ -136,6 +164,12 @@ class AnalysisController extends Controller {
     return redirect('analyses')->with('status', 'De beoordelaar is succesvol gekoppeld aan de analyse.');
   }
 
+  /**
+   * Returns the Request $request in an array.
+   *
+   * @param $request
+   * @return array
+   */
   public function syncData($request) {
     $array = [];
 

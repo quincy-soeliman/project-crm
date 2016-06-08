@@ -10,8 +10,9 @@ use App\Http\Controllers\Controller;
 use Validator;
 
 class CompanyController extends Controller {
+
   /**
-   * Get the company form view.
+   * Returns the company form view.
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */

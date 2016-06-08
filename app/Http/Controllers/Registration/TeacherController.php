@@ -16,7 +16,7 @@ use Mail;
 class TeacherController extends Controller {
   
   /**
-   * Get the teacher form view.
+   * Returns the teacher form view.
    *
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
@@ -46,7 +46,7 @@ class TeacherController extends Controller {
   }
 
   /**
-   * Create an user with the student role.
+   * Create an user with the teacher role.
    *
    * @param \Illuminate\Http\Request $request
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -87,9 +87,9 @@ class TeacherController extends Controller {
     $teacher->telephone_number = $request['telephone_number'];
     $teacher->save();
 
-//    /**
-//     * Sends mail to the registered user for verification.
-//     */
+    /**
+     * Sends mail to the registered user for verification.
+     */
 //    Mail::send('emails.registration', [
 //      'user' => $user,
 //      'teacher' => $teacher,
@@ -100,10 +100,10 @@ class TeacherController extends Controller {
 //      $m->to($user->email, $teacher)
 //        ->subject('Project-CRM | Account registratie');
 //    });
-//
-//    /**
-//     * Sends mail to the admin for activation.
-//     */
+
+    /**
+     * Sends mail to the admin for activation.
+     */
 //    Mail::send('emails.user_registrated', [
 //      'user' => $user,
 //      'teacher' => $teacher,
