@@ -29,7 +29,7 @@ class EditProfileRequest extends Request {
           'college_id' => 'required|integer|min:1',
           'first_name' => 'required|string|min:2',
           'last_name' => 'required|string|min:2',
-          'college' => 'required|string|min:2',
+          'college_id' => 'required|integer|min:1',
         ];
         break;
       case 'teacher':
@@ -78,7 +78,7 @@ class EditProfileRequest extends Request {
     return [
       'first_name.required.string' => 'Controleer alstublieft uw voornaam.',
       'last_name.required.string' => 'Controleer alstublieft uw achternaam.',
-      'college.required.string' => 'Selecteer een school.',
+      'college_id.required.string' => 'Selecteer een school.',
     ];
   }
 

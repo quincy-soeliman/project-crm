@@ -69,9 +69,25 @@ class ProfileController extends Controller {
         $student_id = $student_user[0]->id;
         $student = Student::find($student_id);
 
+        $all_workprocesses = Workprocess::get();
+
         $reviewers = $student->reviewers;
         $analyses = $student->analyses;
-        $workprocesses = $student->workprocesses;
+        $workprocesses = $student->workprocesses()->get();
+
+        $all_wps = [];
+
+        foreach ($all_workprocesses as $all_wp) {
+          array_push($all_wps, $all_wp['title']);
+        }
+
+        $wps = [];
+
+        foreach ($workprocesses as $workprocess) {
+          array_push($wps, $workprocess['title']);
+        }
+
+        $not_done_wps = array_diff($all_wps, $wps);
         break;
       case 'teacher':
         $data = $user->teacher()->get();
@@ -97,6 +113,7 @@ class ProfileController extends Controller {
       'reviewers' => !empty($reviewers) ? $reviewers : '',
       'analyses' => !empty($analyses) ? $analyses : '',
       'workprocesses' => !empty($workprocesses) ? $workprocesses : '',
+      'not_done_wps' => !empty($not_done_wps) ? $not_done_wps : '',
     ]);
   }
 

@@ -1,4 +1,24 @@
 @if( $role === 'student' )
+  @if (empty($not_done_wps))
+    <div class="analyses-status col-xs-12 col-md-12">
+      <div class="col-xs-12 col-md-12">
+        <h2>Student is gedekt.</h2>
+      </div>
+    </div>
+  @else
+    <div class="analyses-status col-xs-12 col-md-12">
+      <div class="col-xs-12 col-md-12">
+        <h2>Student is niet gedekt.</h2>
+
+        <ul>
+          @foreach ($not_done_wps as $wp)
+            <li>- {{ $wp }}</li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+  @endif
+
   <div class="analyses col-xs-12 col-md-12">
     <div class="col-xs-12 col-md-12">
       <h3 class="headline-title">
