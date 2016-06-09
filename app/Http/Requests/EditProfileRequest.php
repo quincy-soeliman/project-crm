@@ -38,7 +38,7 @@ class EditProfileRequest extends Request {
           'first_name' => 'required|string|min:2',
           'last_name' => 'required|string|min:2',
           'college' => 'required|string|min:2',
-          'telephone_number' => 'string|max:10',
+          'telephone_number' => 'required|string|min:10|max:10',
         ];
         break;
       case 'college':
@@ -51,7 +51,7 @@ class EditProfileRequest extends Request {
           'company_id' => 'required|integer|min:1',
           'first_name' => 'required|string|min:2',
           'last_name' => 'required|string|min:2',
-          'telephone_number' => 'string|max:10',
+          'telephone_number' => 'required|string|min:10|max:10',
         ];
         break;
       case 'company':
@@ -60,13 +60,13 @@ class EditProfileRequest extends Request {
           'address' => 'required|string|min:2',
           'zip_code' => 'required|string|max:6|min:6',
           'iso_number' => 'required|integer|min:2',
-          'telephone_number' => 'string|max:10',
+          'telephone_number' => 'required|string|min:10|max:10',
         ];
       case 'administrator':
         return [
           'first_name' => 'required|string|min:2',
           'last_name' => 'required|string|min:2',
-          'telephone_number' => 'string|max:10',
+          'telephone_number' => 'required|string|min:10|max:10',
         ];
     }
   }
