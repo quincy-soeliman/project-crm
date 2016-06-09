@@ -5805,6 +5805,9 @@ body {
     font-size: initial;
     font-weight: 400; }
 
+.fix-padding {
+  padding-top: 10px; }
+
 .acordeon-layout, .add-form .whole-container, .add-form .analyse-coretask-select, .users .user-container, .users .user-container .user, .reviewers-container .reviewers {
   border: 1px solid #D2D2D2;
   border-radius: 3px;
