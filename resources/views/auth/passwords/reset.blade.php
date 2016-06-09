@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="background">
     <div class="color-overlay"></div>
     <div class="background-image"></div>

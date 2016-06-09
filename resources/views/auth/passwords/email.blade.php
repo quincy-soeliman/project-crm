@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="background">
     <div class="color-overlay"></div>
     <div class="background-image"></div>
 </div>
+<nav class="register-role-select-nav col-xs-12 col-md-12">
+    <a href="{{ url('login') }}">Login</a>
+</nav>
 <div class="container password-reset-container">
     <div class="row">
         <div class="password-reset col-md-4 col-md-offset-4 col-xs-12 col-xs-push-0">

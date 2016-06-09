@@ -5788,6 +5788,9 @@ body {
   .navbar.scroll {
     position: fixed; }
 
+.register-role-select-nav {
+  position: absolute; }
+
 .no-padding {
   padding: 0; }
 
