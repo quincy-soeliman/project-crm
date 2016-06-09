@@ -14,7 +14,7 @@
                         <h1>Uw account is geregistreerd!</h1>
                     </div>
                     <div class="col-xs-12 col-md-12">
-                        <p>Uw account moet nog geactiveerd worden door het administrator voordat deze gebruikt kan worden.</p>
+                        <p>Uw account moet nog geactiveerd worden door de administrator voordat deze gebruikt kan worden.</p>
                         <p>Over 5 seconden wordt u doorgestuurd naar het login pagina.</p>
                     </div>
                     <?php header( "refresh:5;url=/login" ); ?>

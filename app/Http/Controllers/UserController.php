@@ -22,6 +22,19 @@ class UserController extends Controller {
   }
 
   /**
+   * Returns the active users view
+   *
+   * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+   */
+  public function getActiveUsers() {
+    $users = User::where('active', '=', '1')->get();
+
+    return view('pages.active-users', [
+      'users' => $users,
+    ]);
+  }
+
+  /**
    * Updates the user when the ID is equal to the given wildcard.
    *
    * @param $id

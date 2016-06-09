@@ -74,4 +74,11 @@ $(function() {
 
     // Init select2
     initSelect2();
+
+    // Confirm user deletion
+    $(".user-option.deny").on('click', function(e) {
+        if(! confirm("Weet u het zeker dat u het gebruiker wilt verwijderen?") ) {
+            e.preventDefault();
+        }
+    });
 })

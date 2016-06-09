@@ -27,7 +27,8 @@
                 @elseif( $current_user->role == 'administrator' )
                     <li><a href="{{ url('/kerntaak') }}">Kerntaken aanmaken</a></li>
                     <li><a href="{{ url('/werkproces') }}">Werkprocessen aanmaken</a></li>
-                    <li><a href="{{ url('/gebruikers') }}">Gebruikers overzicht</a></li>
+                    <li><a href="{{ url('/gebruikers') }}">Onactieve gebruikers</a></li>
+                    <li><a href="{{ url('gebruikers/actief') }}">Actieve gebruikers</a></li>
                 @endif
 
             </ul>
