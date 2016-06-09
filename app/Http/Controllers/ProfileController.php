@@ -75,18 +75,20 @@ class ProfileController extends Controller {
         $analyses = $student->analyses;
         $workprocesses = $student->workprocesses()->get();
 
+        // Puts all workprocesses in an array.
         $all_wps = [];
-
         foreach ($all_workprocesses as $all_wp) {
           array_push($all_wps, $all_wp['title']);
         }
 
+        // Puts all student workprocesses in an array.
         $wps = [];
-
         foreach ($workprocesses as $workprocess) {
           array_push($wps, $workprocess['title']);
         }
 
+        // Checks the difference between all the workprocesses
+        // and the student's workprocesses.
         $not_done_wps = array_diff($all_wps, $wps);
         break;
       case 'teacher':
