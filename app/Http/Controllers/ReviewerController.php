@@ -27,6 +27,22 @@ class ReviewerController extends Controller {
     ]);
   }
 
+  public function getReviewersByCompany() {
+    $current_user = User::find(Auth::id());
+
+    if ($current_user->role !== 'company') {
+      return back()->with('status', 'U heeft hier geen rechten voor.');
+    }
+
+    $company = $current_user->company;
+    $reviewers = $company->students;
+
+    return view('pages.reviewers_overzicht', [
+      'company' => $company,
+      'reviewers' => $reviewers,
+    ]);
+  }
+
   /**
    * Returns the link reviewers view.
    *
