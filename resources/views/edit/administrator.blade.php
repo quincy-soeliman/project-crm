@@ -10,5 +10,5 @@
 
 <div class="form-group col-xs-12 col-md-12">
     <label for="telephone_number">Telefoon nummer:</label>
-    <input type="number" class="form-control" autocomplete="off" name="telephone_number" placeholder="Telefoon nummer" value="{{ $profile->telephone_number }}">
+    <input type="number" class="form-control" autocomplete="off" name="telephone_number" placeholder="Telefoon nummer" value="0{{ $profile->telephone_number }}">
 </div>
