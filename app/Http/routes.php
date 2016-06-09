@@ -117,10 +117,12 @@ Route::group(['middleware' => ['role:administrator']], function() {
   // Coretasks Routes...
   Route::get('kerntaak', 'CoretaskController@index');
   Route::post('kerntaak', 'CoretaskController@create');
+  Route::get('kerntaak/{id}/verwijder', 'CoretaskController@delete');
 
   // Workprocesses Routes...
   Route::get('werkproces', 'WorkprocessController@index');
   Route::post('werkproces', 'WorkprocessController@create');
+  Route::get('werkproces/{id}/verwijder', 'WorkprocessController@delete');
 
   // User Routes...
   Route::get('gebruikers', 'UserController@index');

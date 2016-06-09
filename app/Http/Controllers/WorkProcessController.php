@@ -43,6 +43,7 @@ class WorkprocessController extends Controller {
       'description' => 'required|min:1',
     ]);
   }
+
   /**
    * Creates a new Workprocess.
    *
@@ -67,6 +68,19 @@ class WorkprocessController extends Controller {
     $workprocess->save();
 
     return redirect('werkproces')->with('status', $request['title'] . ' is aangemaakt.');
+  }
+
+  /**
+   * Deletes a Workprocess.
+   *
+   * @param $id
+   * @return \Illuminate\Http\RedirectResponse
+   */
+  public function delete($id) {
+    $workprocess = Workprocess::find($id);
+    $workprocess->delete();
+
+    return back()->with('status', 'De werkproces is succesvol verwijderd.');
   }
 
 }

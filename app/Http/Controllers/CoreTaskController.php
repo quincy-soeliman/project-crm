@@ -62,4 +62,23 @@ class CoretaskController extends Controller {
     return redirect('kerntaak')->with('status' , $request['title'] . ' is aangemaakt.');
   }
 
+  /**
+   * Deletes a Coretask.
+   *
+   * @param $id
+   * @return \Illuminate\Http\RedirectResponse
+   */
+  public function delete($id) {
+    $coretask = Coretask::find($id);
+    $coretask->delete();
+
+    $workprocesses = Workprocess::where('coretask_id', '=', $id)->get();
+
+    foreach ($workprocesses as $workprocess) {
+      $workprocess->delete();
+    }
+
+    return back()->with('status', 'De kerntaak en werkprocessen die eraan zijn gekoppeld zijn succesvol verwijderd.');
+  }
+
 }
