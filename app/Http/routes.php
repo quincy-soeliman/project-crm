@@ -63,7 +63,6 @@ Route::post('registreer/bedrijf', 'Registration\CompanyController@create');
 Route::get('registreer/administrator', 'Registration\AdministratorController@index');
 Route::post('registreer/administrator', 'Registration\AdministratorController@create');
 
-
 /**
  * Authenticated Routes...
  */
@@ -96,6 +95,9 @@ Route::group(['middleware' => ['role:college']], function() {
   Route::get('beoordelaars', 'ReviewerController@index');
   Route::get('beoordelaars/koppeling/{id}', 'ReviewerController@link');
   Route::post('beoordelaars/koppeling/{id}', 'ReviewerController@linkUpdate');
+
+  // Student Routes...
+  Route::get('studenten', 'StudentController@index');
 
 });
 
