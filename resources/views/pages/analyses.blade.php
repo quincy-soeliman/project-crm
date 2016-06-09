@@ -24,6 +24,9 @@
                     <h1 class="title">Analyse overzicht</h1>
                 </div>
             </div>
+            <div class="col-xs-12 col-md-12">
+                <p>Klik op het onderstande veld om kerntaken en werkprocesen te zien</p>
+            </div>
             <div class="analyses col-xs-12 col-md-12">
                 <div class="analyses-container col-xs-12 col-md-12">
                     @foreach ($analyses as $analysis)

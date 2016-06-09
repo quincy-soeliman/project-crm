@@ -16,6 +16,9 @@
                     <h1 class="title">Analyse toevoegen</h1>
                 </div>
             </div>
+            <div class="col-xs-12 col-md-12">
+                <p>Klik op het onderstande veld om werkprocessen te selecteren. Er is mogelijk om meerdere te selecteren.</p>
+            </div>
             <div class="add-form col-xs-12 col-md-12">
                 <form action="{{ url('analyses/aanmaken') }}" method="POST">
                     {{ csrf_field() }}
@@ -31,9 +34,6 @@
                         <div class="col-xs-12 col-md-12">
                             <div class="form-group analyse-coretask-select col-xs-12 col-md-12">
                                 <h1 class="trigger-dropdown" toslidedown=".analyse-workprocess-select">{{ $coretask->title }}</h1>
-                                <div class="form-group col-xs-12 col-md-12">
-                                    <p>Klik op het onderstande veld om werkprocessen te selecteren. Er is mogelijk om meerdere te selecteren.</p>
-                                </div>
                                 <div class="form-group analyse-workprocess-select col-xs-12 col-md-12">
                                     <label for="workprocesses">Werkprocessen:</label>
                                     <select autocomplete="off" name="workprocesses[]"

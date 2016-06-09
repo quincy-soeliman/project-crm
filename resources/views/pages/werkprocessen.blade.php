@@ -16,6 +16,9 @@
                     <h1 class="title">Werkprocessen toevoegen</h1>
                 </div>
             </div>
+            <div class="col-xs-12 col-md-12">
+                <p>Klik op het onderstande veld om een werkproces toe te kunnen voegen</p>
+            </div>
             <div class="add-form col-xs-12 col-md-12">
                 @foreach( $coretasks as $coretask )
                     <div class="whole-container col-xs-12 col-md-12">
