@@ -16,6 +16,9 @@ class CreateCollegesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name')->unique();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->integer('telephone_number');
             $table->timestamps();
         });
     }

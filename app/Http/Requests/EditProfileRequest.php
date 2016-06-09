@@ -43,7 +43,10 @@ class EditProfileRequest extends Request {
         break;
       case 'college':
         return [
-          'name' => 'required|string|unique:colleges|min:1',
+          'name' => 'required|string|min:1',
+          'first_name' => 'required|string|min:2',
+          'last_name' => 'required|string|min:2',
+          'telephone_number' => 'required|string|min:10|max:10',
         ];
         break;
       case 'reviewer':
@@ -56,7 +59,7 @@ class EditProfileRequest extends Request {
         break;
       case 'company':
         return [
-          'name' => 'required|string|min:1|unique:companies',
+          'name' => 'required|string|min:1',
           'address' => 'required|string|min:2',
           'zip_code' => 'required|string|max:6|min:6',
           'iso_number' => 'required|integer|min:2',

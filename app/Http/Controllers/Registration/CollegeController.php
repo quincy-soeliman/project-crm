@@ -31,6 +31,9 @@ class CollegeController extends Controller {
       'email' => 'required|max:255|min:3|unique:users',
       'password' => 'required|min:6',
       'name' => 'required|max:255|min:1',
+      'first_name' => 'required|max:255|min:2',
+      'last_name' => 'required|max:255|min:2',
+      'telephone_number' => 'required|min:10|max:10'
     ]);
   }
 
@@ -67,6 +70,9 @@ class CollegeController extends Controller {
     $college = new College();
     $college->user_id = $user->id;
     $college->name = $request['name'];
+    $college->first_name = $request['first_name'];
+    $college->last_name = $request['last_name'];
+    $college->telephone_number = $request['telephone_number'];
     $college->save();
     
     return redirect('/geregistreerd');

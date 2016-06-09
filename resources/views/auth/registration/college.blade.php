@@ -40,6 +40,28 @@
                     </div>
 
                     <div class="form-group col-xs-12 col-md-12">
+                        <label>Contactpersoon</label>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="first_name">Voornaam<span class="red">*</span>:</label>
+                        <input type="first_name" class="form-control" autocomplete="off" name="first_name" placeholder="Voornaam"
+                               required>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="last_name">Achternaam<span class="red">*</span>:</label>
+                        <input type="last_name" class="form-control" autocomplete="off" name="last_name" placeholder="Achternaam"
+                               required>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-md-12">
+                        <label for="telephone_number">Telefoon nummer:<span class="red">*</span>:</label>
+                        <input type="integer" class="form-control" autocomplete="off" name="telephone_number" placeholder="Telefoon nummer"
+                               required>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-md-12">
                         <button type="submit" class="btn btn-primary">Registreer</button>
                     </div>
 

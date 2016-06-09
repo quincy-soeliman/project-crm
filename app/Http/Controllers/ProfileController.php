@@ -158,6 +158,9 @@ class ProfileController extends Controller {
       case 'college':
         $user->college()->update([
           'name' => $request['name'],
+          'first_name' => $request['first_name'],
+          'last_name' => $request['last_name'],
+          'telephone_number' => $request['telephone_number'],
         ]);
         break;
       case 'reviewer':

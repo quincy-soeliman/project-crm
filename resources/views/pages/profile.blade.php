@@ -22,7 +22,11 @@
             @foreach ($data as $profile)
                 <div class="head col-xs-12 col-md-12">
                     <div class="no-padding col-xs-10 col-md-10">
-                        <h1 class="title">{{ $profile->first_name }} {{ $profile->last_name }} {{ $profile->name }}</h1>
+                      @if (!$profile->name)
+                        <h1 class="title">{{ $profile->first_name }} {{ $profile->last_name }}</h1>
+                      @else
+                        <h1 class="title"> {{ $profile->name }}</h1>
+                      @endif
                         @if( $profile->ov_number != '' )
                             <h2 class="sub-title">OV nummer: {{ $profile->ov_number }}</h2>
                         @endif
@@ -54,9 +58,6 @@
                     @endif
 
                     <div class="additional-info col-xs-12 col-md-12">
-                        <h3 class="headline-title">
-                            Over {{ $role }}:
-                        </h3>
                         <div class="no-padding col-xs-12 col-md-6">
 
                             @if( $profile->college != '' )
@@ -87,6 +88,22 @@
                                     <p class="info-text col-xs-12 col-md-8"><a href="{{ $email }}">{{ $email }}</a></p>
                                 </div>
                             @endif
+
+                              @if ($role == 'college')
+                                <div class="profile-info-box col-xs-12 col-md-12">
+                                  <h2 class="info-label col-md-12">Contactpersoon:</h2>
+                                </div>
+
+                                <div class="profile-info-box col-xs-12 col-md-12">
+                                  <p class="info-label col-xs-12 col-md-4">Voornaam:</p>
+                                  <p class="info-text col-xs-12 col-md-8">{{ $profile->first_name }}</p>
+                                </div>
+
+                                <div class="profile-info-box col-xs-12 col-md-12">
+                                  <p class="info-label col-xs-12 col-md-4">Achternaam:</p>
+                                  <p class="info-text col-xs-12 col-md-8">{{ $profile->last_name }}</p>
+                                </div>
+                              @endif
 
                             @if( $profile->telephone_number != '' )
                             <div class="profile-info-box col-xs-12 col-md-12">
