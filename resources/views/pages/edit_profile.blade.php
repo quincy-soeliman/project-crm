@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     @include('layouts.navigation')
 
     <div class="welcome-banner col-xs-12 col-md-12">
@@ -14,6 +13,15 @@
 
     <div class="profile container">
         <div class="row">
+
+            @if (count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
+
             @if( session('status') )
                 <div class="message">
                     <p>{{ session('status') }}</p>
@@ -41,7 +49,7 @@
                         @elseif ($role === 'company')
                             @include('edit.company')
                         @elseif ($role === 'administrator')
-                            @include('edit.administrator');
+                            @include('edit.administrator')
                         @endif
 
                         <div class="form-group col-xs-12 col-md-12">

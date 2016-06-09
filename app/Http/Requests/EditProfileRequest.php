@@ -26,21 +26,56 @@ class EditProfileRequest extends Request {
     switch (Auth::user()->role) {
       case 'student':
         return [
-          'email' => 'email',
-          'college_id' => 'integer|min:1',
-          'first_name' => 'string|min:2',
-          'last_name' => 'string|min:2',
-          'college' => 'string|min:2',
+          'college_id' => 'required|integer|min:1',
+          'first_name' => 'required|string|min:2',
+          'last_name' => 'required|string|min:2',
+          'college' => 'required|string|min:2',
         ];
         break;
+      case 'teacher':
+        return [
+          'college_id' => 'required|integer|min:1',
+          'first_name' => 'required|string|min:2',
+          'last_name' => 'required|string|min:2',
+          'college' => 'required|string|min:2',
+          'telephone_number' => 'string|max:10',
+        ];
+        break;
+      case 'college':
+        return [
+          'name' => 'required|string|unique:colleges|min:1',
+        ];
+        break;
+      case 'reviewer':
+        return [
+          'company_id' => 'required|integer|min:1',
+          'first_name' => 'required|string|min:2',
+          'last_name' => 'required|string|min:2',
+          'telephone_number' => 'string|max:10',
+        ];
+        break;
+      case 'company':
+        return [
+          'name' => 'required|string|min:1|unique:companies',
+          'address' => 'required|string|min:2',
+          'zip_code' => 'required|string|max:6|min:6',
+          'iso_number' => 'required|integer|min:2',
+          'telephone_number' => 'string|max:10',
+        ];
+      case 'administrator':
+        return [
+          'first_name' => 'required|string|min:2',
+          'last_name' => 'required|string|min:2',
+          'telephone_number' => 'string|max:10',
+        ];
     }
   }
 
   public function messages() {
     return [
-      'first_name.string' => 'Controleer alstublieft uw voornaam.',
-      'last_name.string' => 'Controleer alstublieft uw achternaam.',
-      'college' => 'Selecteer een school.',
+      'first_name.required.string' => 'Controleer alstublieft uw voornaam.',
+      'last_name.required.string' => 'Controleer alstublieft uw achternaam.',
+      'college.required.string' => 'Selecteer een school.',
     ];
   }
 

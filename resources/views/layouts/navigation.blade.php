@@ -17,9 +17,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                @if( $current_user->role != 'administrator' )
-                    <li><a href="{{ url('profiel/' . Auth::id()) }}">Profiel</a></li>
-                @endif
+                <li><a href="{{ url('profiel/' . Auth::id()) }}">Profiel</a></li>
 
                 @if( $current_user->role === 'college' )
                     <li><a href="{{ url('/analyses') }}">Analyses overzicht</a></li>

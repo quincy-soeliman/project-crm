@@ -148,14 +148,41 @@ class ProfileController extends Controller {
         $student->workprocesses()->sync($workprocesses_array);
         break;
       case 'teacher':
+          $user->teacher()->update([
+            'college_id' => $request['college_id'],
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'telephone_number' => $request['telephone_number'],
+          ]);
         break;
       case 'college':
+        $user->college()->update([
+          'name' => $request['name'],
+        ]);
         break;
       case 'reviewer':
+        $user->reviewer()->update([
+          'first_name' => $request['first_name'],
+          'last_name' => $request['last_name'],
+          'company_id' => $request['company_id'],
+          'telephone_number' => $request['telephone_number'],
+        ]);
         break;
       case 'company':
+        $user->company()->update([
+          'name' => $request['name'],
+          'address' => $request['address'],
+          'zip_code' => $request['zip_code'],
+          'iso_number' => $request['iso_number'],
+          'telephone_number' => $request['telephone_number'],
+        ]);
         break;
       case 'administrator':
+        $user->administrator()->update([
+          'first_name' => $request['first_name'],
+          'last_name' => $request['last_name'],
+          'telephone_number' => $request['telephone_number']
+        ]);
         break;
     }
 
