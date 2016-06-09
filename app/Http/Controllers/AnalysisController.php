@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Reviewer;
+use App\Student;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Analysis;
@@ -100,6 +101,33 @@ class AnalysisController extends Controller {
     $analysis->workprocesses()->sync($workprocesses);
 
     return back()->with('status', $request['title'] . ' is aangemaakt.');
+  }
+
+  /**
+   * Deletes an Analysis.
+   *
+   * @param $id
+   * @return \Illuminate\Http\RedirectResponse
+   */
+  public function delete($id) {
+    $analysis = Analysis::find($id);
+
+    $reviewers = Reviewer::get();
+    $students = Student::get();
+
+    // Detach analyses from the reviewers
+    foreach ($reviewers as $reviewer) {
+      $reviewer->analyses()->detach($id);
+    }
+
+    // Detach analyses from the students
+    foreach ($students as $student) {
+      $student->analyses()->detach($id);
+    }
+
+    $analysis->delete();
+
+    return back()->with('status', 'De analyse is succesvol verwijderd.');
   }
 
   /**

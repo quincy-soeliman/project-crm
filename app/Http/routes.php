@@ -90,6 +90,7 @@ Route::group(['middleware' => ['role:college']], function() {
   Route::post('analyses/aanmaken', 'AnalysisController@create');
   Route::get('analyses/{id}/beoordelaars', 'AnalysisController@linkReviewersForm');
   Route::put('analyses/{id}/beoordelaars', 'AnalysisController@linkReviewers');
+  Route::get('analyses/{id}/verwijder', 'AnalysisController@delete');
 
   // Reviewers Routes...
   Route::get('beoordelaars', 'ReviewerController@index');
