@@ -66,7 +66,7 @@ class CollegeController extends Controller {
     $user->active = 0;
     $user->save();
 
-    // Creates a new student
+    // Creates a new College
     $college = new College();
     $college->user_id = $user->id;
     $college->name = $request['name'];

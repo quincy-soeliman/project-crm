@@ -1,13 +1,9 @@
 @if( $role === 'student' )
-  @if (empty($not_done_wps))
-    <div class="analyses-status col-xs-12 col-md-12">
-      <div class="col-xs-12 col-md-12">
+  <div class="analyses-status col-xs-12 col-md-12">
+    <div class="col-xs-12 col-md-12">
+      @if (empty($not_done_wps))
         <h2>Student is gedekt.</h2>
-      </div>
-    </div>
-  @else
-    <div class="analyses-status col-xs-12 col-md-12">
-      <div class="col-xs-12 col-md-12">
+      @else
         <h2>Student is niet gedekt.</h2>
 
         <ul>
@@ -15,9 +11,9 @@
             <li>- {{ $wp }}</li>
           @endforeach
         </ul>
-      </div>
+      @endif
     </div>
-  @endif
+  </div>
 
   <div class="analyses col-xs-12 col-md-12">
     <div class="col-xs-12 col-md-12">
@@ -56,7 +52,8 @@
                               <a href="{{ url('profiel/' . $profile->id . '/werkproces/' . $workprocess->id) }}"><i
                                   class="fa fa-check"></i></a>
                             @else
-                              <a href="{{ url('profiel/' . $profile->id . '/werkproces/' . $workprocess->id . '/onvoltooid') }}"><i
+                              <a
+                                href="{{ url('profiel/' . $profile->id . '/werkproces/' . $workprocess->id . '/onvoltooid') }}"><i
                                   class="fa fa-times"></i></a>
                             @endif
                           @endif

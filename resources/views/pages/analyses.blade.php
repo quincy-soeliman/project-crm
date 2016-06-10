@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-12">
-        <p>Klik op het onderstande veld om kerntaken en werkprocesen te zien</p>
+        <p>Klik op één van de analyses om kerntaken de kerntaken uit te klappen. Vervolgens kan je de kerntaken klikken om de werkprocessen uit te klappen.</p>
       </div>
       <div class="analyses col-xs-12 col-md-12">
         <div class="analyses-container col-xs-12 col-md-12">

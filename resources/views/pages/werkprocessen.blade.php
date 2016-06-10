@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-12">
-        <p>Klik op het onderstande veld om een werkproces toe te kunnen voegen</p>
+        <p>Klik op één van de kerntaken waaraan je de werkproces wilt koppelen.</p>
       </div>
       <div class="add-form col-xs-12 col-md-12">
         @foreach( $coretasks as $coretask )
