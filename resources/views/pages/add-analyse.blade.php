@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-md-12">
-                <p>Klik op één van de kerntaken om de werkprocessen te selecteren. Het is mogelijk om meerdere te selecteren.</p>
+                <p>Klik op één van de kerntaken om de werkprocessen te selecteren. Vervolgens kan je onder het veld op werkprocessen klikken om één werkproces te selecteren. Het is mogelijk om dan nog een keer op het veld te klikken om meerdere werkprocessen toe te voegen.</p>
             </div>
             <div class="add-form col-xs-12 col-md-12">
                 <form action="{{ url('analyses/aanmaken') }}" method="POST">
