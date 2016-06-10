@@ -34,7 +34,7 @@
             <div class="analyse-box col-xs-12 col-md-12">
               <h1 class="trigger-dropdown" toslidedown=".coretask-box">{{ $analysis->title }} <i
                   class="fa fa-caret-down" aria-hidden="true"></i>
-                <a href="{{ url('/analyses/' . $analysis->id . '/verwijder') }}">
+                <a class="user-option deny" href="{{ url('/analyses/' . $analysis->id . '/verwijder') }}">
                   <i class="fa fa-times" aria-hidden="true"></i>
                 </a></h1>
               <a href="{{ url('/analyses/' . $analysis->id . '/beoordelaars') }}" class="add-reviewer btn btn-default">Beoorderlaar
