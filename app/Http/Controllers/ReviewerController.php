@@ -35,7 +35,7 @@ class ReviewerController extends Controller {
     }
 
     $company = $current_user->company;
-    $reviewers = $company->students;
+    $reviewers = $company->reviewers;
 
     return view('pages.reviewers_overzicht', [
       'company' => $company,

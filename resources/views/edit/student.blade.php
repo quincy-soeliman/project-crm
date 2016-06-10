@@ -22,11 +22,13 @@
     <label for="reviewers">Beoordelaars:</label>
     <select autocomplete="off" name="reviewers[]" id="reviewer" placeholder="School"
             class="form-control" multiple="multiple" value="">
-            @foreach ($profile->reviewers as $student_reviewer) 
-                <option selected disabled value="{{ $student_reviewer->id }}">{{ $student_reviewer->first_name }} {{ $student_reviewer->last_name }}</option>
-            @endforeach
         @foreach ($reviewers as $reviewer)
             <option value="{{ $reviewer->id }}">{{ $reviewer->first_name }} {{ $reviewer->last_name }}</option>
+        @endforeach
+    </select>
+    <select id="selected-reviewers" hidden="hidden">
+        @foreach ($profile->reviewers as $student_reviewer) 
+            <option value="{{ $student_reviewer->first_name }} {{ $student_reviewer->last_name }}">{{ $student_reviewer->first_name }} {{ $student_reviewer->last_name }}</option>
         @endforeach
     </select>
 </div>

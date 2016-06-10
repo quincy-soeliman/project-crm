@@ -134,3 +134,13 @@ Route::group(['middleware' => ['role:administrator']], function() {
   Route::get('gebruikers/{id}/verwijder', 'UserController@destroy');
 
 });
+
+/**
+ * Company Routes...
+ */
+Route::group(['middleware' => ['role:company']], function() {
+
+  // Reviewers Routes...
+  Route::get('/beoordelaars', 'ReviewerController@getReviewersByCompany');
+
+});

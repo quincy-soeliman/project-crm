@@ -60,6 +60,13 @@ function hasUsers() {
 }
 
 function initSelect2() {
+    // Get existing reviewers of student
+    var existingReviewers = [];
+    $("#selected-reviewers").find('option').each( function() {
+        var r = $(this).attr('value');
+        existingReviewers.push(r);
+    });
+
     // Simple init of select2 plugin
     $("#reviewer").select2();
     $(".analyse-workprocess-select-field").select2();

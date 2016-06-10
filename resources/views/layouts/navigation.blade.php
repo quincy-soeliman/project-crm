@@ -32,6 +32,10 @@
                     <li><a href="{{ url('gebruikers/actief') }}">Actieve gebruikers</a></li>
                 @endif
 
+                @if( $current_user->role === 'company' )
+                    <li><a href="{{ url('/beoordelaars') }}">Beoordelaars</a></li>
+                @endif
+
             </ul>
 
             <!-- Right Side Of Navbar -->

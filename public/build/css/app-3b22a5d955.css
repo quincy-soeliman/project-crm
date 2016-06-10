@@ -5893,7 +5893,7 @@ body {
       background-size: 15px 10px;
       padding-left: 0; }
       .login-container .login-screen .panel .role-select select option {
-        color: initial;
+        color: #000;
         font-size: initial; }
     .login-container .login-screen .panel input {
       color: white;
