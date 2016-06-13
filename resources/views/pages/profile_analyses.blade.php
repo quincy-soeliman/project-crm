@@ -2,9 +2,9 @@
   <div class="analyses-status col-xs-12 col-md-12">
     <div class="col-xs-12 col-md-12">
       @if (empty($not_done_wps))
-        <h2>Student is gedekt.</h2>
+        <h2>Alle werkprocessen zijn gedekt.</h2>
       @else
-        <h2>Student is niet gedekt.</h2>
+        <h2>Zie hier onder welke werkprocessen nog niet zijn gekozen.</h2>
 
         <ul>
           @foreach ($not_done_wps as $wp)

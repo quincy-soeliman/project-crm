@@ -84,7 +84,7 @@ $(function() {
 
     // Confirm user deletion
     $(".user-option.deny").on('click', function(e) {
-        if(! confirm("Weet u het zeker dat u het wilt verwijderen?") ) {
+        if(! confirm("Weet u zeker dat u deze actie wilt uitvoeren?") ) {
             e.preventDefault();
         }
     });
