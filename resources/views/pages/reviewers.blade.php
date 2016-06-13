@@ -35,27 +35,29 @@
       </div>
 
       <div class="row">
-        <div class="reviewers">
-          @foreach ($reviewers as $reviewer)
+        @foreach ($reviewers as $reviewer)
+          <div class="reviewers">
 
-            <div class="col-md-4">
-              <p>{{ $reviewer->first_name }} {{ $reviewer->last_name }}</p>
-            </div>
-
-            <div class="col-md-4">
-              <p>{{ $reviewer->company }}</p>
-            </div>
-
-            @if ($current_user->role = 'college')
+            <div class="row">
               <div class="col-md-4">
-                <a href="{{ url('beoordelaars/koppeling/' . $reviewer->user_id) }}">
-                  <button class="btn btn-primary">Voeg KT/WP toe</button>
-                </a>
+                <p>{{ $reviewer->first_name }} {{ $reviewer->last_name }}</p>
               </div>
-            @endif
 
-          @endforeach
-        </div>
+              <div class="col-md-4">
+                <p>{{ $reviewer->company }}</p>
+              </div>
+
+              @if ($current_user->role = 'college')
+                <div class="col-md-4">
+                  <a href="{{ url('beoordelaars/koppeling/' . $reviewer->user_id) }}">
+                    <button class="btn btn-primary">Voeg KT/WP toe</button>
+                  </a>
+                </div>
+              @endif
+            </div>
+
+          </div>
+        @endforeach
       </div>
     @endif
   </div>

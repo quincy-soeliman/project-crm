@@ -50,9 +50,11 @@ class ReviewerController extends Controller {
    * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
    */
   public function link($id) {
+    $reviewer = Reviewer::find(Auth::id);
     $coretasks = Coretask::get();
 
     return view('pages.reviewers_link', [
+      'reviewer' => $reviewer,
       'coretasks' => $coretasks,
       'id' => $id
     ]);

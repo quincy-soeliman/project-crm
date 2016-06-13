@@ -13,7 +13,7 @@
             @endif
             <div class="head col-xs-12 col-md-12">
                 <div class="no-padding col-xs-10 col-md-10">
-                    <h1 class="title">Docenten</h1>
+                    <h1 class="title">Beoordelaars</h1>
                 </div>
             </div>
             <div class="users col-xs-12 col-md-12">

@@ -141,6 +141,6 @@ Route::group(['middleware' => ['role:administrator']], function() {
 Route::group(['middleware' => ['role:company']], function() {
 
   // Reviewers Routes...
-  Route::get('/beoordelaars', 'ReviewerController@getReviewersByCompany');
+  Route::get('beoordelaars-overzicht', 'ReviewerController@getReviewersByCompany');
 
 });

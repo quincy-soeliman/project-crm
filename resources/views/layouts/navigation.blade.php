@@ -33,7 +33,7 @@
                 @endif
 
                 @if( $current_user->role === 'company' )
-                    <li><a href="{{ url('/beoordelaars') }}">Beoordelaars</a></li>
+                    <li><a href="{{ url('/beoordelaars-overzicht') }}">Beoordelaars</a></li>
                 @endif
 
             </ul>
